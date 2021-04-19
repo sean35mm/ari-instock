@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server for Instock Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sean35mm/ari-instock.git"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Sean Gil, Steve Eum, Henry Tran, and Ajit Joseph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sean35mm/ari-instock/issues"
+  },
+  "homepage": "https://github.com/sean35mm/ari-instock#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "uuid": "^8.3.2"
+  }
+}
