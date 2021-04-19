@@ -1,0 +1,30 @@
+@use './variables' as *;
+
+// breakpoints
+@mixin tablet {
+    @media (min-width: $tablet-bp) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop-bp) {
+        @content;
+    }
+}
+
+
+// margin sets
+@mixin mobile-margin {
+    margin: 1rem;
+}
+
+@mixin tablet-margin {
+    margin: 2rem;
+}
+
+@mixin desktop-margin {
+    margin: auto;
+}
+
+// Feel free to add mixins you feel that are needed!
