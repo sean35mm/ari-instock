@@ -1,0 +1,104 @@
+@use '../Styles/Partials/mixins' as *;
+@use '../Styles/Partials/typography' as *;
+@use '../Styles/Partials/variables' as *;
+
+body {
+    box-sizing: border-box;
+    font-size: 0.813rem;
+}
+
+h4 {
+    color: $slate;
+    margin-bottom: .5rem;
+    margin-top: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.details {
+
+    &__address {
+        @include mobile-margin;
+    }
+
+    &__header-container {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid $cloud;
+    }
+
+    &__header-wrap {
+        @include mobile-margin;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__header-title{
+        font-size: 1.75rem;
+        margin: 0 5rem 0 1rem;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 2px solid $cloud;
+    }
+
+    &__address {
+        text-align: left;
+    }
+
+    &__contact {
+        display: flex;
+        @include mobile-margin;
+        margin-top: 0;
+    }
+
+    &__contact-name {
+        text-align: left;
+        margin-right: 1rem;
+    }
+
+    &__contact-info {
+        text-align: left;
+        margin-left: 1rem;
+    }
+
+    &__inventory-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__inventory {
+        border-bottom: 2px solid $cloud;
+        flex-direction: column;
+    }
+
+    &__item-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item-container {
+        display: flex;
+        @include mobile-margin;
+    }
+
+    &__item-wrap {
+        display: flex;
+    }
+
+    &__category-container {
+        @include mobile-margin;
+        display: flex;
+    }
+
+    &__icon-container {
+        @include mobile-margin;
+        display: flex;
+        justify-content: space-between;
+    }
+}
