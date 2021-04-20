@@ -1,23 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Header />
+        <Switch>
+
+          <Route path="/" exact render={routeProps => {
+            return <Warehouse
+            {...routeProps} 
+            />}}
+          />
+          <Route path="/warehouse/:id" exact render={routeProps => {
+            return <WarehouseDetail
+            {...routeProps} 
+            />}}
+          />
+          <Route path="/warehouse/:id/edit" render={routeProps => {
+            return <WarehouseEdit
+            {...routeProps} 
+            />}}
+          />
+          <Route path="/warehouse/add" render={routeProps => {
+            return <WarehouseAdd
+            {...routeProps} 
+            />}}
+          />
+
+          <Route path="/inventory" exact render={routeProps => {
+            return <Inventory
+            {...routeProps} 
+            />}}
+          />
+          <Route path="/inventory/:id" exact render={routeProps => {
+            return <InventoryDetail
+            {...routeProps} 
+            />}}
+          />
+          <Route path="/inventory/:id/edit" render={routeProps => {
+            return <InventoryEdit
+            {...routeProps} 
+            />}}
+          />
+          <Route path="/inventory/add" render={routeProps => {
+            return <InventoryAdd
+            {...routeProps} 
+            />}}
+          />
+
+        </Switch>
+        <Footer/>
+      </Router>
+
     </div>
   );
 }
