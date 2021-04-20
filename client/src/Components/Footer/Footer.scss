@@ -1,0 +1,23 @@
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+@import "../../Styles/Partials/typography";
+
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 15% 0% 0%;
+
+    @include tablet {
+        margin: 10% 0% 0%;
+    }
+
+    &__text {
+        font-family: "Titillium";
+        font-weight: 300;
+        font-style: normal;
+        font-size: 0.75rem;
+        color: $slate;
+    }
+}
+

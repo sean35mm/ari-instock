@@ -3,13 +3,15 @@ import './App.css';
 import './Styles/global.scss';
 import WarehouseDetails from './Components/WarehouseDetails'
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
     <div>
       <Router>
         <Header />
-        <Switch>
+        {/* <Switch>
 
           <Route path="/" exact render={routeProps => {
             return <Warehouse
@@ -53,7 +55,7 @@ function App() {
             />}}
           />
 
-        </Switch>
+        </Switch> */}
         <Footer/>
       </Router>
 
