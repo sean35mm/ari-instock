@@ -1,4 +1,7 @@
 import React from 'react';
+import './App.css';
+import './Styles/global.scss';
+import WarehouseDetails from './Components/WarehouseDetails'
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 function App() {
@@ -14,7 +17,7 @@ function App() {
             />}}
           />
           <Route path="/warehouse/:id" exact render={routeProps => {
-            return <WarehouseDetail
+            return <WarehouseDetails
             {...routeProps} 
             />}}
           />
@@ -53,6 +56,7 @@ function App() {
         </Switch>
         <Footer/>
       </Router>
+
 
     </div>
   );
