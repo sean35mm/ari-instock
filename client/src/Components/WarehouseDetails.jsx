@@ -56,13 +56,19 @@ function WarehouseDetails() {
                 </div>
 
                 <div className="details__item-wrap">
-                  <p>Television</p>
-                  <img src={chevronIcon} alt="right-arrow-icon" />
+                  <h3 className="details__description">Placeholder</h3>
+                  <img
+                    className="details__chevron"
+                    src={chevronIcon}
+                    alt="right-arrow-icon"
+                  />
                 </div>
               </div>
-              <div>
+              <div className="details__status-container">
                 <h4>STATUS</h4>
-                <p>STATUS PLACEHOLDER</p>
+                <p className="details__in-stock details__out-stock">
+                  PLACEHOLDER
+                </p>
               </div>
             </div>
 
@@ -72,9 +78,9 @@ function WarehouseDetails() {
                 <p>Placeholder</p>
               </div>
 
-              <div>
+              <div className="details__quantity-container">
                 <h4>QTY</h4>
-                <p># PLACEHOLDER</p>
+                <p>#######</p>
               </div>
             </div>
 
