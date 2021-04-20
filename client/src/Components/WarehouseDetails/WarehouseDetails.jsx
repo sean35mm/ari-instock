@@ -1,9 +1,9 @@
 import React from "react";
-import backIcon from "../Assets/Icons/arrow_back-24px.svg";
-import deleteIcon from "../Assets/Icons/delete_outline-24px.svg";
-import editIcon from "../Assets/Icons/edit-24px.svg";
-import whiteEdit from "../Assets/Icons/edit_white-24px.svg";
-import chevronIcon from "../Assets/Icons/chevron_right-24px.svg";
+import backIcon from "../../Assets/Icons/arrow_back-24px.svg";
+import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
+import editIcon from "../../Assets/Icons/edit-24px.svg";
+import whiteEdit from "../../Assets/Icons/edit_white-24px.svg";
+import chevronIcon from "../../Assets/Icons/chevron_right-24px.svg";
 
 import "./WarehouseDetails.scss";
 
