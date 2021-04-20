@@ -2,6 +2,7 @@ import React from "react";
 import backIcon from "../Assets/Icons/arrow_back-24px.svg";
 import deleteIcon from "../Assets/Icons/delete_outline-24px.svg";
 import editIcon from "../Assets/Icons/edit-24px.svg";
+import whiteEdit from "../Assets/Icons/edit_white-24px.svg";
 import chevronIcon from "../Assets/Icons/chevron_right-24px.svg";
 
 import "./WarehouseDetails.scss";
@@ -20,7 +21,7 @@ function WarehouseDetails() {
             <h2 className="details__header-title">PlaceHolder</h2>
             <img
               className="details__edit-icon"
-              src={editIcon}
+              src={whiteEdit}
               alt="edit-icon"
             />
           </div>
@@ -66,9 +67,7 @@ function WarehouseDetails() {
               </div>
               <div className="details__status-container">
                 <h4>STATUS</h4>
-                <p className="details__in-stock details__out-stock">
-                  PLACEHOLDER
-                </p>
+                <p className="details__in-stock">PLACEHOLDER</p>
               </div>
             </div>
 
