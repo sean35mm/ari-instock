@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../Assets/Logo/InStock-Logo.svg';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 import '../Header/Header.scss';
 
@@ -14,12 +14,12 @@ const Header = () => {
         </a>
       </div>
       <nav className="header__links">
-        <Link className="header__link active">
-          Warehouses
-        </Link>
-        <Link className="header__link">
-          Inventory
-        </Link>
+        <NavLink to="/warehouse" activeClassName="selected">
+          <div className="header__link">Warehouses</div>
+        </NavLink>
+        <NavLink to="inventory" activeClassName="selected">
+          <div className="header__link">Inventory</div>
+        </NavLink>
       </nav>
     </header>
 
