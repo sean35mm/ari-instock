@@ -3,6 +3,8 @@
 @use './Partials/variables' as *;
 
 body {
-  font-family: $titillium;
-  box-sizing: border-box;
+    font-family: $titillium;
+    box-sizing: border-box;
+    background-color: $grey;
 }
+
