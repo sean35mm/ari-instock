@@ -1,22 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import React from "react";
 import Logo from "../../Assets/Logo/InStock-Logo.svg";
-import { Link } from "react-router-dom";
-=======
-import React from 'react';
-import Logo from '../../Assets/Logo/InStock-Logo.svg';
-import {NavLink} from "react-router-dom";
->>>>>>> main
-=======
-
-import React from "react";
-import Logo from "../../Assets/Logo/InStock-Logo.svg";
-import { Link, NavLink } from "react-router-dom";
-
-
->>>>>>> main
-
+import { NavLink } from "react-router-dom";
 import "../Header/Header.scss";
 
 const Header = () => {
@@ -28,25 +12,12 @@ const Header = () => {
         </a>
       </div>
       <nav className="header__links">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <Link className="header__link active">Warehouses</Link>
-        <Link className="header__link">Inventory</Link>
-=======
-=======
-        <Link className="header__link active">Warehouses</Link>
-        <Link className="header__link">Inventory</Link>
->>>>>>> main
         <NavLink to="/warehouse" activeClassName="selected">
           <div className="header__link">Warehouses</div>
         </NavLink>
         <NavLink to="inventory" activeClassName="selected">
           <div className="header__link">Inventory</div>
         </NavLink>
-<<<<<<< HEAD
->>>>>>> main
-=======
->>>>>>> main
       </nav>
     </header>
   );

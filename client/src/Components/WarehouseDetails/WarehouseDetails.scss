@@ -23,7 +23,7 @@ p {
 
   @include desktop {
     @include desktop-margin;
-    width: 63.75rem;
+    width: 80%;
   }
 
   &__address {
