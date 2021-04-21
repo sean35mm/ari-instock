@@ -15,6 +15,7 @@
         margin: 0 2rem;
         font-size: 14px;
         line-height: 22px;
+        top: -105px;
     }
 
     @include desktop {
@@ -27,11 +28,16 @@
 
         @include tablet {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             border-bottom: unset;
             margin-bottom: 2rem;
-            padding: 32px 2rem 16px 2rem;
+            padding: 32px;
+        }
+
+        @include desktop {
+            padding: 32px 2.5rem 32px 2.5rem;
+
         }
     }
 
@@ -39,7 +45,7 @@
 
         @include tablet {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
     }
 
@@ -59,6 +65,11 @@
 
         @include tablet {
             width: 230px;
+            margin: 0;
+        }
+
+        @include tablet {
+            width: 274px;
         }
     }
 
@@ -122,6 +133,10 @@
         height: 237px;
         box-sizing: border-box;
 
+        &:hover {
+            background-color: rgba(46, 102, 230, 0.07);
+        }
+
         @include tablet {
             display: flex;
             justify-content: space-between;
@@ -129,30 +144,34 @@
             align-items: center;
             padding: 0 2rem;
         }
+
+        @include desktop {
+            padding: 0 2.5rem;
+        }
     }
 
     &__item-content {
         display: flex;
         flex-flow: column wrap;
-        margin-top: 1rem;
+        padding-top: 1rem;
         height: 180px;
 
         @include tablet {
             flex-flow: unset;
             align-content: center;
             margin: 0;
-            padding-top: 20px;
-            justify-content: space-around;
+            padding-top: 30px;
+            justify-content: space-between;
             align-items: center;
             height: unset;
-            width: 100%;
+            width: 90%;
         }
     }
 
     &__label-wrap {
         margin-bottom: 25px;
         margin-right: 2rem;
-        width: 100px;
+        width: 110px;
 
         @include tablet {
             margin-right: 1.5rem;
@@ -168,6 +187,8 @@
         @include tablet {
             display: none;
             margin-bottom: 24px;
+            font-size: 12px;
+            line-height: 18px;
         }
     }
 
@@ -175,7 +196,7 @@
         text-decoration: none;
 
         &:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
     }
 
