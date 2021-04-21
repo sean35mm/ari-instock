@@ -17,13 +17,13 @@ function App() {
             {...routeProps} 
             />}}
           /> */}
-					{/* <Route
-						path="/warehouse/:id"
+					<Route
+						path="/warehouse"
 						exact
 						render={(routeProps) => {
 							return <WarehouseDetails {...routeProps} />;
 						}}
-					/> */}
+					/>
 					{/* <Route path="/warehouse/:id/edit" render={routeProps => {
             return <WarehouseEdit
             {...routeProps} 
