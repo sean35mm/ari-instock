@@ -17,7 +17,7 @@ function App() {
             />}}
           /> */}
 					<Route
-						path="/warehouse/:id"
+						path="/warehouse"
 						exact
 						render={(routeProps) => {
 							return <WarehouseDetails {...routeProps} />;

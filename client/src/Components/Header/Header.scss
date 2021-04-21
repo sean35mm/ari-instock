@@ -3,80 +3,80 @@
 @import "../../Styles/Partials/typography";
 
 * {
-	margin: 0;
+  margin: 0;
 }
 
 .header {
-	width: 100%;
-	background-color: $graphite;
-	color: $white;
-	text-align: center;
-	font-family: Titillium;
-	padding-top: 40px;
-	height: 136px;
-	margin: 0;
+  width: 100%;
+  background-color: $graphite;
+  color: $white;
+  text-align: center;
+  font-family: Titillium;
+  padding-top: 40px;
+  height: 136px;
+  margin: 0;
 
-	@include tablet {
-		display: flex;
-		justify-content: space-between;
-		height: 186px;
-		padding-top: 35px;
-	}
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    height: 186px;
+    padding-top: 35px;
+  }
 
-	&__logo {
-		@include tablet {
-			padding-left: 32px;
-			padding-top: 8px;
-		}
+  &__logo {
+    @include tablet {
+      padding-left: 32px;
+      padding-top: 8px;
+    }
 
-		@include desktop {
-			padding-left: 130px;
-		}
-	}
+    @include desktop {
+      padding-left: 130px;
+    }
+  }
 
-	&__links {
-		display: flex;
-		justify-content: space-around;
-		font-size: 13px;
-		color: $cloud;
-		margin-top: 10px;
-		padding-bottom: 10px;
+  &__links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 13px;
+    color: $cloud;
+    margin-top: 10px;
+    padding-bottom: 10px;
 
-		:hover {
-			text-decoration: underline;
-			color: $white;
-		}
+    :hover {
+      text-decoration: underline;
+      color: $white;
+    }
 
-		@include tablet {
-			padding-right: 32px;
-		}
+    @include tablet {
+      padding-right: 32px;
+    }
 
-		@include desktop {
-			padding-right: 146px;
-		}
-	}
+    @include desktop {
+      padding-right: 146px;
+    }
+  }
 
-	&__link {
-		width: 164px;
-		text-decoration: none;
-		color: $cloud;
-		line-height: 20px;
-		padding-top: 8px;
-		padding-bottom: 8px;
-		font-weight: 600;
+  &__link {
+    width: 164px;
+    text-decoration: none;
+    color: $cloud;
+    line-height: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-weight: 600;
 
-		@include tablet {
-			height: 38px;
-			line-height: 34px;
-			width: 107px;
-			padding: 0;
-			text-align: center;
-		}
+    @include tablet {
+      height: 38px;
+      line-height: 34px;
+      width: 107px;
+      padding: 0;
+      text-align: center;
+    }
 
-		&.active {
-			background-color: $black;
-			border-radius: 20px;
-			color: $white;
-		}
-	}
+    &.active {
+      background-color: $black;
+      border-radius: 20px;
+      color: $white;
+    }
+  }
 }
