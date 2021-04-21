@@ -79,4 +79,16 @@
       color: $white;
     }
   }
+  // &.active {
+  // 	background-color: $black;
+  // 	border-radius: 20px;
+  // 	color: $white;
+  // }
+  // 	}
+}
+
+.selected {
+  background-color: $black;
+  border-radius: 20px;
+  color: $white;
 }
