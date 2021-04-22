@@ -1,6 +1,12 @@
 import React from "react";
 import Logo from "../../Assets/Logo/InStock-Logo.svg";
 import { NavLink } from "react-router-dom";
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 4af83214d10e5dc0700d3f7ced833e4390157fe8
 import "../Header/Header.scss";
 
 const Header = () => {
