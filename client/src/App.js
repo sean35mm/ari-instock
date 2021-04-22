@@ -5,7 +5,7 @@ import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
 import WarehouseList from "./Components/WarehouseList/WarehouseList";
 import Inventory from "./Components/InventoryList/InventoryList";
 import InventoryEdit from "./Components/InventoryEdit/InventoryEdit";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 
@@ -15,7 +15,11 @@ function App() {
 			<Router>
 				<Header />
 				<Switch>
-          <Route path="/" exact render={() => <Redirect to="/warehouse"/>} />
+
+          <Route exact path="/">
+            <Redirect to="/warehouse" />
+          </Route>
+
 					<Route path="/warehouse" exact render={routeProps => {
             return <WarehouseList
             {...routeProps} 
