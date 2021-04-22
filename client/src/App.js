@@ -3,23 +3,28 @@ import "./Styles/global.scss";
 import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
 import WarehouseList from "./Components/WarehouseList/WarehouseList";
 import Inventory from "./Components/InventoryList/InventoryList";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 
 function App() {
-	return (
-		<div>
-			<Router>
-				<Header />
-				<Switch>
-					<Route path="/" exact render={routeProps => {
+  return (
+    <div>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Redirect to="/warehouse" />
+          </Route>
+
+          <Route path="/warehouse" exact render={routeProps => {
             return <WarehouseList
-            {...routeProps} 
-            />}}
+              {...routeProps}
+            />
+          }}
           />
-					<Route
-						path="/warehouse"
+          {/* <Route
+						path="/warehouse/:id"
 						exact
 						render={(routeProps) => {
 							return <WarehouseDetails {...routeProps} />;
@@ -41,7 +46,7 @@ function App() {
             {...routeProps} 
             />}}
           />
-          {/* <Route path="/inventory/:id" exact render={routeProps => {
+           <Route path="/inventory/:id" exact render={routeProps => {
             return <InventoryDetail
             {...routeProps} 
             />}}
@@ -55,12 +60,12 @@ function App() {
             return <InventoryAdd
             {...routeProps} 
             />}}
-          />
-				</Switch>
-				<Footer />
-			</Router>
-		</div>
-	);
+          /> */}
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
+  );
 }
 
 export default App;
