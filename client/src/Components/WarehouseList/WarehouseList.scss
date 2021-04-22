@@ -1,0 +1,207 @@
+@use '../../Styles/Partials/mixins' as *;
+@use '../../Styles/Partials/typography' as *;
+@use '../../Styles/Partials/variables' as *;
+
+
+.body {
+    background-color: #D1D1D1;
+    
+}
+
+.warehouseList {
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    width: 91%;
+    margin: 1rem;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    position: absolute;
+    left: 0%;
+    right: 0;
+    top: 21.5%;
+
+    @include tablet {
+        top: 15.5%;
+        left: 2%;
+    }
+
+    @include desktop {
+        width: 77%;
+        left: 9%;
+    }
+
+    &__title-container {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid $cloud;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1rem;
+
+        @include tablet {
+            flex-direction: row;
+            padding: 0rem 2rem 1rem;
+            justify-content: space-between;
+            border-bottom: none;
+        }
+
+        @include desktop {
+            flex-direction: row;
+            padding: 0rem 2rem 1rem;
+            justify-content: space-between;
+            border-bottom: none;
+        }
+    }
+
+    &__search-subcontainer {
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            width: 60%;
+            margin: 0%;
+        }
+
+        @include desktop {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 40%;
+            margin: 0%;
+        }
+    }
+
+    &__title {
+        font-size: 1.7rem;
+        color: #13172C;
+        font-family: $titillium;
+        margin: 0% 0% 5%;
+
+        @include tablet {
+            margin: 2.75% 0% 0%;
+        }
+    }
+
+    &__search-bar {
+        height: 35px;
+        border: 1px solid $cloud;
+        border-radius: 20px;
+        width: 95%;
+        background: url("../../Assets/Icons/search-24px.svg") no-repeat scroll 95% 50%;
+
+        @include tablet {
+            width: 50%;
+            margin: 5% 5% 0% 0%;
+        }
+
+        @include desktop {
+            width: 55%;
+            margin: 5% 5% 0% 0%;
+        }
+    }
+
+    &__search-bar::placeholder {
+        padding: 0rem 1rem 0rem;
+    }
+
+    &__add-button {
+        background-color: #2E66E6;
+        border-radius: 20px;
+        color: $white;
+        border: none;
+        margin: 5% 0% 4%;
+        width: 97%;
+        height: 35px;
+
+        @include tablet {
+            width: 50%;
+            margin: 5% 0% 0% 0%;
+        }
+
+        @include desktop {
+            width: 45%;
+            margin: 5% 0% 0% 0%;
+        }
+    }
+
+    &__warehouse-cards {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            width: 100%;
+        }
+    }
+
+    &__tablet-title-container {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            height: 40px;
+            background-color: $grey;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+        }
+    }
+
+    &__tablet-text-container {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            height: 40px;
+            background-color: $grey;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 90%;
+        }
+    }
+
+    &__tablet-misc-container {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            width: 14%;
+            margin: 0% 0% 0% 4%;
+        }
+
+        @include desktop {
+            margin: 0%;
+            width: 7%;
+        }
+    }
+
+    &__tablet-sub-container {
+        @include tablet {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__tablet-title {
+        @include tablet {
+            font-size: 0.75rem;
+            color: $slate;
+        }
+    }
+
+    &__tablet-title:nth-child(3) {
+        @include tablet {
+            margin: 0% 5% 0% 0%;
+        }
+    }
+
+    &__tablet-title-image {
+        @include tablet {
+            width: 20px;
+            height: 20px;
+            color: $slate;
+        }
+    }
+    
+}
+

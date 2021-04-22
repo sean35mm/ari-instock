@@ -1,6 +1,7 @@
 import React from "react";
 import "./Styles/global.scss";
 import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
+import WarehouseList from "./Components/WarehouseList/WarehouseList";
 import Inventory from "./Components/InventoryList/InventoryList";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Header from "./Components/Header/Header";
@@ -12,11 +13,11 @@ function App() {
 			<Router>
 				<Header />
 				<Switch>
-					{/* <Route path="/" exact render={routeProps => {
-            return <Warehouse
+					<Route path="/" exact render={routeProps => {
+            return <WarehouseList
             {...routeProps} 
             />}}
-          /> */}
+          />
 					<Route
 						path="/warehouse"
 						exact
@@ -24,16 +25,16 @@ function App() {
 							return <WarehouseDetails {...routeProps} />;
 						}}
 					/>
-					{/* <Route path="/warehouse/:id/edit" render={routeProps => {
+					<Route path="/warehouse/:id/edit" render={routeProps => {
             return <WarehouseEdit
             {...routeProps} 
             />}}
-          /> */}
-					{/* <Route path="/warehouse/add" render={routeProps => {
+          />
+					<Route path="/warehouse/add" render={routeProps => {
             return <WarehouseAdd
             {...routeProps} 
             />}}
-          /> */}
+          />
 
 					<Route path="/inventory" exact render={routeProps => {
             return <Inventory
@@ -54,7 +55,7 @@ function App() {
             return <InventoryAdd
             {...routeProps} 
             />}}
-          /> */}
+          />
 				</Switch>
 				<Footer />
 			</Router>
