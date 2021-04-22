@@ -3,6 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import "./InventoryList.scss";
+
+import InventoryModal from "../Modals/InventoryModal";
+
 import searchIcon from "../../Assets/Icons/search-24px.svg";
 import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../Assets/Icons/edit-24px.svg";
@@ -50,6 +53,7 @@ export default class InventoryList extends Component {
             </Link>
           </div>
         </div>
+        <div className="inventory__title-background"></div> 
         <ul className="inventory__list">
           {this.state.inventoryList.map((item) => (
             <li className="inventory__list-item" key={item.id}>
