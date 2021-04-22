@@ -4,6 +4,7 @@ import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
 import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
 import WarehouseList from "./Components/WarehouseList/WarehouseList";
 import Inventory from "./Components/InventoryList/InventoryList";
+import InventoryEdit from "./Components/InventoryEdit/InventoryEdit";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -18,7 +19,8 @@ function App() {
             return <WarehouseList
             {...routeProps} 
             />}}
-          />
+
+          /> */}
 					<Route
 						path="/warehouse"
 						exact
@@ -26,6 +28,10 @@ function App() {
 							return <WarehouseDetails {...routeProps} />;
 						}}
 					/>
+
+					{/* <Route path="/warehouse/:id/edit" render={routeProps => {
+            return <WarehouseEdit
+
 					<Route path="/warehouse/:id/edit" render={routeProps => {
             return <EditWarehouse
             {...routeProps} 
@@ -51,13 +57,13 @@ function App() {
             return <InventoryDetail
             {...routeProps} 
             />}}
-          />
+          /> */}
           <Route path="/inventory/:id/edit" render={routeProps => {
             return <InventoryEdit
             {...routeProps} 
             />}}
           />
-          <Route path="/inventory/add" render={routeProps => {
+          {/* <Route path="/inventory/add" render={routeProps => {
             return <InventoryAdd
             {...routeProps} 
             />}}

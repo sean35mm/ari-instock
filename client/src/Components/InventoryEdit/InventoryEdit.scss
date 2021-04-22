@@ -1,0 +1,24 @@
+@use '../../Styles/Partials/mixins' as *;
+@use '../../Styles/Partials/variables' as *;
+
+.inventory-edit {
+    margin: 0 1rem;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    color: $black;
+    position: relative;
+    top: -40px;
+    z-index: 2;
+    background-color: $white;
+    border-radius: 3px;
+  
+    @include tablet {
+        margin: 0 2rem;
+        font-size: 14px;
+        line-height: 22px;
+        top: -105px;
+    }
+
+    @include desktop {
+        margin: 0 130px;
+    }
+}
