@@ -1,0 +1,121 @@
+@use '../../Styles/Partials/mixins' as *;
+@use '../../Styles/Partials/typography' as *;
+@use '../../Styles/Partials/variables' as *;
+
+
+.warehouseList__card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $cloud;
+    
+    @include tablet {
+        width: 100%;
+        padding: 1rem 0rem 1.5rem ;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    &-text-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        // justify-content: space-around;
+
+        @include tablet {
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            border-bottom: none;
+            width: 82%;
+            
+        }
+
+        @include desktop {
+            width: 88%;
+            justify-content: space-evenly;
+        }
+    }
+
+    &-sub-container {
+        width: 40%;
+        padding: 1rem 1rem 0rem;
+
+        @include tablet {
+            padding: 0;
+            width: auto;
+            text-align: left;
+        }
+        
+    }
+
+    &-link {
+        display: flex;
+        align-items: center;
+        // width: 100px;
+    }
+
+    &-location {
+        color: $indigo;
+        font-family: $titillium;
+        font-weight: 600;
+    }
+
+    &-title {
+        color: $slate;
+        font-size: 0.75rem;
+        margin: 0% 0% 4%;
+        font-family: $titillium;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &-content {
+        font-family: $titillium;
+    }
+
+    &-content-mobile {
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &-content-tablet {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            width: 88px;    
+        }
+
+        @include desktop {
+            display: flex;
+            width: auto;    
+        }
+    }
+
+    &-image-container {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        padding: 1rem 1rem 2rem;
+
+        @include tablet {
+            padding: 0;
+            width: 18%;
+            justify-content: space-evenly;
+        }
+
+        @include desktop {
+            justify-content: center;
+            width: 10%;
+        }
+    }
+
+    &-edit-button {
+        width: 25px;
+    }
+}
+

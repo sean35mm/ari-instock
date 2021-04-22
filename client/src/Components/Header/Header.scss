@@ -3,10 +3,11 @@
 @import "../../Styles/Partials/typography";
 
 * {
-	margin: 0;
+  margin: 0;
 }
 
 .header {
+
 	width: 100%;
 	background-color: $graphite;
 	color: $white;
@@ -42,10 +43,12 @@
 		margin-top: 0.625rem;
 		padding-bottom: 0.625rem;
 
-		:hover {
-			text-decoration: underline;
-			color: $white;
-		}
+
+    :hover {
+      text-decoration: underline;
+      color: $white;
+    }
+
 
 		@include tablet {
 			padding-right: 2rem;
@@ -88,4 +91,5 @@
 			text-decoration: none;
 		}
 	}
+
 }
