@@ -11,7 +11,13 @@ router.get('/', (req, res) => {
     res.status(200).json(inventoryList);
 })
 
-router.put('/:id/edit', (req, res) => {
+router.get('/:id', (req, res) => {
+    const itemId = req.params.id;
+    const inventoryItem = inventoryList.find(item => item.id === itemId);
+    res.status(200).json(inventoryItem);
+})
+
+router.put('/:id', (req, res) => {
     const itemId = req.params.id;
     let i = inventoryList.findIndex(item => item.id === itemId);
     // Change content of the item
