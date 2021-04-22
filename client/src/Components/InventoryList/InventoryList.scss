@@ -1,0 +1,317 @@
+@use '../../Styles/Partials/mixins' as *;
+@use '../../Styles/Partials/variables' as *;
+
+.inventory {
+    margin: 0 1rem;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    color: $black;
+    position: relative;
+    top: -40px;
+    z-index: 2;
+    background-color: $white;
+    border-radius: 3px;
+  
+    @include tablet {
+        margin: 0 2rem;
+        font-size: 14px;
+        line-height: 22px;
+        top: -105px;
+    }
+
+    @include desktop {
+        margin: 0 130px;
+    }
+
+    &__heading {
+        padding: 32px 1.5rem 16px 1.5rem;
+        border-bottom: 1px solid $cloud;
+
+        @include tablet {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            border-bottom: unset;
+            margin-bottom: 2rem;
+            padding: 32px;
+        }
+
+        @include desktop {
+            padding: 32px 2.5rem 32px 2.5rem;
+
+        }
+    }
+
+    &__heading-functions {
+
+        @include tablet {
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+
+    &__title {
+        font-size: 28px;
+        line-height: 36px;
+
+        @include tablet {
+            font-size: 32px;
+            line-height: 40px;
+        }
+    }
+
+    &__search-bar{
+        position: relative;
+        margin: 1rem 0;
+
+        @include tablet {
+            width: 230px;
+            margin: 0;
+        }
+
+        @include tablet {
+            width: 274px;
+        }
+    }
+
+    &__search-input {
+        margin: 0;
+        padding: 0 0 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        height: 36px;
+        border: 1px solid $cloud;
+        background-color: $white;
+        border-radius: 20px;
+        font-size: 13px;
+
+        &:focus {
+            outline: none;
+            border: 2px solid $indigo;
+        }
+    }
+
+    &__search-icon {
+        position: absolute;
+        right: 1rem;
+        bottom: 6px;
+    }
+
+    &__add-button {
+        color: $white;
+        background-color: $indigo;
+        width: 100%;
+        border: none;
+        border-radius: 20px;
+        height: 36px;
+        font-size: 13px;
+        line-height: 20px;   
+
+        &:hover {
+            background-color: $graphite;
+        }
+
+        @include tablet {
+            height: 38px;
+            width: 128px;
+            margin-left: 10px;
+        }
+    }
+
+    &__list {
+        padding: 0;
+        list-style-type: none;
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__list-item {
+        padding: 0 1.5rem;
+        border-bottom: 1px solid $cloud;
+        height: 237px;
+        box-sizing: border-box;
+
+        &:hover {
+            background-color: rgba(46, 102, 230, 0.07);
+        }
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            height: 59px;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        @include desktop {
+            padding: 0 2.5rem;
+        }
+    }
+
+    &__item-content {
+        display: flex;
+        flex-flow: column wrap;
+        padding-top: 1rem;
+        height: 180px;
+
+        @include tablet {
+            flex-flow: unset;
+            align-content: center;
+            margin: 0;
+            padding-top: 30px;
+            justify-content: space-between;
+            align-items: center;
+            height: unset;
+            width: 90%;
+        }
+    }
+
+    &__label-wrap {
+        margin-bottom: 25px;
+        margin-right: 2rem;
+        width: 110px;
+
+        @include tablet {
+            margin-right: 1.5rem;
+        }
+    }
+
+    &__label {
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 600;
+        color: $slate;
+
+        @include tablet {
+            display: none;
+            margin-bottom: 24px;
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__name {
+        font-weight: 600;
+        color: $indigo;
+        display: flex;
+        align-items: center;
+    }
+
+    &__name-icon {
+        height: 18px;
+    }
+
+    &__item-category {
+        margin-bottom: 30px;
+    }
+
+    &__status {
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 600;
+        width: 61px;
+        text-align: center;
+        border-radius: 20px;
+
+        &--instock {
+            color: $green;
+            background-color: rgba(21, 132, 99, 0.07);
+            width: 61px;
+        }
+
+        &--outstock {
+            color: $red;
+            background-color: rgba(201, 69, 21, 0.07);
+            width: 86px;
+        }
+
+        @include tablet {
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+    }
+
+    &__item-quantity {
+        
+        @include tablet {
+            width: 50px;
+        }
+    }
+    
+    &__item-actions {
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+        }
+    }
+    &__label-actions {
+        display: none;
+
+        @include tablet {
+            margin: 0 0 1rem 0;
+        }
+    }
+
+    &__sort-icon {
+        display: none;
+
+        @include tablet {
+            display: unset;
+            height: 14px;
+        }
+    }
+
+    &__actions-functions {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__edit {
+
+        @include tablet {
+            padding-left: 20px;
+        }
+    }
+}
+
+.inventory__list-item:first-child {
+
+    .inventory__label {
+
+        @include tablet{
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .inventory__item-content {
+
+        @include tablet {
+            align-items: flex-start;
+            padding: unset;
+        }
+    }
+
+    .inventory__item-actions {
+
+        @include tablet {
+            position: relative;
+            top: -16px;
+        }
+    }
+}
+

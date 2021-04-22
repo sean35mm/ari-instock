@@ -2,6 +2,7 @@ import React from "react";
 import "./Styles/global.scss";
 import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
 import WarehouseList from "./Components/WarehouseList/WarehouseList";
+import Inventory from "./Components/InventoryList/InventoryList";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -18,7 +19,7 @@ function App() {
             />}}
           />
 					<Route
-						path="/warehouse/:id"
+						path="/warehouse"
 						exact
 						render={(routeProps) => {
 							return <WarehouseDetails {...routeProps} />;
@@ -40,7 +41,7 @@ function App() {
             {...routeProps} 
             />}}
           />
-          <Route path="/inventory/:id" exact render={routeProps => {
+          {/* <Route path="/inventory/:id" exact render={routeProps => {
             return <InventoryDetail
             {...routeProps} 
             />}}
