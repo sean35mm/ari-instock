@@ -117,6 +117,20 @@
         }
     }
 
+    &__title-background {
+        display: none;
+
+        @include tablet {
+            display: unset;
+            background-color:rgba(247, 248, 249, 0.7);
+            position: absolute;
+            z-index: -1;
+            top: 110px;
+            height: 40px;
+            width: 100%;
+        }
+    }
+
     &__list {
         padding: 0;
         list-style-type: none;
@@ -126,6 +140,7 @@
             flex-direction: column;
         }
     }
+
 
     &__list-item {
         padding: 0 1.5rem;
@@ -175,6 +190,7 @@
 
         @include tablet {
             margin-right: 1.5rem;
+            width: 140px;
         }
     }
 
@@ -289,6 +305,10 @@
 }
 
 .inventory__list-item:first-child {
+
+    @include tablet {
+        height: 70px;
+    }
 
     .inventory__label {
 
