@@ -1,6 +1,7 @@
 import React from "react";
 import "./Styles/global.scss";
 import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
+import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
 import Inventory from "./Components/InventoryList/InventoryList";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Header from "./Components/Header/Header";
@@ -24,11 +25,11 @@ function App() {
 							return <WarehouseDetails {...routeProps} />;
 						}}
 					/>
-					{/* <Route path="/warehouse/:id/edit" render={routeProps => {
-            return <WarehouseEdit
+					<Route path="/warehouse/:id/edit" render={routeProps => {
+            return <EditWarehouse
             {...routeProps} 
             />}}
-          /> */}
+          />
 					{/* <Route path="/warehouse/add" render={routeProps => {
             return <WarehouseAdd
             {...routeProps} 

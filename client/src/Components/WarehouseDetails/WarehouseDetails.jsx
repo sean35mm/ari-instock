@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import backIcon from "../../Assets/Icons/arrow_back-24px.svg";
 import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../Assets/Icons/edit-24px.svg";
@@ -12,27 +14,35 @@ function WarehouseDetails() {
     <section className="details">
       <article className="details__header-container">
         <div className="details__header-wrap">
-          <h2 className="details__header-title">
+          <h1 className="details__header-title">
             <img
               className="details__back-icon"
               src={backIcon}
               alt="back-icon"
             />
             PlaceHolder
-          </h2>
-          <img className="details__edit-icon" src={whiteEdit} alt="edit-icon" />
-        </div>
-
-        <div className="details__edit-button">
-          <h3 className="details__button-text">
+          </h1>
+          <Link to="/warehouse/:id/edit">
             <img
-              className="details__button-image"
+              className="details__edit-icon"
               src={whiteEdit}
               alt="edit-icon"
             />
-            Edit
-          </h3>
+          </Link>
         </div>
+
+        <Link to="/warehouse/:id/edit">
+          <div className="details__edit-button">
+            <h3 className="details__button-text">
+              <img
+                className="details__button-image"
+                src={whiteEdit}
+                alt="edit-icon"
+              />
+              Edit
+            </h3>
+          </div>
+        </Link>
       </article>
 
       <article className="details__info">

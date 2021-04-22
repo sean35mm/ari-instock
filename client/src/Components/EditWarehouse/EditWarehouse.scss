@@ -1,0 +1,139 @@
+@use '../../Styles/Partials/mixins' as *;
+@use '../../Styles/Partials/typography' as *;
+@use '../../Styles/Partials/variables' as *;
+
+body {
+  font-size: 0.813rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 0.813rem;
+}
+
+h4 {
+  color: $slate;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.edit {
+  margin: 0 1rem;
+  background-color: $white;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  color: $black;
+  border-radius: 3px;
+  position: relative;
+  top: -40px;
+  z-index: 2;
+
+  @include tablet {
+    top: -94px;
+    margin: 0 2rem;
+  }
+
+  @include desktop {
+    margin: 0 8.125rem;
+  }
+
+  &__header-container {
+    border-bottom: 1px solid $cloud;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem;
+  }
+
+  &__back-icon {
+    margin-right: 1rem;
+    position: relative;
+    top: 0.2rem;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+.form {
+  @include tablet {
+    display: flex;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title-container {
+    padding: 0 1.5rem;
+  }
+
+  &__title {
+    margin: 1.5rem 0;
+    text-align: left;
+  }
+
+  &__warehouse {
+    border-bottom: 1px solid $cloud;
+    padding: 0 1.5rem 1rem 1.5rem;
+  }
+
+  &__contact {
+    padding: 0 1.5rem 1rem 1.5rem;
+  }
+
+  &__label {
+    padding-bottom: 0.25rem;
+  }
+
+  &__input {
+    padding: 0.5545rem 1.2rem;
+    width: 100%;
+    border: 1px solid $cloud;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    outline: none;
+  }
+
+  &__button-wrap {
+    margin: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__cancel {
+    font-family: $titillium;
+    font-size: 13px;
+    font-weight: 600;
+    color: $slate;
+    background-color: $white;
+    border: 1px solid $cloud;
+    border-radius: 20px;
+    padding: 0.434rem 3.05rem;
+  }
+
+  &__save {
+    font-family: $titillium;
+    font-size: 13px;
+    color: $white;
+    font-weight: 600;
+    background-color: $indigo;
+    border: none;
+    border-radius: 20px;
+    padding: 0.434rem 3.431rem;
+  }
+}
