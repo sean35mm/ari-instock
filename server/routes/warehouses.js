@@ -11,4 +11,11 @@ router.get('/', (req, res) => {
     res.status(200).json(warehouseList);
 })
 
+router.get('/:id', (req, res) => {
+    const warehouseId = req.params.id;
+    const warehouseItem = warehouseList.find(item => item.id === warehouseId);
+    res.status(200).json(warehouseItem);
+})
+
+
 module.exports = router;
