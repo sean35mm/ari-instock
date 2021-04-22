@@ -16,7 +16,7 @@ function App() {
 				<Header />
 				<Switch>
 
-        <Route exact path="/">
+          <Route exact path="/">
             <Redirect to="/warehouse" />
           </Route>
 
@@ -34,9 +34,7 @@ function App() {
 						}}
 					/>
 
-					{/* <Route path="/warehouse/:id/edit" render={routeProps => {
-            return <WarehouseEdit
-
+					
 					<Route path="/warehouse/:id/edit" render={routeProps => {
             return <EditWarehouse
             {...routeProps} 
@@ -51,14 +49,14 @@ function App() {
             return <WarehouseAdd
             {...routeProps} 
             />}}
-          />
+          /> */}
 
 					<Route path="/inventory" exact render={routeProps => {
             return <Inventory
             {...routeProps} 
             />}}
           />
-          <Route path="/inventory/:id" exact render={routeProps => {
+          {/* <Route path="/inventory/:id" exact render={routeProps => {
             return <InventoryDetail
             {...routeProps} 
             />}}
