@@ -11,6 +11,12 @@ router.use(function requestLog(req, res, next) {
     next()
 })
 
+router.get('/:id', (req, res) => {
+    const warehouseId = req.params.id;
+    const warehouseItem = warehouseList.find(item => item.id === warehouseId);
+    res.status(200).json(warehouseItem);
+})
+
 router.get('/', (_req, res) => {
     let warehouseList = fs.readFileSync("./data/warehouses.json")
     let parsedWarehouseList = JSON.parse(warehouseList)
@@ -19,5 +25,6 @@ router.get('/', (_req, res) => {
 
     res.status(200).send(JSON.stringify(compressedWarehouseList));
 });
+
 
 module.exports = router;
