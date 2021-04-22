@@ -11,6 +11,26 @@ router.get('/', (req, res) => {
     res.status(200).json(inventoryList);
 })
 
+router.put('/:id/edit', (req, res) => {
+    const itemId = req.params.id;
+    let i = inventoryList.findIndex(item => item.id === itemId);
+    // Change content of the item
+    inventoryList[i].itemName = req.body.itemName;
+    inventoryList[i].description = req.body.description;
+    inventoryList[i].category = req.body.category;
+    inventoryList[i].status = req.body.status;
+    inventoryList[i].warehouseName = req.body.warehouseName;
+    inventoryList[i].warehouseID = req.body.warehouseID;
+    // Write back to the JSON file
+    if (inventoryList[i]) {
+        fs.writeFileSync('./data/inventories.json', JSON.stringify(inventoryList));
+        //Send the updated item to the user
+        res.status(201).json(inventoryList[i]);
+    } else {
+        res.status(400).json({messages: 'Cannot find the item inventory'});
+    }
+})
+
 
 
 
