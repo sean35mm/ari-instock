@@ -1,6 +1,7 @@
 import React from "react";
 import "./Styles/global.scss";
 import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
+import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
 import WarehouseList from "./Components/WarehouseList/WarehouseList";
 import Inventory from "./Components/InventoryList/InventoryList";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
@@ -26,6 +27,11 @@ function App() {
 						}}
 					/>
 					<Route path="/warehouse/:id/edit" render={routeProps => {
+            return <EditWarehouse
+            {...routeProps} 
+            />}}
+          />
+					{/* <Route path="/warehouse/add" render={routeProps => {
             return <WarehouseEdit
             {...routeProps} 
             />}}
@@ -41,7 +47,7 @@ function App() {
             {...routeProps} 
             />}}
           />
-          {/* <Route path="/inventory/:id" exact render={routeProps => {
+          <Route path="/inventory/:id" exact render={routeProps => {
             return <InventoryDetail
             {...routeProps} 
             />}}
@@ -55,7 +61,7 @@ function App() {
             return <InventoryAdd
             {...routeProps} 
             />}}
-          />
+          /> */}
 				</Switch>
 				<Footer />
 			</Router>
