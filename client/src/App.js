@@ -50,7 +50,7 @@ class App extends React.Component {
               <Redirect to="/warehouse" />
             </Route>
 
-            <Route path="/warehouse" exact render={routeProps => {
+            <Route path="/warehouse" render={routeProps => {
               return <WarehousePage
               {...routeProps} 
               warehouseList={this.state.warehouseList}
@@ -58,7 +58,7 @@ class App extends React.Component {
               />}}
 
             />
-            <Route path="/inventory" exact render={routeProps => {
+            <Route path="/inventory" render={routeProps => {
               return <InventoryPage
               {...routeProps}
               warehouseList={this.state.warehouseList}
