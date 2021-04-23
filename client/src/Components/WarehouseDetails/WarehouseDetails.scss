@@ -39,7 +39,7 @@ p {
   &__header-container {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid $cloud;
+    border-bottom: 1px solid $cloud;
 
     @include tablet {
       align-items: center;
@@ -114,7 +114,7 @@ p {
   &__info {
     display: flex;
     flex-direction: column;
-    border-bottom: 2px solid $cloud;
+    border-bottom: 1px solid $cloud;
 
     @include tablet {
       flex-direction: row;
@@ -137,7 +137,7 @@ p {
     @include tablet {
       @include tablet-margin;
       width: 13rem;
-      border-right: 2px solid $cloud;
+      border-right: 1px solid $cloud;
       margin: 1.5rem 2rem;
 
       @include desktop {
@@ -148,7 +148,8 @@ p {
 
   &__contact {
     display: flex;
-    margin: 0 0.5rem 1rem 1.5rem;
+    justify-content: space-between;
+    margin: 0 0.5rem 1rem 1.25rem;
 
     @include tablet {
       width: 60%;
@@ -180,8 +181,6 @@ p {
 
   &__contact-info {
     text-align: left;
-    margin-left: 2.5rem;
-    margin-right: 1.5rem;
     width: 50%;
 
     @include tablet {
@@ -209,7 +208,7 @@ p {
   }
 
   &__inventory {
-    border-bottom: 2px solid $cloud;
+    border-bottom: 1px solid $cloud;
     flex-direction: column;
   }
 
@@ -242,7 +241,7 @@ p {
       margin-right: 5rem;
 
       @include desktop {
-        margin-right: 5rem;
+        margin-right: 3rem;
       }
     }
 
@@ -267,6 +266,10 @@ p {
     }
   }
 
+  &__list-link {
+    display: flex;
+  }
+
   &__navbar-item {
     margin: 0;
   }
@@ -283,7 +286,8 @@ p {
       display: flex;
       justify-content: space-between;
       padding: 0;
-      margin: 2rem;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid $cloud;
     }
   }
 
@@ -294,23 +298,31 @@ p {
       display: flex;
     }
 
+    &--category {
+      @include tablet {
+        width: 6rem;
+      }
+    }
+
     &--status {
       @include tablet {
-        margin-right: 4rem;
+        width: 6rem;
+        margin-right: 3rem;
       }
 
       @include desktop {
-        margin-right: 5.5rem;
+        margin-right: 3rem;
       }
     }
 
     &--quantity {
       @include tablet {
-        margin-right: 0.5rem;
+        width: 3rem;
+        margin-right: 1.3rem;
       }
 
       @include desktop {
-        margin-right: 5.5rem;
+        margin-right: 6.6rem;
       }
     }
   }
@@ -318,6 +330,7 @@ p {
   &__item-content {
     display: flex;
     flex-direction: column;
+    border: 1px solid $cloud;
 
     @include tablet {
       display: none;
@@ -328,24 +341,33 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 1rem 1.5rem 0 1.5rem;
+    margin: 1.25rem 1.5rem 0 1.5rem;
     margin-bottom: 0;
   }
 
   &__item-wrap {
     display: flex;
+    align-items: center;
   }
 
   &__description {
     margin-top: 0;
     color: $indigo;
-    width: 5rem;
-    height: 2.5rem;
+    width: 8rem;
+    line-height: 20px;
+    @include tablet {
+      display: flex;
+    }
   }
 
   &__chevron {
     position: relative;
-    bottom: 0.5rem;
+    top: 0.2rem;
+    height: 18px;
+    margin-left: 0.5rem;
+    @include tablet {
+      position: static;
+    }
   }
 
   &__status-container {
@@ -361,11 +383,13 @@ p {
 
   &__in-stock {
     background-color: $grey;
+    color: $green;
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 600;
+    width: 61px;
     text-align: center;
     border-radius: 20px;
-    padding: 0.2rem 0.2rem;
-    color: $green;
-    font-weight: 600;
 
     @include tablet {
       margin-right: 0;
@@ -374,12 +398,13 @@ p {
 
   &__out-stock {
     background-color: $grey;
+    color: $red;
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 600;
+    width: 86px;
     text-align: center;
     border-radius: 20px;
-    padding: 0.25rem 0.5rem;
-    color: $red;
-    font-weight: 600;
-    margin-right: 2rem;
 
     @include tablet {
       margin-right: 0;
@@ -388,10 +413,14 @@ p {
 
   &__stock-container {
     width: 8rem;
-    margin: 1rem 5rem 0 0;
+    margin: 1.25rem 5rem 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  &__category-container {
+    margin-top: 1.25rem;
   }
 
   &__category-title {
@@ -407,7 +436,7 @@ p {
   &__icon-container {
     display: flex;
     justify-content: space-between;
-    margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+    margin: 1.25rem 1.5rem;
   }
 
   &__delete {
