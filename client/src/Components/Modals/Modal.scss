@@ -1,1 +1,124 @@
-@import "../../Styles/global.scss";
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+@import "../../Styles/Partials/typography";
+
+.modal {
+	&__header {
+		font-size: 1.75rem;
+		width: 20rem;
+		margin-top: 2rem;
+
+		@include tablet {
+			width: 100%;
+			margin-left: 2rem;
+			margin-right: 0;
+		}
+	}
+
+	&__text {
+		font-size: 0.938rem;
+		margin-top: 1rem;
+		line-height: 1.625rem;
+
+		@include tablet {
+			width: 85%;
+			font-size: 1rem;
+			margin-left: 2rem;
+			margin-right: 0;
+		}
+	}
+}
+
+.delete__button {
+	height: 3.125rem;
+	width: 3.125rem;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: $white;
+	border: none;
+
+	@include tablet {
+		margin-top: 0.5rem;
+	}
+}
+
+.delete__modal {
+	background-color: $white;
+	width: 19.375rem;
+	height: 40rem;
+	padding: 0.625rem;
+	border-radius: 3px;
+	pointer-events: auto;
+	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+
+	@include tablet {
+		height: 17rem;
+		max-width: 48rem;
+		width: 45rem;
+		left: calc(29.25% - 200px);
+		top: 9.7rem;
+	}
+
+	@include desktop {
+		width: 42rem;
+		height: 16.375rem;
+		left: calc(40% - 200px);
+		top: 11.7rem;
+		margin: auto;
+	}
+}
+
+.modal-cancel.button {
+	position: relative;
+	top: 24.5rem;
+	left: 0.5rem;
+	font-family: $titillium;
+	color: $slate;
+	padding: 0.5rem 3.25rem;
+	border: 1px solid $cloud;
+	border-radius: 1rem;
+	font-size: 13px;
+	font-weight: normal;
+
+	@include tablet {
+		top: 2rem;
+		padding: 0.5rem 1rem;
+		left: 28rem;
+	}
+}
+
+.modal-delete.button {
+	position: relative;
+	top: 24.5rem;
+	font-family: $titillium;
+	left: 1rem;
+	background-color: $red;
+	color: $white;
+	padding: 0.5rem 3.25rem;
+	border: none;
+	border-radius: 1rem;
+	font-size: 14px;
+	font-weight: normal;
+
+	@include tablet {
+		top: 2rem;
+		left: 29rem;
+		padding: 0.5rem 1rem;
+		margin: 0;
+	}
+}
+
+.modal__x-icon {
+	position: relative;
+	left: 0;
+	top: -13rem;
+
+	@include tablet {
+		left: 35rem;
+		top: -9rem;
+	}
+
+	@include desktop {
+		left: 32rem;
+	}
+}

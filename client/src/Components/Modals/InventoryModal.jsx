@@ -1,51 +1,50 @@
 import React from "react";
 import "./Modal.scss";
-import Modal from "react-modal";
-import XButton from "../../Assets/Icons/close-24.svg";
+import Modal from 'react-awesome-modal';
+import XButton from "../../Assets/Icons/close-24px.svg";
+import axios from 'axios';
+import {Link} from 'react-router-dom';
+import deleteButton from '../../Assets/Icons/delete_outline-24px.svg'
+
+
 
 export default class InventoryModal extends React.Component {
-  //following online guide :)
+
 
   state = {
-    show: false,
+    visible: false,
   };
 
   //create functions for open/close state of the modal
 
   openModal() {
     this.setState({
-      show: true,
+      visible: true,
     });
+    console.log("pls work")
   }
 
   closeModal() {
     this.setState({
-      show: false,
+      visible: false,
     });
   }
 
   //need to make some of the elements on the page dynamic still
   render() {
+    console.log(this.state.visible)
     return (
       <>
-        <button
-          className="delete_button"
-          onClick={() => this.openModal()}
-        ></button>
-        <Modal show={this.state.show}>
-          <div className="del_modal">
-            <h1 className="modal__title">Delete this inventory item?</h1>
-            <p className="modal__body">
+        <img src={deleteButton} alt="delete button" onClick={() => this.openModal()} className="delete__button"/>
+        <Modal visible={this.state.visible}>
+          <div className="delete__modal">
+            <h1 className="modal__header">Delete this inventory item?</h1>
+            <p className="modal__text">
               Please confirm that you'd like to delete this from the inventory
               list. You won't be able to undo this action.
             </p>
-            <button
-              className="modal__cancel button"
-              onClick={() => this.closeModal()}
-            >
-              Cancel
-            </button>
-            {/* <button className="modal__delete button">Delete</button>  I need a clickhandler to delete */}
+            <button className="modal-cancel button" onClick={() => this.closeModal()}>Cancel</button>
+            <button className="modal-delete button" onClick={this.props.handleDelete}>Delete</button> 
             <a href="" onClick={() => this.closeModal()}>
               <img className="modal__x-icon" src={XButton} alt="x button" />
             </a>
@@ -55,4 +54,4 @@ export default class InventoryModal extends React.Component {
     );
   }
 }
-// I will edit above once I finish Warehouse Modal first
+

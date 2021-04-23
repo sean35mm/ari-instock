@@ -1,10 +1,11 @@
 import React from 'react';
-import WarehouseCard from '../WarehouseCard/WarehouseCard'
-import '../WarehouseList/WarehouseList.scss'
-import SortIcon from '../../Assets/Icons/sort-24px.svg'
+import WarehouseCard from '../WarehouseCard/WarehouseCard';
+import '../WarehouseList/WarehouseList.scss';
+import SortIcon from '../../Assets/Icons/sort-24px.svg';
+import axios from 'axios';
 
 
-function WarehouseList() {
+function WarehouseList(props) {
     return (
         <>
             <section className="warehouseList">
@@ -45,13 +46,23 @@ function WarehouseList() {
                 </div>
 
                 <div className="warehouseList__warehouse-cards">
-                    <WarehouseCard />
-                    <WarehouseCard />
+                    {props.warehouselist.map(warehouse =>
+                        <WarehouseCard
+                            key={warehouse.id}
+                            id={warehouse.id}
+                            city={warehouse.name}
+                            address={warehouse.address + ', ' + warehouse.name + ', ' + warehouse.country}
+                            name={warehouse.contact.name}
+                            number={warehouse.contact.phone}
+                            email={warehouse.contact.email}
+                        />)}
                 </div>
+
             </section>
 
         </>
     )
 }
+
 
 export default WarehouseList;
