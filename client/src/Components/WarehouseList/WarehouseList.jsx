@@ -21,22 +21,22 @@ function WarehouseList(props) {
                     <div className="warehouseList__tablet-text-container">
                         <div className="warehouseList__tablet-sub-container">
                             <h3 className="warehouseList__tablet-title">WAREHOUSE</h3>
-                            <img className="warehouseList__tablet-title-image" src={SortIcon}></img>
+                            <img className="warehouseList__tablet-title-image" src={SortIcon} alt="Sorting for Warehouse"/>
                         </div>
 
                         <div className="warehouseList__tablet-sub-container">
                             <h3 className="warehouseList__tablet-title">ADDRESS</h3>
-                            <img className="warehouseList__tablet-title-image" src={SortIcon}></img>
+                            <img className="warehouseList__tablet-title-image" src={SortIcon} alt="Sorting for Warehouse"/>
                         </div>
 
                         <div className="warehouseList__tablet-sub-container">
                             <h3 className="warehouseList__tablet-title">CONTACT NAME</h3>
-                            <img className="warehouseList__tablet-title-image" src={SortIcon}></img>
+                            <img className="warehouseList__tablet-title-image" src={SortIcon} alt="Sorting for Warehouse"/>
                         </div>
 
                         <div className="warehouseList__tablet-sub-container">
                             <h3 className="warehouseList__tablet-title">CONTACT INFORMATION</h3>
-                            <img className="warehouseList__tablet-title-image" src={SortIcon}></img>
+                            <img className="warehouseList__tablet-title-image" src={SortIcon} alt="Sorting for Warehouse"/>
                         </div>
                     </div>
 
