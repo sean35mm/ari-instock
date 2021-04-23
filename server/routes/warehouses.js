@@ -20,10 +20,9 @@ router.get('/:id', (req, res) => {
 router.get('/', (_req, res) => {
     let warehouseList = fs.readFileSync("./data/warehouses.json")
     let parsedWarehouseList = JSON.parse(warehouseList)
-    compressedWarehouseList = parsedWarehouseList.map(warehouse => ({ id: warehouse.id, city: warehouse.name, address: warehouse.address + ',' + warehouse.city + ','
-    + warehouse.country, contactName: warehouse.contact.name, contactNumber: warehouse.contact.phone, contactEmail: warehouse.contact.email}))
-
-    res.status(200).send(JSON.stringify(compressedWarehouseList));
+    // compressedWarehouseList = parsedWarehouseList.map(warehouse => ({ id: warehouse.id, city: warehouse.name, address: warehouse.address + ',' + warehouse.city + ','
+    // + warehouse.country, contactName: warehouse.contact.name, contactNumber: warehouse.contact.phone, contactEmail: warehouse.contact.email}))
+    res.status(200).send(JSON.stringify(parsedWarehouseList));
 });
 
 
