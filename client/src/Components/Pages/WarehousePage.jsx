@@ -48,7 +48,12 @@ export default function WarehousePage(props) {
           <Route
             path="/warehouse/:id/edit"
             render={(routeProps) => {
-              return <EditWarehouse {...routeProps} />;
+              return (
+                <EditWarehouse
+                  {...routeProps}
+                  warehouseList={props.warehouseList}
+                />
+              );
             }}
           />
 
