@@ -35,6 +35,7 @@ router.put('/:id', (req, res) => {
     if (req.body.itemName === '' || req.body.description === '' 
     || req.body.category === '' || req.body.status === '' || req.body.warehouseName === '' ) {
         res.status(400).json({messages: 'Content cannot be blank, please check your input'});
+        
     } else if (!inventoryList[i]) {
         res.status(400).json({messages: 'Cannot find the item inventory'});
     } else {
