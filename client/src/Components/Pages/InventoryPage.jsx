@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 export default class InventoryPage extends Component {
     render() {
+      const {inventoryList, warehouseList} = this.props;
         return (
             <div>
             <Router>
@@ -12,7 +13,8 @@ export default class InventoryPage extends Component {
     
                 <Route path="/inventory" exact render={routeProps => {
                   return <InventoryList
-                  {...routeProps} 
+                  {...routeProps}
+                  inventoryList={inventoryList} 
                   />}}
                 />
                 {/* <Route path="/inventory/:id" exact render={routeProps => {

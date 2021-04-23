@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import "./InventoryList.scss";
@@ -12,25 +11,8 @@ import editIcon from "../../Assets/Icons/edit-24px.svg";
 import chevronIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import sortIcon from "../../Assets/Icons/sort-24px.svg";
 
-export default class InventoryList extends Component {
-  state = {
-    inventoryList: [],
-  };
-
-  componentDidMount() {
-    axios
-      .get("http://localhost:8080/inventory")
-      .then((res) => {
-        this.setState({
-          inventoryList: res.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  render() {
+export default function InventoryList({inventoryList}){
+ 
     return (
       <div className="inventory">
         <div className="inventory__heading">
@@ -55,7 +37,7 @@ export default class InventoryList extends Component {
         </div>
         <div className="inventory__title-background"></div> 
         <ul className="inventory__list">
-          {this.state.inventoryList.map((item) => (
+          {inventoryList.map((item) => (
             <li className="inventory__list-item" key={item.id}>
               <div className="inventory__item-content">
                 <div className="inventory__label-wrap inventory__item-name">
@@ -160,4 +142,3 @@ export default class InventoryList extends Component {
       </div>
     );
   }
-}
