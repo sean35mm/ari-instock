@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import WarehouseDetails from "../WarehouseDetails/WarehouseDetails";
 import EditWarehouse from "../EditWarehouse/EditWarehouse";
+import WarehouseAdd from "../WarehouseAdd/WarehouseAdd";
 import WarehouseList from "../WarehouseList/WarehouseList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import WarehouseModal from "../Modals/WarehouseModal";
@@ -59,11 +60,11 @@ export default function WarehousePage(props) {
 
           <WarehouseModal onDelete={handleDelete} />
 
-          {/* <Route path="/warehouse/add" render={routeProps => {
+          <Route path="/warehouse/add" render={routeProps => {
                         return <WarehouseAdd
-                        {...routeProps} 
+                        {...routeProps}
                         />}}
-                    /> */}
+                    />
         </Switch>
       </Router>
     </div>

@@ -12,7 +12,7 @@ function WarehouseCard(props) {
         <div className="warehouseList__card-text-container">
           <div className="warehouseList__card-sub-container">
             <h3 className="warehouseList__card-title">WAREHOUSE</h3>
-            <Link to={`/warehouse/${props.id}`} className="warehouseList__link">
+            <Link to={`/warehouse/${props.id}`} className="warehouseList__link" style={{textDecoration: "none"}}>
               <div className="warehouseList__card-link">
                 <p className="warehouseList__card-content warehouseList__card-location">
                   {props.city}
@@ -21,7 +21,6 @@ function WarehouseCard(props) {
                   className="warehouseList__icon"
                   src={ChevronIcon}
                   alt="Chevron for going to Warehouse Details"
-                  alt="Chevron Icon"
                 />
               </div>
             </Link>
