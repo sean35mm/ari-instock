@@ -4,7 +4,6 @@ const uuid = require("uuid");
 const fs = require("fs");
 
 let inventoryList = [];
-<<<<<<< HEAD
 fs.readFile('./data/inventories.json','utf8', (err, data) => {
     err?console.info(err):inventoryList = JSON.parse(data)});
 
@@ -46,12 +45,7 @@ router.put('/:id', (req, res) => {
     }
 })
 
-
-
-
-
 module.exports = router;
-=======
 fs.readFile("./data/inventories.json", "utf8", (err, data) => {
 	err ? console.info(err) : (inventoryList = JSON.parse(data));
 });
@@ -96,4 +90,3 @@ router.delete("/:id", (req, res) => {
 
 module.exports = router;
 
->>>>>>> 5cbfe03b470adf7bb3cd48cf5e31590363ac7b39
