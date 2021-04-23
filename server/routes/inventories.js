@@ -14,7 +14,11 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const itemId = req.params.id;
     const inventoryItem = inventoryList.find(item => item.id === itemId);
-    res.status(200).json(inventoryItem);
+    if(inventoryItem) {
+        res.status(200).json(inventoryItem);
+    } else {
+        res.status(400).json({message: 'Cannot find the item in Inventory List'});
+    }
 })
 
 router.put('/:id', (req, res) => {
@@ -27,13 +31,16 @@ router.put('/:id', (req, res) => {
     inventoryList[i].status = req.body.status;
     inventoryList[i].warehouseName = req.body.warehouseName;
     inventoryList[i].warehouseID = req.body.warehouseID;
-    // Write back to the JSON file
-    if (inventoryList[i]) {
+
+    if (req.body.itemName === '' || req.body.description === '' 
+    || req.body.category === '' || req.body.status === '' || req.body.warehouseName === '' ) {
+        res.status(400).json({messages: 'Content cannot be blank, please check your input'});
+    } else if (!inventoryList[i]) {
+        res.status(400).json({messages: 'Cannot find the item inventory'});
+    } else {
         fs.writeFileSync('./data/inventories.json', JSON.stringify(inventoryList));
         //Send the updated item to the user
-        res.status(201).json(inventoryList[i]);
-    } else {
-        res.status(400).json({messages: 'Cannot find the item inventory'});
+        res.status(201).json(inventoryList);   
     }
 })
 
