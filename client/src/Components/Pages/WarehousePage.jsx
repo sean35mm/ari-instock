@@ -3,8 +3,18 @@ import WarehouseDetails from "../WarehouseDetails/WarehouseDetails";
 import EditWarehouse from "../EditWarehouse/EditWarehouse";
 import WarehouseList from "../WarehouseList/WarehouseList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import WarehouseModal from "../Modals/WarehouseModal";
+import axios from "axios";
 
 export default function WarehousePage(props) {
+
+let handleDelete = () => {
+  const {match: {params}} = this.props;
+  const warehouseId = params.id;
+  axios
+    .delete(`/warehouse/${warehouseId}`)
+}
+
   return (
     <div>
       <Router>
@@ -41,6 +51,8 @@ export default function WarehousePage(props) {
                         />
                     }}
                     /> */}
+
+          <WarehouseModal onDelete={handleDelete}/>
 
           {/* <Route path="/warehouse/add" render={routeProps => {
                         return <WarehouseAdd
