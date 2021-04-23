@@ -35,8 +35,8 @@ function App() {
             return <WarehouseEdit
             {...routeProps} 
             />}}
-          />
-					<Route path="/warehouse/add" render={routeProps => {
+          /> */}
+					{/* <Route path="/warehouse/add" render={routeProps => {
             return <WarehouseAdd
             {...routeProps} 
             />}}
@@ -47,7 +47,7 @@ function App() {
             {...routeProps} 
             />}}
           />
-          {/* <Route path="/inventory/:id" exact render={routeProps => {
+          <Route path="/inventory/:id" exact render={routeProps => {
             return <InventoryDetail
             {...routeProps} 
             />}}
@@ -61,7 +61,7 @@ function App() {
             return <InventoryAdd
             {...routeProps} 
             />}}
-          />
+          /> */}
 				</Switch>
 				<Footer />
 			</Router>
