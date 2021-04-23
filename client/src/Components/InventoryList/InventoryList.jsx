@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./InventoryList.scss";
 
-import InventoryModal from "../Modals/InventoryModal";
+// import InventoryModal from "../Modals/InventoryModal";
 
 import searchIcon from "../../Assets/Icons/search-24px.svg";
 import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";

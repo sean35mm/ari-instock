@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import '../WarehouseCard/WarehouseCard.scss'
 import DeleteIcon from '../../Assets/Icons/delete_outline-24px.svg';
 import EditIcon from '../../Assets/Icons/edit-24px.svg';
@@ -12,10 +13,14 @@ function WarehouseCard(props) {
                 <div className="warehouseList__card-text-container">
                     <div className="warehouseList__card-sub-container">
                         <h3 className="warehouseList__card-title">WAREHOUSE</h3>
+                        <Link to={`/warehouse/${props.id}`}>
                         <a className="warehouseList__card-link">
+                          
                             <p className="warehouseList__card-content warehouseList__card-location">{props.city}</p>
                             <img className="warehouseList__icon" src={ChevronIcon} alt="Chevron for going to Warehouse Details"  alt="Chevron Icon" />
+                         
                         </a>
+                        </Link>
                     </div>
 
                     <div className="warehouseList__card-sub-container">
