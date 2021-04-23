@@ -47,7 +47,7 @@ export default class WarehouseDetails extends React.Component {
                 </Link>
                 {this.state.warehouse.name}
               </h1>
-              <Link to="/warehouse/:id/edit">
+              <Link to={`/warehouse/${this.state.warehouse.id}/edit}`}>
                 <img
                   className="details__edit-icon"
                   src={whiteEdit}
@@ -56,7 +56,7 @@ export default class WarehouseDetails extends React.Component {
               </Link>
             </div>
 
-            <Link to="/warehouse/:id/edit">
+            <Link to={`/warehouse/${this.state.warehouse.id}/edit`}>
               <div className="details__edit-button">
                 <h3 className="details__button-text">
                   <img

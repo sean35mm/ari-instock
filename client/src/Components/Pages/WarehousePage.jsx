@@ -8,13 +8,13 @@ import WarehouseModal from "../Modals/WarehouseModal";
 import axios from "axios";
 
 export default function WarehousePage(props) {
-
-let handleDelete = () => {
-  const {match: {params}} = this.props;
-  const warehouseId = params.id;
-  axios
-    .delete(`/warehouse/${warehouseId}`)
-}
+  let handleDelete = () => {
+    const {
+      match: { params },
+    } = this.props;
+    const warehouseId = params.id;
+    axios.delete(`/warehouse/${warehouseId}`);
+  };
 
   return (
     <div>
@@ -46,14 +46,19 @@ let handleDelete = () => {
             }}
           />
 
-          {/* <Route path="/warehouse/:id/edit" render={routeProps => {
-                        return <EditWarehouse
-                            {...routeProps}
-                        />
-                    }}
-                    /> */}
+          <Route
+            path="/warehouse/:id/edit"
+            render={(routeProps) => {
+              return (
+                <EditWarehouse
+                  {...routeProps}
+                  warehouseList={props.warehouseList}
+                />
+              );
+            }}
+          />
 
-          <WarehouseModal onDelete={handleDelete}/>
+          <WarehouseModal onDelete={handleDelete} />
 
           <Route path="/warehouse/add" render={routeProps => {
                         return <WarehouseAdd
