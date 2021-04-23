@@ -45,8 +45,16 @@ router.put('/:id', (req, res) => {
     }
 })
 
+router.delete("/:id", (req, res) => {
+	const selected = inventoryList.find((item) => item.id === req.params.id);
+	const indexValue = inventoryList.indexOf(selected);
 
-
-
+	inventoryList.splice(indexValue, 1);
+	res.send("item deleted");
 
 module.exports = router;
+
+
+
+
+
