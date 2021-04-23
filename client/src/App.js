@@ -7,68 +7,6 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import axios from "axios";
 
-<<<<<<< HEAD
-function App() {
-	return (
-		<div>
-			<Router>
-				<Header />
-				<Switch>
-					<Route path="/" exact render={routeProps => {
-            return <WarehouseList
-            {...routeProps} 
-            />}}
-          />
-					<Route
-						path="/warehouse"
-						exact
-						render={(routeProps) => {
-							return <WarehouseDetails {...routeProps} />;
-						}}
-					/>
-					<Route path="/warehouse/:id/edit" render={routeProps => {
-            return <EditWarehouse
-            {...routeProps} 
-            />}}
-          />
-					{/* <Route path="/warehouse/add" render={routeProps => {
-            return <WarehouseEdit
-            {...routeProps} 
-            />}}
-          /> */}
-					{/* <Route path="/warehouse/add" render={routeProps => {
-            return <WarehouseAdd
-            {...routeProps} 
-            />}}
-          />
-
-					<Route path="/inventory" exact render={routeProps => {
-            return <Inventory
-            {...routeProps} 
-            />}}
-          />
-          <Route path="/inventory/:id" exact render={routeProps => {
-            return <InventoryDetail
-            {...routeProps} 
-            />}}
-          />
-          <Route path="/inventory/:id/edit" render={routeProps => {
-            return <InventoryEdit
-            {...routeProps} 
-            />}}
-          />
-          <Route path="/inventory/add" render={routeProps => {
-            return <InventoryAdd
-            {...routeProps} 
-            />}}
-          /> */}
-				</Switch>
-				<Footer />
-			</Router>
-		</div>
-	);
-}
-=======
 class App extends React.Component {
   state = {
     warehouseList: [],
@@ -102,7 +40,6 @@ class App extends React.Component {
     if(!this.state.inventoryList.length || !this.state.warehouseList.length) {
       return <h1 className="loading">Loading...</h1>
     }
->>>>>>> 7763cdaa54bb60dbd379a8349bb0f29c940b785a
 
     return (
       <div>

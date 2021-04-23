@@ -35,7 +35,7 @@ p {
   z-index: 2;
 
   @include tablet {
-    top: -94px;
+    top: -100px;
     margin: 0 2rem;
   }
 
@@ -52,6 +52,10 @@ p {
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 1.5rem;
+
+    @include tablet {
+      padding: 1.5rem 2rem;
+    }
   }
 
   &__back-icon {
@@ -64,35 +68,63 @@ p {
     font-size: 1.75rem;
     margin: 0;
     line-height: 1.6;
+
+    @include tablet {
+      font-size: 2rem;
+    }
   }
 }
 
 .form {
   @include tablet {
     display: flex;
+    justify-content: center;
   }
 
-  &__container {
+  &__container-warehouse {
+    padding: 0 1.5rem 0.5rem 1.5rem;
+    border-bottom: 1px solid $cloud;
+
+    @include tablet {
+      border-bottom: none;
+      border-right: 1px solid $cloud;
+      width: 35.43vw;
+      padding: 0 1.5rem 0.5rem 0rem;
+      margin-right: 2rem;
+      height: 355px;
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__body {
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
-  &__title-container {
+  &__container-contact {
     padding: 0 1.5rem;
+
+    @include tablet {
+      padding: 0 0 1.5rem 0;
+      margin-top: 1.5rem;
+      width: 35.43vw;
+    }
   }
 
   &__title {
     margin: 1.5rem 0;
     text-align: left;
-  }
 
-  &__warehouse {
-    border-bottom: 1px solid $cloud;
-    padding: 0 1.5rem 1rem 1.5rem;
-  }
-
-  &__contact {
-    padding: 0 1.5rem 1rem 1.5rem;
+    @include tablet {
+      font-size: 1.5rem;
+      margin-top: 0;
+    }
   }
 
   &__label {
@@ -110,9 +142,15 @@ p {
   }
 
   &__button-wrap {
-    margin: 1rem 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
+
+    @include tablet {
+      width: 100%;
+      justify-content: flex-end;
+      background-color: $grey;
+    }
   }
 
   &__cancel {
@@ -124,6 +162,11 @@ p {
     border: 1px solid $cloud;
     border-radius: 20px;
     padding: 0.434rem 3.05rem;
+
+    @include tablet {
+      padding: 0.434rem 1.053rem;
+      margin-right: 1rem;
+    }
   }
 
   &__save {
@@ -135,5 +178,10 @@ p {
     border: none;
     border-radius: 20px;
     padding: 0.434rem 3.431rem;
+
+    @include tablet {
+      padding: 0.434rem 1.08rem;
+      margin-right: 1.5rem;
+    }
   }
 }
