@@ -4,6 +4,7 @@ import Modal from 'react-awesome-modal';
 import XButton from "../../Assets/Icons/close-24px.svg";
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import deleteButton from '../../Assets/Icons/delete_outline-24px.svg'
 
 
 
@@ -34,7 +35,7 @@ export default class InventoryModal extends React.Component {
     console.log(this.state.visible)
     return (
       <>
-        <input type="button" className="delete__button" onClick={() => this.openModal()} />
+        <img src={deleteButton} alt="delete button" onClick={() => this.openModal()} className="delete__button"/>
         <Modal visible={this.state.visible}>
           <div className="delete__modal">
             <h1 className="modal__header">Delete this inventory item?</h1>
@@ -42,13 +43,8 @@ export default class InventoryModal extends React.Component {
               Please confirm that you'd like to delete this from the inventory
               list. You won't be able to undo this action.
             </p>
-            <button
-              className="modal-cancel button"
-              onClick={() => this.closeModal()}
-            >
-              Cancel
-            </button>
-            <button className="modal-delete button">Delete</button> 
+            <button className="modal-cancel button" onClick={() => this.closeModal()}>Cancel</button>
+            <button className="modal-delete button" onClick={this.props.handleDelete}>Delete</button> 
             <a href="" onClick={() => this.closeModal()}>
               <img className="modal__x-icon" src={XButton} alt="x button" />
             </a>
