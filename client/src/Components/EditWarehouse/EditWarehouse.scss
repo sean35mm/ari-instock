@@ -94,6 +94,10 @@ p {
       height: 355px;
       margin-top: 1.5rem;
     }
+
+    @include desktop {
+      margin-left: 1rem;
+    }
   }
 
   &__body {
@@ -182,6 +186,10 @@ p {
     @include tablet {
       padding: 0.434rem 1.08rem;
       margin-right: 1.5rem;
+
+      @include desktop {
+        margin-right: 0;
+      }
     }
   }
 }
