@@ -4,9 +4,8 @@ const uuid = require("uuid");
 const fs = require("fs");
 
 let inventoryList = [];
-fs.readFile('./data/inventories.json', 'utf8', (err, data) => {
-    err ? console.info(err) : inventoryList = JSON.parse(data)
-});
+fs.readFile('./data/inventories.json','utf8', (err, data) => {
+    err?console.info(err):inventoryList = JSON.parse(data)});
 
 router.get('/', (req, res) => {
     res.status(200).json(inventoryList);
@@ -47,8 +46,8 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete("/:id", (req, res) => {
-    const selected = inventoryList.find((item) => item.id === req.params.id);
-    const indexValue = inventoryList.indexOf(selected);
+	const selected = inventoryList.find((item) => item.id === req.params.id);
+	const indexValue = inventoryList.indexOf(selected);
 
     inventoryList.splice(indexValue, 1);
     res.send("item deleted");

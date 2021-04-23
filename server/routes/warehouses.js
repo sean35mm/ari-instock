@@ -6,7 +6,6 @@ const fs = require("fs");
 // 	default: InventoryList,
 // } = require("../../client/src/Components/InventoryList/InventoryList"); // Requires Fixing
 
-
 router.use(express.json());
 
 let warehouseList = [];
