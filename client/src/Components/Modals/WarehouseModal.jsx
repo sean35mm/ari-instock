@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Modal.scss";
 import Modal from 'react-awesome-modal';
-import XButton from '../../Assets/Icons/close-24.svg'
+import XButton from '../../Assets/Icons/close-24px.svg'
 import deleteButton from '../../Assets/Icons/delete_outline-24px.svg'
 
 
