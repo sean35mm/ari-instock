@@ -114,11 +114,11 @@
         height: 35px;
 
         @include tablet {
-            width: 100%;
+            width: 110%;
         }
 
         @include desktop {
-            width: 100%;
+            width: 120%;
             margin: 5% 0% 0% 0%;
         }
     }

@@ -36,6 +36,8 @@ export default function WarehousePage(props) {
           <Route path="/warehouse/add" render={routeProps => {
             return <WarehouseAdd
               {...routeProps}
+              inventorylist={props.inventoryList}
+              warehouselist={props.warehouseList}
             />
           }}
 
