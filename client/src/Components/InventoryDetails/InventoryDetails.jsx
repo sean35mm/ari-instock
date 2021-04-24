@@ -25,7 +25,7 @@ export default class InventoryDetails extends React.Component {
   }
 
   render() {
-    if (!this.state.warehouse.id) {
+    if (!this.state.inventory.id) {
       return <h1>Loading...</h1>;
     }
 
@@ -52,7 +52,7 @@ export default class InventoryDetails extends React.Component {
                   </div>
                   <div className="details__groupRight">
                       <h4 className="details__label">CATEGORY</h4>
-                      <p className="details__cat">{this.state.item.category}</p>
+                      <p className="details__cat">{this.state.inventory.category}</p>
                   </div>
               </div>
               <div className="details__vl"></div>
@@ -60,7 +60,7 @@ export default class InventoryDetails extends React.Component {
                   <div className="details__mid-container">
                       <div className="details__left">
                           <h4 className="details__label">STATUS</h4>
-                          <h4 className="inventory__status">{this.state.item.status}</h4>
+                          <h4 className="inventory__status">{this.state.inventory.status}</h4>
                       </div>
                       <div className="details__mid">
                           <h4 className="details__label">QUANTITY</h4>
