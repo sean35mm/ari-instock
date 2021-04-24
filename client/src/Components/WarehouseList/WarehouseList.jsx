@@ -2,6 +2,7 @@ import React from 'react';
 import WarehouseCard from '../WarehouseCard/WarehouseCard';
 import '../WarehouseList/WarehouseList.scss';
 import SortIcon from '../../Assets/Icons/sort-24px.svg';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 
@@ -13,7 +14,7 @@ function WarehouseList(props) {
                     <h2 className="warehouseList__title">Warehouses</h2>
                     <div className="warehouseList__search-subcontainer">
                         <input className="warehouseList__search-bar" placeholder="Search..."></input>
-                        <button className="warehouseList__add-button">+ Add New Warehouse</button>
+                        <Link to="/warehouse/add"><button className="warehouseList__add-button">+ Add New Warehouse</button></Link>
                     </div>
                 </div>
 

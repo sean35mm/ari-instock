@@ -9,12 +9,12 @@ import axios from "axios";
 
 export default function WarehousePage(props) {
 
-let handleDelete = () => {
-  const {match: {params}} = this.props;
-  const warehouseId = params.id;
-  axios
-    .delete(`/warehouse/${warehouseId}`)
-}
+  let handleDelete = () => {
+    const { match: { params } } = this.props;
+    const warehouseId = params.id;
+    axios
+      .delete(`/warehouse/${warehouseId}`)
+  }
 
   return (
     <div>
@@ -32,6 +32,14 @@ let handleDelete = () => {
               );
             }}
           />
+
+          <Route path="/warehouse/add" render={routeProps => {
+            return <WarehouseAdd
+              {...routeProps}
+            />
+          }}
+          />
+
           <Route
             path="/warehouse/:id"
             exact
@@ -53,13 +61,8 @@ let handleDelete = () => {
                     }}
                     /> */}
 
-          <WarehouseModal onDelete={handleDelete}/>
+          <WarehouseModal onDelete={handleDelete} />
 
-          <Route path="/warehouse/add" render={routeProps => {
-                        return <WarehouseAdd
-                        {...routeProps}
-                        />}}
-                    />
         </Switch>
       </Router>
     </div>
