@@ -2,11 +2,6 @@
 @import "../../Styles/Partials/variables";
 @import "../../Styles/Partials/typography";
 
-* {
-	margin: 0;
-	padding: 0;
-}
-
 a {
 	text-decoration: none;
 }
@@ -115,104 +110,36 @@ a {
 	}
 }
 
-.details {
-	box-shadow: none;
-	margin-top: 30px;
-
-	&__item {
-		line-height: 20px;
-
-		@include tablet {
-			width: 40%;
-		}
-	}
+.inv-details {
+	padding-left: 1rem;
 
 	&__label {
 		font-size: 0.688rem;
-
-		@include tablet {
-			margin-top: 1rem;
-		}
+		color: $slate;
 	}
 
-	&__right-container {
-		padding-top: 1rem;
-
-		@include tablet {
-			padding-top: 2rem;
-		}
+	&__txt {
+		font-size: 0.813rem;
+		line-height: 1.25rem;
 	}
 
-	&__mid-container {
+	&__status-txt {
+		color: $green;
+		font-size: 0.813rem;
+		line-height: 1.25rem;
+	}
+
+	&__tablet-right {
 		display: flex;
 		justify-content: space-between;
-		padding-top: 1rem;
-
-		@include tablet {
-			justify-content: flex-end;
-			position: relative;
-			bottom: 11.5rem;
-		}
-
-		@include desktop {
-			left: -6rem;
-		}
+		padding-bottom: 1rem;
 	}
 
-	&__mid-right {
-		padding-right: 6.938rem;
-
-		@include tablet {
-			padding-left: 4rem;
-			padding-right: 4.375rem;
-		}
+	&__description {
+		padding-bottom: 1rem;
 	}
 
-	&__vl {
-		display: none;
-
-		@include tablet {
-			display: block;
-			border-right: 1px solid $cloud;
-			height: 14vh;
-			position: absolute;
-			left: 50%;
-			bottom: 8.5rem;
-		}
-
-		@include desktop {
-			height: 15vh;
-		}
-	}
-
-	&__left {
-		@include tablet {
-			text-align: center;
-		}
-	}
-
-	&__status {
-		color: $green;
-		background-color: rgba(21, 132, 99, 0.07);
-		border-radius: 20px;
-		width: 15vw;
-		font-size: 0.688rem;
-		text-align: center;
-	}
-
-	&__bottom-container {
-		padding-top: 1rem;
-
-		@include tablet {
-			display: flex;
-			flex-direction: column;
-			position: relative;
-			left: 48vw;
-			bottom: 10rem;
-		}
-
-		@include desktop {
-			left: 39vw;
-		}
+	&__left-container {
+		padding-bottom: 1rem;
 	}
 }

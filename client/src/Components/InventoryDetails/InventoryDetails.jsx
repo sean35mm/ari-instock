@@ -39,45 +39,41 @@ export default class InventoryDetails extends React.Component {
               <div className="inv-header__edit-button">
                 <h3 className="inv-header__text">Edit</h3>
                 <img className="inv-header__icon" src={editWhite} alt="edit icon"/> 
-                  
-                
               </div>             
               </Link>
         </div>
 
-          <hr className="details-break"/>
+        <hr className="details-break"/>
 
-          <div className="details">
-              <div className="details__top-container">
-                  <div className="details__group-left">
-                      <h4 className="details__label">ITEM DESCRIPTION</h4>
-                      <p className="details__item">{this.state.inventory.description}</p>
-                  </div>
-                  <div className="details__right-container">
-                      <h4 className="details__label">CATEGORY</h4>
-                      <p className="details__cat">{this.state.inventory.category}</p>
-                  </div>
+        <div className="inv-details">
+          <div className="inv-details__left-container">
+            <div className="inv-details__description">
+              <h5 className="inv-details__label">ITEM DESCRIPTION:</h5>
+              <p className="inv-details__txt">{this.state.inventory.description}</p>
+            </div>
+            <div className="inv-details__cat-container">
+              <h5 className="inv-details__label">CATEGORY:</h5>
+              <p className="inv-details__txt">{this.state.inventory.category}</p>
+            </div>
+          </div>
+          <div className="inv-details__right-container">
+            <div className="inv-details__tablet-right">
+              <div className="inv-details__status">
+                <h5 className="inv-details__label">STATUS:</h5>
+                <p className="inv-details__status-txt">{this.state.inventory.status}</p>
               </div>
-              <div className="details__vl"></div>
-              <div className="details__tablet-right">
-                  <div className="details__mid-container">
-                      <div className="details__left">
-                          <h4 className="details__label">STATUS</h4>
-                          <h4 className="details__status">{this.state.inventory.status}</h4>
-                      </div>
-                      <div className="details__mid-right">
-                          <h4 className="details__label">QUANTITY</h4>
-                          <p className="details__qty">{this.state.inventory.quantity}</p>
-                      </div>
-                  </div>  
-                  <div className="details__bottom-container">
-                      <h4 className="details__label">WAREHOUSE</h4>
-                      {console.log(this.state.inventory)}
-                      <p className="details__qty">{this.state.inventory.warehouseName}</p>
-                  </div> 
+              <div className="inv-details__qty">
+                <h5 className="inv-details__label">QUANTITY:</h5>
+                <p className="inv-details__txt">{this.state.inventory.quantity}</p>
               </div>
+            </div>
+            <div className="inv-details__warehouse">
+              <h5 className="inv-details__label">WAREHOUSE:</h5>
+              <p className="inv-details__txt">{this.state.inventory.warehouseName}</p>
+            </div>
           </div>
         </div>
+      </div>
     )
   }
 
