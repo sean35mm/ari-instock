@@ -36,7 +36,12 @@ export default class InventoryDetails extends React.Component {
               <img className="inv-header__arrow" src={backArrow} alt=""/>
               <h1 className="inv-header__title">{this.state.inventory.itemName}</h1>
               <Link to={`/inventory/editinventory/${this.state.inventory.id}`}>
-              <img className="inv-header__icon" src={editWhite} alt="edit icon" fill="#2E66E6"/>              
+              <div className="inv-header__edit-button">
+                <h3 className="inv-header__text">Edit</h3>
+                <img className="inv-header__icon" src={editWhite} alt="edit icon"/> 
+                  
+                
+              </div>             
               </Link>
         </div>
 

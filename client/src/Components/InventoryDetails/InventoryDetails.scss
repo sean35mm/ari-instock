@@ -7,6 +7,10 @@
 	padding: 0;
 }
 
+a {
+	text-decoration: none;
+}
+
 .inv-details-container {
 	height: 22.813rem;
 	width: 90%;
@@ -16,7 +20,7 @@
 	border-radius: 3px;
 	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
 	z-index: 2;
-	left: 16px;
+	left: 1rem;
 }
 
 .inv-header {
@@ -24,26 +28,79 @@
 	height: 5.75rem;
 	justify-content: center;
 	padding-top: 1rem;
+	background-color: $white;
+	border-radius: 3px;
+
+	@include tablet {
+		height: 5.813rem;
+		position: relative;
+		top: -73px;
+		justify-content: left;
+		padding-left: 2rem;
+		padding-top: 2rem;
+	}
 
 	&__arrow {
 		width: 1.5rem;
 		height: 1.5rem;
 		margin-top: 0.6rem;
+		margin-left: 0.5rem;
 	}
 
 	&__title {
 		font-size: 1.75rem;
+		margin-left: 0.75rem;
+	}
+
+	&__text {
+		display: none;
+
+		@include tablet {
+			color: white;
+			display: flex;
+			text-decoration: none;
+			padding-left: 0.5rem;
+		}
+	}
+
+	&__edit-button {
+		background-color: $indigo;
+		height: 36px;
+		width: 36px;
+		border-radius: 50%;
+		margin-left: 3.875rem;
+
+		@include tablet {
+			background-color: $indigo;
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+			width: 81px;
+			height: 38px;
+			border-radius: 20px;
+			margin-right: 2rem;
+			justify-content: center;
+			margin-left: 24rem;
+		}
+
+		@include desktop {
+			margin-left: 52rem;
+		}
 	}
 
 	&__icon {
-		background-color: $indigo;
-		width: 2.25rem;
-		height: 2.25rem;
-		border-radius: 20px;
-		object-fit: scale-down;
-		margin-top: 0.25rem;
-		margin-left: 25vw;
-		margin-right: 2vw;
+		width: 15px;
+		height: 15px;
+		display: block;
+		margin: auto;
+		padding: 10px;
+
+		@include tablet {
+			width: 15px;
+			height: 15px;
+			margin: 0;
+			padding: 0;
+		}
 	}
 }
 
@@ -52,6 +109,10 @@
 	z-index: 999;
 	bottom: 1.875rem;
 	color: $cloud;
+
+	@include tablet {
+		bottom: 5.5rem;
+	}
 }
 
 .details {
@@ -60,24 +121,74 @@
 
 	&__item {
 		line-height: 20px;
+
+		@include tablet {
+			width: 40%;
+		}
 	}
 
 	&__label {
 		font-size: 0.688rem;
+
+		@include tablet {
+			margin-top: 1rem;
+		}
 	}
 
 	&__right-container {
 		padding-top: 1rem;
+
+		@include tablet {
+			padding-top: 2rem;
+		}
 	}
 
 	&__mid-container {
 		display: flex;
 		justify-content: space-between;
 		padding-top: 1rem;
+
+		@include tablet {
+			justify-content: flex-end;
+			position: relative;
+			bottom: 11.5rem;
+		}
+
+		@include desktop {
+			left: -6rem;
+		}
 	}
 
 	&__mid-right {
 		padding-right: 6.938rem;
+
+		@include tablet {
+			padding-left: 4rem;
+			padding-right: 4.375rem;
+		}
+	}
+
+	&__vl {
+		display: none;
+
+		@include tablet {
+			display: block;
+			border-right: 1px solid $cloud;
+			height: 14vh;
+			position: absolute;
+			left: 50%;
+			bottom: 8.5rem;
+		}
+
+		@include desktop {
+			height: 15vh;
+		}
+	}
+
+	&__left {
+		@include tablet {
+			text-align: center;
+		}
 	}
 
 	&__status {
@@ -91,5 +202,17 @@
 
 	&__bottom-container {
 		padding-top: 1rem;
+
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			left: 48vw;
+			bottom: 10rem;
+		}
+
+		@include desktop {
+			left: 39vw;
+		}
 	}
 }
