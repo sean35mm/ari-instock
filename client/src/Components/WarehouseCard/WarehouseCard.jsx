@@ -62,11 +62,11 @@ function WarehouseCard(props) {
             />
           </a>
           <a>
-            <img
+            <Link to={`/warehouse/edit/${props.id}`}><img
               className="warehouseList__card-edit-button"
               src={EditIcon}
               alt="Edit Icon"
-            />
+            /></Link>
           </a>
         </div>
       </div>

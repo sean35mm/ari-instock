@@ -1,71 +1,87 @@
-import './WarehouseAdd.scss';
+import '../WarehouseAdd/WarehouseAdd.scss';
 import React from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import backLogo from "../../Assets/Icons/arrow_back-24px.svg"
 
 function WarehouseAdd(props) {
 
     return (
         <>
-            <div className="warehouse-nav">
-                <img class="warehouse-nav__back-button" src={backLogo} alt="button for going back" />
-                <h2 className="warehouse-nav__title">Add New Warehouse</h2>
-            </div>
 
-            <form className="warehouse-form">
-                <div className="warehouse-details">
-                    <h3 className="warehouse-details__title">Warehouse Details</h3>
-
-                    <div className="warehouse-details__input-container">
-                        <div className="warehouse-details__input-subContainer">
-                            <p className="warehouse-details__input-title">Warehouse Name</p>
-                            <input className="warehouse-details__input-area" placeholder="Warehouse Name"></input>
-                        </div>
-
-                        <div className="warehouse-details__input-subContainer">
-                            <p className="warehouse-details__input-title">Street Address</p>
-                            <input className="warehouse-details__input-area" placeholder="Street Address"></input>
-                        </div>
-
-                        <div className="warehouse-details__input-subContainer">
-                            <p className="warehouse-details__input-title">City</p>
-                            <input className="warehouse-details__input-area" placeholder="City"></input>
-                        </div>
-
-                        <div className="warehouse-details__input-subContainer">
-                            <p className="warehouse-details__input-title">Country</p>
-                            <input className="warehouse-details__input-area" placeholder="Country"></input>
-                        </div>
-                    </div>
+            <section className="warehouseAdd">
+                <div className="warehouseAdd__nav">
+                    <Link to="/warehouse"><img class="warehouseAdd__nav-back-button" src={backLogo} alt="button for going back" /></Link>
+                    <h2 className="warehouseAdd__nav-title">Add New Warehouse</h2>
                 </div>
 
-                <div className="contact-details">
-                    <h3 className="contact-details__title">Contact Details</h3>
+                <form className="warehouseAdd__form">
+                    <div className="warehouseAdd__form-container">
 
-                    <div className="contact-details__input-container">
-                        <div className="contact-details__input-subContainer">
-                            <p className="contact-details__input-title">Contact Name</p>
-                            <input className="contact-details__input-area" placeholder="Contact"></input>
+                        <div className="warehouseAdd__form-details">
+                            <h3 className="warehouseAdd__sub-title">Warehouse Details</h3>
+
+                            <div className="warehouseAdd__details-container">
+                                <div className="warehouseAdd__details-subContainer">
+                                    <p className="warehouseAdd__details-title">Warehouse Name</p>
+                                    <input className="warehouseAdd__details-input" placeholder="Warehouse Name"></input>
+                                </div>
+
+                                <div className="warehouseAdd__details-subContainer">
+                                    <p className="warehouseAdd__details-title">Street Address</p>
+                                    <input className="warehouseAdd__details-input" placeholder="Street Address"></input>
+                                </div>
+
+                                <div className="warehouseAdd__details-subContainer">
+                                    <p className="warehouseAdd__details-title">City</p>
+                                    <input className="warehouseAdd__details-input" placeholder="City"></input>
+                                </div>
+
+                                <div className="warehouseAdd__details-subContainer">
+                                    <p className="warehouseAdd__details-title">Country</p>
+                                    <input className="warehouseAdd__details-input" placeholder="Country"></input>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="contact-details__input-subContainer">
-                            <p className="contact-details__input-title">Position</p>
-                            <input className="contact-details__input-area" placeholder="Position"></input>
+                        <div className="warehouseAdd__form-contact">
+                            <h3 className="warehouseAdd__sub-title">Contact Details</h3>
+
+                            <div className="warehouseAdd__details-container">
+                                <div className="warehouseAdd__details-subContainer">
+                                    <p className="warehouseAdd__details-title">Contact Name</p>
+                                    <input className="warehouseAdd__details-input" placeholder="Contact"></input>
+                                </div>
+
+                                <div className="warehouseAdd__details-subContainer">
+                                    <p className="warehouseAdd__details-title">Position</p>
+                                    <input className="warehouseAdd__details-input" placeholder="Position"></input>
+                                </div>
+
+                                <div className="warehouseAdd__details-subContainerr">
+                                    <p className="warehouseAdd__details-title">Phone Number</p>
+                                    <input className="warehouseAdd__details-input" placeholder="Phone Number"></input>
+                                </div>
+
+                                <div className="warehouseAdd__details-subContainer">
+                                    <p className="warehouseAdd__details-title">Email</p>
+                                    <input className="warehouseAdd__details-input" placeholder="Email"></input>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="contact-details__input-subContainer">
-                            <p className="contact-details__input-title">City</p>
-                            <input className="contact-details__input-area" placeholder="Phone Number"></input>
-                        </div>
+                    </div>
 
-                        <div className="contact-details__input-subContainer">
-                            <p className="contact-details__input-title">Country</p>
-                            <input className="contact-details__input-area" placeholder="Email"></input>
+                    <div className="warehouseAdd__buttons">
+                        <div className="warehouseAdd__buttons-subContainer">
+                            <Link to="/warehouse"><button className="warehouseAdd__cancel-button">Cancel</button></Link>
+                            <Link><button className="warehouseAdd__add-button">+ Add Warehouse</button></Link>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
 
+
+            </section>
         </>
     )
 }
