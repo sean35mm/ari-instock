@@ -129,6 +129,7 @@
     &__input-select {
         width: 16px;
         height: 16px;
+        cursor: pointer;
       
     }
 
@@ -198,6 +199,7 @@
 
     &__button-save {
         color: $white;
+        cursor: pointer;
         background-color: $indigo;
         width: 128px;
         border: none;
@@ -221,6 +223,7 @@
 
     &__button-cancel {
         color: $slate;
+        cursor: pointer;
         background-color: $white;
         width: 128px;
         border: 1px solid $cloud;
