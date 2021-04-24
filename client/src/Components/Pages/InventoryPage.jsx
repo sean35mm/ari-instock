@@ -4,6 +4,7 @@ import InventoryEdit from "../InventoryEdit/InventoryEdit";
 import InventoryDetails from "../InventoryDetails/InventoryDetails";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+
 export default class InventoryPage extends Component {
     render() {
       

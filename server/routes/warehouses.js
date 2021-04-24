@@ -34,11 +34,12 @@ router.get('/', (_req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-	const selected = warehouseList.find((item) => item.id === req.params.id);
-	const indexValue = warehouseList.indexOf(selected);
-
+	const indexValue = warehouseList.findIndex(
+		(item) => item.id === req.params.id
+	);
 	warehouseList.splice(indexValue, 1);
-	res.send("item deleted");
+	fs.writeFileSync("./data/warehouses.json", JSON.stringify(warehouseList));
+	res.send(warehouseList);
 });
 
 router.post('/add', (req, res) => {
