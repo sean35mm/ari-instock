@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./InventoryList.scss";
 
-// import InventoryModal from "../Modals/InventoryModal";
+import InventoryModal from "../Modals/InventoryModal";
 
 import searchIcon from "../../Assets/Icons/search-24px.svg";
 import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
@@ -122,11 +122,9 @@ export default function InventoryList({inventoryList}){
                   ACTIONS
                 </h3>
                 <div className="inventory__actions-functions">
-                  <img
-                    src={deleteIcon}
-                    alt="delete icon"
-                    className="inventory__delete"
-                  />
+                  <div className="inventory__delete-modal">
+                    <InventoryModal/>
+                  </div>
                   <Link to={`/inventory/${item.id}/edit`}>
                     <img
                       src={editIcon}

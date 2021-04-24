@@ -32,9 +32,15 @@ let handleDelete = () => {
               );
             }}
           />
+          
+          <Route path="/warehouse/add" render={routeProps => {
+                return <WarehouseAdd
+                       {...routeProps}
+                />}}
+          />
+
           <Route
             path="/warehouse/:id"
-            exact
             render={(routeProps) => {
               return (
                 <WarehouseDetails
@@ -55,11 +61,6 @@ let handleDelete = () => {
 
           <WarehouseModal onDelete={handleDelete}/>
 
-          <Route path="/warehouse/add" render={routeProps => {
-                        return <WarehouseAdd
-                        {...routeProps}
-                        />}}
-                    />
         </Switch>
       </Router>
     </div>

@@ -22,14 +22,51 @@
         margin: 0 130px;
     }
 
+    &__inputs {
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
     &__heading {
         display: flex;
+        align-items: center;
         padding: 32px 1.5rem 16px 1.5rem;
         border-bottom: 1px solid $cloud;
     }
 
+    &__heading-title {
+        position: relative;
+        top: -4px;
+        margin-left: 12px;
+
+        @include tablet {
+            font-size: 32px;
+            line-height: 40px;
+        }
+    }
+
     &__details {
         padding: 1rem 1.5rem;
+        border-bottom: 1px solid $cloud;
+
+        @include tablet {
+            width:50%;
+            border-bottom: unset;
+            border-right: 1px solid $cloud;
+            padding: 0 1.5rem;
+            margin: 1rem 0;
+        }
+    }
+
+    &__details-heading {
+        margin-bottom: 24px;
+
+        @include tablet {
+            font-size: 24px;
+            line-height: 32px;
+        }
     }
 
     &__form-label {
@@ -38,39 +75,114 @@
         font-size: 13px;
         line-height: 20px;
         font-weight: 600;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            font-size: 14px;
+            line-height: 22px;
+        }
     }
 
     &__availability {
         padding: 1rem 1.5rem;
+
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+    &__availability-heading {
+        margin-bottom: 1rem;
+
+        @include tablet {
+            font-size: 24px;
+            line-height: 32px;
+        }
     }
 
     &__description {
         resize: none;
     }
 
+    &__radio-group {
+        margin-bottom: 1rem;
+    }
+
+    &__radio-label {
+        margin-bottom: 4px;
+    }
+
     &__radio-buttons {
         display: flex;
+        align-items: center;
+    }
+
+    &__radio-unactive {
+        color: $slate;
     }
 
     &__radio-button {
         width: 50%;
+        position: relative;
+    }
+
+    &__input-select {
+        width: 16px;
+        height: 16px;
+      
+    }
+
+    &__radio-value {
+        margin-left: 8px;
+        position: relative;
+        top: -3px;
     }
 
     &__text-input {
         font-family: $titillium;
         font-size: 13px;
         line-height: 20px;
+        margin: 4px 0 0 0;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        height: 36px;
+        border: 1px solid $cloud;
+        background-color: $white;
+        border-radius: 20px;
+
+        &:focus {
+            outline: none;
+            border: 1px solid $indigo;
+        }
+    }
+
+    &__description {
+        height: 120px;
     }
 
     &__select-input {
         font-family: $titillium;
         font-size: 13px;
         line-height: 20px;
+        margin: 4px 0 0 0;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        height: 36px;
+        border: 1px solid $cloud;
+        background-color: $white;
+        border-radius: 20px;
         appearance: none;
         background-image: url(../../Assets/Icons/arrow_drop_down-24px.svg);
         background-repeat: no-repeat;
-        background-position-x: 100%;
-        background-position-y: -2px;
+        background-position-x: 97%;
+        background-position-y: 5px;
+
+        &:focus {
+            outline: none;
+            border: 1px solid $indigo;
+        }
     }
 
     &__actions {
@@ -78,5 +190,73 @@
         display: flex;
         justify-content: space-between;
         padding: 1rem 1.5rem;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
+    }
+
+    &__button-save {
+        color: $white;
+        background-color: $indigo;
+        width: 128px;
+        border: none;
+        border-radius: 20px;
+        height: 36px;
+        font-family: $titillium;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 600;  
+
+        &:hover {
+            background-color: $graphite;
+        }
+
+        @include tablet {
+            width: 61px;
+            height: 38px;
+            margin-left: 16px;
+        }
+    }
+
+    &__button-cancel {
+        color: $slate;
+        background-color: $white;
+        width: 128px;
+        border: 1px solid $cloud;
+        border-radius: 20px;
+        height: 36px;
+        font-family: $titillium;
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 600;  
+
+        &:hover {
+            border: 1px solid $indigo;
+            color: $indigo;
+        }
+
+        @include tablet {
+            width: 72px;
+            height: 38px;
+        }
+
+    }
+
+    &__warning {
+        display: flex;
+        position: relative;
+        top: -12px;
+    }
+
+    &__error-icon {
+        height: 16px;
+    }
+
+    &__warning-text {
+        font-size: 12px;
+        line-height: 18px;
+        color: $red;
+        margin: 0 0 0 5px;
     }
 }

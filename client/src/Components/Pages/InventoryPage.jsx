@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InventoryList from "../InventoryList/InventoryList"
 import InventoryEdit from "../InventoryEdit/InventoryEdit";
+import InventoryDetails from "../InventoryDetails/InventoryDetails";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 export default class InventoryPage extends Component {
@@ -18,11 +19,11 @@ export default class InventoryPage extends Component {
                   inventoryList={this.props.inventoryList} 
                   />}}
                 />
-                {/* <Route path="/inventory/:id" exact render={routeProps => {
-                  return <InventoryDetail
+                <Route path="/inventory/:id" exact render={routeProps => {
+                  return <InventoryDetails
                   {...routeProps} 
                   />}}
-                /> */}
+                />
 
                 <Route path="/inventory/:id/edit" render={routeProps => {
                   return <InventoryEdit
