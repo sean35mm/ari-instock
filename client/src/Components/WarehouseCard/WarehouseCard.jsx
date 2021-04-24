@@ -61,7 +61,9 @@ function WarehouseCard(props) {
               alt="Delete Icon"
             />
           </a>
-          <Link to={`/warehouse/${props.id}/edit`}><img
+
+          <a>
+            <Link to={`/warehouse/${props.id}/edit`}><img
               className="warehouseList__card-edit-button"
               src={EditIcon}
               alt="Edit Icon"

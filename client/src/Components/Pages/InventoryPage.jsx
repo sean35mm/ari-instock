@@ -23,6 +23,8 @@ export default class InventoryPage extends Component {
             <Route path="/inventory/add" render={routeProps => {
               return <InventoryAdd
                 {...routeProps}
+                inventorylist={this.props.inventoryList}
+                warehouselist={this.props.warehouseList}
               />
             }}
             />
