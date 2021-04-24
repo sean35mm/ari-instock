@@ -11,7 +11,7 @@ function WarehouseAdd(props) {
 
             <section className="warehouseAdd">
                 <div className="warehouseAdd__nav">
-                    <Link to="/warehouse"><img class="warehouseAdd__nav-back-button" src={backLogo} alt="button for going back" /></Link>
+                    <Link to="/warehouse"><img className="warehouseAdd__nav-back-button" src={backLogo} alt="button for going back" /></Link>
                     <h2 className="warehouseAdd__nav-title">Add New Warehouse</h2>
                 </div>
 

@@ -3,7 +3,6 @@ import WarehouseCard from '../WarehouseCard/WarehouseCard';
 import '../WarehouseList/WarehouseList.scss';
 import SortIcon from '../../Assets/Icons/sort-24px.svg';
 import { Link } from "react-router-dom";
-import axios from 'axios';
 
 
 function WarehouseList(props) {
