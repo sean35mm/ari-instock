@@ -1,6 +1,5 @@
 import './InventoryAdd.scss';
 import React from 'react';
-import axios from 'axios';
 import { Link } from "react-router-dom";
 import backLogo from "../../Assets/Icons/arrow_back-24px.svg";
 import errorIcon from "../../Assets/Icons/error-24px.svg";
@@ -80,6 +79,7 @@ class InventoryAdd extends React.Component {
                         <Link to="/inventory"><img class="inventoryAdd__nav-back-button" src={backLogo} alt="button for going back" /></Link>
                         <h2 className="inventoryAdd__nav-title">Add New Inventory Item</h2>
                     </div>
+
 
                     <form className="inventoryAdd__form" onSubmit={(e) => this.SubmitForm(e)}>
                         <div className="inventoryAdd__form-container">

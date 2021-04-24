@@ -2,8 +2,6 @@ import React from "react";
 import "./Modal.scss";
 import Modal from 'react-awesome-modal';
 import XButton from "../../Assets/Icons/close-24px.svg";
-import axios from 'axios';
-import {Link} from 'react-router-dom';
 import deleteButton from '../../Assets/Icons/delete_outline-24px.svg'
 
 

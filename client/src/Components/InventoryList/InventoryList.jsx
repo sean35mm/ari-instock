@@ -123,7 +123,7 @@ export default function InventoryList({inventoryList}){
                 </h3>
                 <div className="inventory__actions-functions">
                   <div className="inventory__delete-modal">
-                    <InventoryModal/>
+                    {/* <InventoryModal/> */}
                   </div>
                   <Link to={`/inventory/${item.id}/edit`}>
                     <img
