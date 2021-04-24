@@ -1,10 +1,9 @@
 import './InventoryAdd.scss';
 import React from 'react';
-import axios from 'axios';
 import { Link } from "react-router-dom";
 import backLogo from "../../Assets/Icons/arrow_back-24px.svg"
 
-function InventoryAdd(props) {
+function InventoryAdd() {
 
     return (
         <>
