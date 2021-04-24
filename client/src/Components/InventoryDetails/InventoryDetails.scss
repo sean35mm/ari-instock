@@ -1,3 +1,95 @@
-@use '../../Styles/Partials/mixins' as *;
-@use '../../Styles/Partials/typography' as *;
-@use '../../Styles/Partials/variables' as *;
+@import "../../Styles/Partials/mixins";
+@import "../../Styles/Partials/variables";
+@import "../../Styles/Partials/typography";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.inv-details-container {
+	height: 22.813rem;
+	width: 90%;
+	background-color: $white;
+	position: relative;
+	top: -40px;
+	border-radius: 3px;
+	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+	z-index: 2;
+	left: 16px;
+}
+
+.inv-header {
+	display: flex;
+	height: 5.75rem;
+	justify-content: center;
+	padding-top: 1rem;
+
+	&__arrow {
+		width: 1.5rem;
+		height: 1.5rem;
+		margin-top: 0.6rem;
+	}
+
+	&__title {
+		font-size: 1.75rem;
+	}
+
+	&__icon {
+		background-color: $indigo;
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: 20px;
+		object-fit: scale-down;
+		margin-top: 0.25rem;
+		margin-left: 25vw;
+		margin-right: 2vw;
+	}
+}
+
+.details-break {
+	position: relative;
+	z-index: 999;
+	bottom: 1.875rem;
+	color: $cloud;
+}
+
+.details {
+	box-shadow: none;
+	margin-top: 30px;
+
+	&__item {
+		line-height: 20px;
+	}
+
+	&__label {
+		font-size: 0.688rem;
+	}
+
+	&__right-container {
+		padding-top: 1rem;
+	}
+
+	&__mid-container {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 1rem;
+	}
+
+	&__mid-right {
+		padding-right: 6.938rem;
+	}
+
+	&__status {
+		color: $green;
+		background-color: rgba(21, 132, 99, 0.07);
+		border-radius: 20px;
+		width: 15vw;
+		font-size: 0.688rem;
+		text-align: center;
+	}
+
+	&__bottom-container {
+		padding-top: 1rem;
+	}
+}
