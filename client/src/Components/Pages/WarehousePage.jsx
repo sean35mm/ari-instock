@@ -38,11 +38,11 @@ export default function WarehousePage(props) {
               {...routeProps}
             />
           }}
+
           />
 
           <Route
             path="/warehouse/:id"
-            exact
             render={(routeProps) => {
               return (
                 <WarehouseDetails
@@ -54,12 +54,17 @@ export default function WarehousePage(props) {
             }}
           />
 
-          {/* <Route path="/warehouse/:id/edit" render={routeProps => {
-                        return <EditWarehouse
-                            {...routeProps}
-                        />
-                    }}
-                    /> */}
+          <Route
+            path="/warehouse/:id/edit"
+            render={(routeProps) => {
+              return (
+                <EditWarehouse
+                  {...routeProps}
+                  warehouseList={props.warehouseList}
+                />
+              );
+            }}
+          />
 
           <WarehouseModal onDelete={handleDelete} />
 

@@ -86,7 +86,7 @@
 
         &:focus {
             outline: none;
-            border: 2px solid $indigo;
+            border: 1px solid $indigo;
         }
     }
 
@@ -225,6 +225,7 @@
 
     &__name-icon {
         height: 18px;
+        margin-left: 4px;
     }
 
     &__item-category {
@@ -296,10 +297,17 @@
         justify-content: space-between;
     }
 
+    &__delete-modal {
+        cursor: pointer;
+        position: relative;
+    }
+
     &__edit {
 
         @include tablet {
             margin-left: 20px;
+            position: relative;
+            top: 7px;
         }
     }
 }
@@ -334,4 +342,3 @@
         }
     }
 }
-
