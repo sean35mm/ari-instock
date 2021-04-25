@@ -82,7 +82,7 @@ router.post("/add", (req, res) => {
 
 	if (emptyCheck >= 1) {
 		res.status(403).send("Empty Values found");
-	} else if (req.body.quantity <= 0) {
+	} else if (req.body.quantity < 0) {
 		res.status(403).send("Quantity cannot be less than or equal to 0");
 	} else {
 		let warehouseList = fs.readFileSync("./data/warehouses.json");

@@ -6,6 +6,7 @@ import backLogo from "../../Assets/Icons/arrow_back-24px.svg";
 import errorIcon from "../../Assets/Icons/error-24px.svg";
 
 class InventoryAdd extends React.Component {
+
   state = {
     itemcheck: false,
     descriptioncheck: false,
@@ -17,66 +18,112 @@ class InventoryAdd extends React.Component {
     toggle1: true,
     toggle2: false,
     inStock: "In Stock",
+    quantity: 0
   };
 
+  // Supports the future possibility of more categories being added as opposed to a manual list of options
+  CategoryList = [...new Set(this.props.inventorylist.map(item => item.category))];
+
   RadioSwap = (e) => {
+
+    console.log(e.target.value)
     if (e.target.value === "In Stock") {
       this.setState({
         toggle1: true,
         toggle2: false,
         stockcheck: true,
-        inStock: e.target.value,
+        inStock: "In Stock"
       });
     } else {
       this.setState({
         toggle1: false,
         toggle2: true,
         stockcheck: false,
-        inStock: e.target.value,
+        inStock: "Out of Stock"
       });
     }
+
+    console.log(this.state.inStock)
+
   };
+
+
 
   SubmitForm = (e) => {
     e.preventDefault();
     let expressURL = "http://localhost:8080";
     let addInventory = "/inventory/add";
 
-    if (e.target.itemName.value === "") {
-      this.setState({ itemcheck: true });
-    } else if (e.target.description.value === "") {
-      this.setState({ descriptioncheck: true });
-    } else if (e.target.category.value === "") {
-      this.setState({ categorycheck: true });
-    } else if (e.target.quantity.value === "") {
-      this.setState({ quantitycheck: true, quantitycheckVal: false });
-    } else if (e.target.quantity.value <= 0) {
-      this.setState({ quantitycheckVal: true, quantitycheck: false });
-    } else if (e.target.warehouseName.value === "") {
-      this.setState({ warehousecheck: true });
+    if (this.state.inStock === "In Stock") {
+      if (e.target.itemName.value === "") {
+        this.setState({ itemcheck: true });
+      } else if (e.target.description.value === "") {
+        this.setState({ descriptioncheck: true });
+      } else if (e.target.category.value === "") {
+        this.setState({ categorycheck: true });
+      } else if (e.target.quantity.value === "") {
+        this.setState({ quantitycheck: true, quantitycheckVal: false });
+      } else if (e.target.quantity.value < 0) {
+        this.setState({ quantitycheckVal: true, quantitycheck: false });
+      } else if (e.target.warehouseName.value === "") {
+        this.setState({ warehousecheck: true });
+      } else {
+        alert("Item Created");
+
+        this.setState({
+          itemcheck: false,
+          descriptioncheck: false,
+          quantitycheck: false,
+          quantitycheckVal: false,
+          stockcheck: true,
+        });
+
+        axios.post(expressURL + addInventory, {
+          warehouseName: e.target.warehouseName.value,
+          itemName: e.target.itemName.value,
+          description: e.target.description.value,
+          category: e.target.category.value,
+          status: this.state.inStock,
+          quantity: e.target.quantity.value
+        });
+
+        this.props.history.push("/inventory");
+      }
     } else {
-      alert("Item Created");
+      if (e.target.itemName.value === "") {
+        this.setState({ itemcheck: true });
+      } else if (e.target.description.value === "") {
+        this.setState({ descriptioncheck: true });
+      } else if (e.target.category.value === "") {
+        this.setState({ categorycheck: true });
+      } else if (e.target.warehouseName.value === "") {
+        this.setState({ warehousecheck: true });
+      } else {
+        alert("Item Created");
 
-      this.setState({
-        itemcheck: false,
-        descriptioncheck: false,
-        quantitycheck: false,
-        quantitycheckVal: false,
-        stockcheck: true,
-      });
+        this.setState({
+          itemcheck: false,
+          descriptioncheck: false,
+          quantitycheck: false,
+          quantitycheckVal: false,
+          stockcheck: true,
+        });
 
-      axios.post(expressURL + addInventory, {
-        warehouseName: e.target.warehouseName.value,
-        itemName: e.target.itemName.value,
-        description: e.target.description.value,
-        category: e.target.category.value,
-        status: this.state.inStock,
-        quantity: e.target.quantity.value,
-      });
+        axios.post(expressURL + addInventory, {
+          warehouseName: e.target.warehouseName.value,
+          itemName: e.target.itemName.value,
+          description: e.target.description.value,
+          category: e.target.category.value,
+          status: this.state.inStock,
+          quantity: this.state.quantity
+        });
 
-      this.props.history.push("/inventory");
+        this.props.history.push("/inventory");
+      }
     }
   };
+
+
 
   render() {
     return (
@@ -150,13 +197,11 @@ class InventoryAdd extends React.Component {
                       className="inventoryAdd__details-select"
                       name="category"
                     >
-                      <option value="" disabled defaultValue hidden>
-                        Please select
-                      </option>
-                      <option value="Electronics">Electronics</option>
-                      <option value="Gear">Gear</option>
-                      <option value="Apparel">Apparel</option>
-                      <option value="Health">Health</option>
+                      {this.CategoryList.map((category, i) => (
+                        <option key={i} value={category}>
+                          {category}
+                        </option>
+                      ))}
                     </select>
 
                     {this.state.categorycheck && (
@@ -265,14 +310,7 @@ class InventoryAdd extends React.Component {
                       className="inventoryAdd__details-select"
                       name="warehouseName"
                     >
-                      <option value="" disabled defaultValue hidden>
-                        Please select
-                      </option>
-                      {this.props.warehouselist.map((warehouse) => (
-                        <option key={warehouse.id} value={warehouse.name}>
-                          {warehouse.name}
-                        </option>
-                      ))}
+                      {this.props.warehouselist.map(warehouse => <option key={warehouse.id} value={warehouse.name}>{warehouse.name}</option>)}
                     </select>
 
                     {this.state.warehousecheck && (
