@@ -26,6 +26,9 @@ export default function WarehousePage(props) {
             <WarehouseList
               {...routeProps}
               warehouselist={props.warehouseList}
+              warehouseModal={props.warehouseModal}
+              showModal={props.showModal}
+              closeModal={props.closeModal}
             />
           );
         }}
@@ -64,7 +67,6 @@ export default function WarehousePage(props) {
         }}
       />
 
-      {/* <WarehouseModal onDelete={handleDelete} /> */}
     </div>
   );
 }

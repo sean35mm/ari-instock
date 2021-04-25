@@ -55,6 +55,9 @@ function WarehouseList(props) {
                             name={warehouse.contact.name}
                             number={warehouse.contact.phone}
                             email={warehouse.contact.email}
+                            warehouseModal={props.warehouseModal}
+                            showModal={props.showModal}
+                            closeModal={props.closeModal}
                         />)}
                 </div>
 

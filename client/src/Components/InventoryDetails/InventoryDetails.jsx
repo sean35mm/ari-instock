@@ -34,7 +34,9 @@ export default class InventoryDetails extends React.Component {
       <div className="inv-details-container">
         <div className="inv-header">
           <div className="inv-header__left-container">
+            <Link to="/inventory">
             <img className="inv-header__arrow" src={backArrow} alt=""/>
+            </Link>
             <h1 className="inv-header__title">{this.state.inventory.itemName}</h1>
           </div>
           <div className="inv-header__right-container">
