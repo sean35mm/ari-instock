@@ -21,7 +21,6 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        // justify-content: space-around;
 
         @include tablet {
             justify-content: space-around;
@@ -106,6 +105,7 @@
     &-image-container {
         display: flex;
         justify-content: space-between;
+        align-items: baseline;
         width: 90%;
         padding: 1rem 1rem 2rem;
 
