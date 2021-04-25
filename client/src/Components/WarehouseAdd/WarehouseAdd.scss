@@ -112,7 +112,7 @@
         border-radius: 20px;
         height: 36px;
         width: 95%;
-        margin: 0% 0% 5%;
+        margin: 0% 0% 1%;
         text-indent: 20px;
 
         @include desktop {
@@ -144,11 +144,8 @@
         height: 75px;
         background-color: $grey;
         width: 100%;
-    }
-
-    &__buttons {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
 
         @include tablet {
             display: flex;
@@ -160,7 +157,8 @@
         display: flex;
         padding: 1rem 1.3rem 0rem;
         justify-content: space-between;
-        width: 80%;
+        width: 75%;
+        margin: 2% 0% 0% 0%;
 
         @include tablet {
             width: 30%;
@@ -169,7 +167,7 @@
         }
 
         @include desktop {
-            width: 21%;
+            width: 20%;
             padding: 1rem 1.25rem 0rem;
         }
     }
@@ -177,14 +175,14 @@
     &__cancel-button {
         border: 1px solid $cloud;
         background-color: $white;
-        width: 270%;
+        width: 300%;
         height: 35px;
         border-radius: 20px;
         font-family: $titillium;
         font-weight: 600;
 
         @include tablet {
-            width: 150%;
+            width: 200%;
             height: 40px;
         }
     }
@@ -197,20 +195,32 @@
         font-family: $titillium;
         font-weight: 600;
         color: $white;
-        width: 130%;
+        width: 45%;
 
         @include tablet {
-            width: 110%;
+            width: 55%;
             height: 40px;
         }
 
-        @include tablet {
-            width: 120%;
+        @include desktop {
+            width: 55%;
         }
     }
 
-    Link {
-        width: 40%;
+    &__warning {
+        display: flex;
+        align-items: center;
+        height: 20px;
+        margin: 0% 0% 1%;
     }
 
+    &__error-icon {
+        width: 13px;
+        height: 13px;
+        margin: 0% 1.5% 0% 0%;
+    }
+
+    &__warning-text {
+        color: $red;
+    }
 }

@@ -82,8 +82,7 @@ router.post('/add', (req, res) => {
     } else {
         let warehouseList = fs.readFileSync("./data/warehouses.json")
         let warehouseObj = JSON.parse(warehouseList);
-        let whID = warehouseObj.filter(warehouse => warehouse.name === req.body.name).id
-
+        let whID = warehouseObj.filter(warehouse => warehouse.name === req.body.warehouseName)[0].id
 
         let newItem = {
             id: itemID,
@@ -110,26 +109,3 @@ router.post('/add', (req, res) => {
 
 
 module.exports = router;
-
-
-// Ignore -- wrote in advance for my AddForm and AddInventory Pages: 
-
-// Add Warehouse
-
-// let expressURL = "http://localhost:8080"
-// let addInventory = "/inventory/add";
-
-//     let SubmitForm = (e) => {
-//         e.preventDefault();
-//         alert("Item Added");
-//         axios.post(expressURL + addInventory, 
-//             {
-//                 warehouseName: e.target.warehouseName.value,
-//                 itemName: e.target.itemName.value,
-//                 description: e.target.description.value,
-//                 category: e.target.category.value,
-//                 status: e.target.status.value,
-//                 quantity: e.target.quantity.value
-//             })
-//         props.router.history.push("/inventory");
-//     }
