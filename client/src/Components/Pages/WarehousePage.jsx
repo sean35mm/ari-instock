@@ -31,7 +31,7 @@ export default function WarehousePage(props) {
 
       <Route
         exact
-        path="/warehouse/:id"
+        path="/warehouse/warehouse/:id"
         render={(routeProps) => {
           return (
             <WarehouseDetails

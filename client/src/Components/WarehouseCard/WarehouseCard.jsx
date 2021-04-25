@@ -41,7 +41,7 @@ class WarehouseCard extends React.Component {
             <div className="warehouseList__card-sub-container">
               <h3 className="warehouseList__card-title">WAREHOUSE</h3>
               <Link
-                to={`/warehouse/${this.props.id}`}
+                to={`/warehouse/warehouse/${this.props.id}`}
                 className="warehouseList__link"
                 style={{ textDecoration: "none" }}
               >
