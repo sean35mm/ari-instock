@@ -65,6 +65,7 @@ function WarehouseCard(props) {
             src={EditIcon}
             alt="Edit Icon"
           /></Link>
+
         </div>
       </div>
     </>
