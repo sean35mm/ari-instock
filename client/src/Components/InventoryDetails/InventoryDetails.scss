@@ -2,11 +2,6 @@
 @import "../../Styles/Partials/variables";
 @import "../../Styles/Partials/typography";
 
-* {
-	margin: 0;
-	padding: 0;
-}
-
 a {
 	text-decoration: none;
 }
@@ -26,7 +21,7 @@ a {
 .inv-header {
 	display: flex;
 	height: 5.75rem;
-	justify-content: center;
+	justify-content: space-between;
 	padding-top: 1rem;
 	background-color: $white;
 	border-radius: 3px;
@@ -35,9 +30,17 @@ a {
 		height: 5.813rem;
 		position: relative;
 		top: -73px;
-		justify-content: left;
 		padding-left: 2rem;
 		padding-top: 2rem;
+	}
+
+	&__left-container {
+		display: flex;
+		padding-left: 1rem;
+	}
+
+	&__right-container {
+		padding-right: 1rem;
 	}
 
 	&__arrow {
@@ -49,7 +52,15 @@ a {
 
 	&__title {
 		font-size: 1.75rem;
-		margin-left: 0.75rem;
+		padding-left: 0.5rem;
+	}
+
+	&__link {
+		@include tablet {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+		}
 	}
 
 	&__text {
@@ -73,7 +84,6 @@ a {
 		@include tablet {
 			background-color: $indigo;
 			display: flex;
-			flex-direction: row-reverse;
 			align-items: center;
 			width: 81px;
 			height: 38px;
@@ -115,56 +125,64 @@ a {
 	}
 }
 
-.details {
-	box-shadow: none;
-	margin-top: 30px;
+.inv-details {
+	padding-left: 1rem;
 
-	&__item {
-		line-height: 20px;
-
-		@include tablet {
-			width: 40%;
-		}
+	@include tablet {
+		position: relative;
+		top: -55px;
+		display: flex;
+		justify-content: space-between;
 	}
 
 	&__label {
 		font-size: 0.688rem;
-
-		@include tablet {
-			margin-top: 1rem;
-		}
+		color: $slate;
 	}
 
-	&__right-container {
-		padding-top: 1rem;
-
-		@include tablet {
-			padding-top: 2rem;
-		}
+	&__txt {
+		font-size: 0.813rem;
+		line-height: 1.25rem;
 	}
 
-	&__mid-container {
+	&__status-txt {
+		color: $green;
+		font-size: 0.813rem;
+		line-height: 1.25rem;
+		background-color: rgba(21, 132, 99, 0.07);
+		border-radius: 20px;
+		padding: 4px 8px;
+	}
+
+	&__tablet-right {
 		display: flex;
 		justify-content: space-between;
-		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+
+	&__description {
+		padding-bottom: 1rem;
+		padding-right: 1.5rem;
 
 		@include tablet {
-			justify-content: flex-end;
-			position: relative;
-			bottom: 11.5rem;
-		}
-
-		@include desktop {
-			left: -6rem;
+			width: 18.438rem;
 		}
 	}
 
-	&__mid-right {
+	&__left-container {
+		padding-bottom: 1rem;
+
+		@include tablet {
+			padding-left: 1rem;
+		}
+	}
+
+	&__qty {
 		padding-right: 6.938rem;
 
 		@include tablet {
-			padding-left: 4rem;
-			padding-right: 4.375rem;
+			padding-left: 6.063rem;
+			padding-right: 0;
 		}
 	}
 
@@ -174,45 +192,21 @@ a {
 		@include tablet {
 			display: block;
 			border-right: 1px solid $cloud;
-			height: 14vh;
+			height: 9.375rem;
+			width: 1px;
 			position: absolute;
 			left: 50%;
-			bottom: 8.5rem;
+		}
+	}
+
+	&__right-container {
+		@include tablet {
+			padding-left: 0;
+			padding-right: 6.375rem;
 		}
 
 		@include desktop {
-			height: 15vh;
-		}
-	}
-
-	&__left {
-		@include tablet {
-			text-align: center;
-		}
-	}
-
-	&__status {
-		color: $green;
-		background-color: rgba(21, 132, 99, 0.07);
-		border-radius: 20px;
-		width: 15vw;
-		font-size: 0.688rem;
-		text-align: center;
-	}
-
-	&__bottom-container {
-		padding-top: 1rem;
-
-		@include tablet {
-			display: flex;
-			flex-direction: column;
-			position: relative;
-			left: 48vw;
-			bottom: 10rem;
-		}
-
-		@include desktop {
-			left: 39vw;
+			padding-right: 11.313rem;
 		}
 	}
 }
