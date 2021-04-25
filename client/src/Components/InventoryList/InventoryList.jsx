@@ -16,15 +16,19 @@ import InventoryModal from "../Modals/InventoryModal";
 export default class InventoryList extends React.Component {
 
   state = {
-    showModal: false
+    showModal: false,
+    itemID: '',
+    inventoryList: this.props.inventoryList
   }
 
   handleDelete(id) {
     axios.delete(`http://localhost:8080/inventory/${id}`)
     .then(res => {
       this.setState({
-        visible: false
+        showModal: false,
+        inventoryList: res.data
       })
+     console.log(res.data)
     })
     .catch(err => {
       console.log(err);
@@ -32,10 +36,11 @@ export default class InventoryList extends React.Component {
   }
 
 
-  showModal = () => {
-    this.setState(
-      {showModal: true}
-    )
+  showModal = (id) => {
+    this.setState({
+      showModal: true,
+      itemID: id
+    })
   }
   
 
@@ -49,10 +54,9 @@ export default class InventoryList extends React.Component {
 
     let modal = <></>
     if (this.state.showModal) {
-      modal = <InventoryModal handleClose={this.closeModal}/>
+      modal = <InventoryModal handleClose={this.closeModal} delete={() => this.handleDelete(this.state.itemID)}/>
     } 
 
-    const { inventoryList } = this.props; 
     return (
       <div className="inventory">
         <div className="inventory__heading">
@@ -77,7 +81,7 @@ export default class InventoryList extends React.Component {
         </div>
         <div className="inventory__title-background"></div> 
         <ul className="inventory__list">
-          {inventoryList.map((item) => (
+          {this.state.inventoryList.map((item) => (
             <li className="inventory__list-item" key={item.id}>
               <div className="inventory__item-content">
                 <div className="inventory__label-wrap inventory__item-name">
@@ -163,7 +167,7 @@ export default class InventoryList extends React.Component {
                 </h3>
                 <div className="inventory__actions-functions">
                   <div className="inventory__delete-modal">
-                     <img src={deleteIcon} alt="delete icon" onClick={this.showModal} />
+                     <img src={deleteIcon} alt="delete icon" onClick={()=>this.showModal(item.id)} />
                   </div>
                   <Link to={`/inventory/${item.id}/edit`}>
                     <img
