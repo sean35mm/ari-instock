@@ -30,6 +30,7 @@ class EditWarehouse extends React.Component {
 
   handleOnSubmit = (e) => {
     e.preventDefault();
+
     if (
       this.state.warehouseID === "" ||
       this.state.warehouseName === "" ||
@@ -42,6 +43,13 @@ class EditWarehouse extends React.Component {
       this.state.warehouseContactEmail === ""
     ) {
       alert("Please fill in all fields");
+      // } else if (
+      //   !phoneRegex.test(e.target.this.state.warehouseContactPhone.value) === ""
+      // ) {
+
+      // } else if (
+      //   !emailRegex.test(e.target.this.state.warehouseContactEmail) === ""
+      // ) {
     } else {
       axios
         .put(`http://localhost:8080/warehouse/${this.props.match.params.id}`, {
@@ -102,6 +110,9 @@ class EditWarehouse extends React.Component {
   };
 
   render() {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/;
+
     if (!this.state) {
       return <h1>Loading...</h1>;
     }
@@ -138,7 +149,6 @@ class EditWarehouse extends React.Component {
                 <input
                   className="form__input"
                   type="text"
-                  required
                   name="warehouseName"
                   value={this.state.warehouseName}
                   onChange={this.handleNameOnChange}
@@ -157,7 +167,6 @@ class EditWarehouse extends React.Component {
                 <input
                   className="form__input"
                   type="text"
-                  required
                   name="warehouseAddress"
                   value={this.state.warehouseAddress}
                   onChange={this.handleAddressOnChange}
@@ -176,7 +185,6 @@ class EditWarehouse extends React.Component {
                 <input
                   className="form__input"
                   type="text"
-                  required
                   name="warehouseCity"
                   value={this.state.warehouseCity}
                   onChange={this.handleCityOnChange}
@@ -195,7 +203,6 @@ class EditWarehouse extends React.Component {
                 <input
                   className="form__input"
                   type="text"
-                  required
                   name="warehouseCountry"
                   value={this.state.warehouseCountry}
                   onChange={this.handleCountryOnChange}
@@ -223,7 +230,6 @@ class EditWarehouse extends React.Component {
                 <input
                   className="form__input"
                   type="text"
-                  required
                   name="warehouseContactName"
                   value={this.state.warehouseContactName}
                   onChange={this.handleContactNameOnChange}
@@ -241,8 +247,6 @@ class EditWarehouse extends React.Component {
                 <h3 className="form__label">Position</h3>
                 <input
                   className="form__input"
-                  type="text"
-                  required
                   name="warehouseContactPosition"
                   value={this.state.warehouseContactPosition}
                   onChange={this.handleContactPositionOnChange}
@@ -266,14 +270,16 @@ class EditWarehouse extends React.Component {
                   value={this.state.warehouseContactPhone}
                   onChange={this.handleContactPhoneOnChange}
                 />
-                {this.state.warehouseContactPhone === "" && (
+                {!phoneRegex.test(this.state.warehouseContactPhone) === "" && (
                   <div className="form__warning">
                     <img
                       src={errorIcon}
                       alt="error-icon"
                       className="form__error-icon"
                     />
-                    <p className="form__warning-text">This field is required</p>
+                    <p className="form__warning-text">
+                      Please enter a valid phone number
+                    </p>
                   </div>
                 )}
                 <h3 className="form__label">Email</h3>
@@ -285,14 +291,16 @@ class EditWarehouse extends React.Component {
                   value={this.state.warehouseContactEmail}
                   onChange={this.handleContactEmailOnChange}
                 />
-                {this.state.warehouseContactEmail === "" && (
+                {!emailRegex.test(this.warehouseContactEmail) === "" && (
                   <div className="form__warning">
                     <img
                       src={errorIcon}
                       alt="error-icon"
                       className="form__error-icon"
                     />
-                    <p className="form__warning-text">This field is required</p>
+                    <p className="form__warning-text">
+                      Please enter a valid e-mail address
+                    </p>
                   </div>
                 )}
               </label>

@@ -1,25 +1,30 @@
-import React, { Component } from 'react';
-import InventoryList from "../InventoryList/InventoryList"
+import React, { Component } from "react";
+import InventoryList from "../InventoryList/InventoryList";
 import InventoryEdit from "../InventoryEdit/InventoryEdit";
 import InventoryAdd from "../InventoryAdd/InventoryAdd";
 import InventoryDetails from "../InventoryDetails/InventoryDetails";
 import { Route } from "react-router-dom";
 
-
 export default class InventoryPage extends Component {
   render() {
-
-    const warehouseNames = this.props.warehouseList.map((warehouse) => { return { id: warehouse.id, name: warehouse.name } });
+    const warehouseNames = this.props.warehouseList.map((warehouse) => {
+      return { id: warehouse.id, name: warehouse.name };
+    });
     return (
       <div>
-            <Route path="/inventory" exact render={routeProps => {
-              return <InventoryList
+        <Route
+          path="/inventory"
+          exact
+          render={(routeProps) => {
+            return (
+              <InventoryList
                 {...routeProps}
                 inventoryList={this.props.inventoryList}
               />
-            }}
-            />
-
+            );
+          }}
+        />
+        {/* 
             <Route path="/inventory/add" render={routeProps => {
               return <InventoryAdd
                 {...routeProps}
@@ -27,26 +32,25 @@ export default class InventoryPage extends Component {
                 warehouselist={this.props.warehouseList}
               />
             }}
-            />
+            /> */}
 
+        <Route
+          path="/inventory/:id"
+          exact
+          render={(routeProps) => {
+            return <InventoryDetails {...routeProps} />;
+          }}
+        />
 
-            <Route path="/inventory/:id" exact render={routeProps => {
-              return <InventoryDetails
-              {...routeProps} 
-              />}}
-            />
-
-            <Route path="/inventory/:id/edit" render={routeProps => {
-              return <InventoryEdit
-                {...routeProps}
-                warehouseNames={warehouseNames}
-              />
-            }}
-            />
-
-
+        <Route
+          path="/inventory/:id/edit"
+          render={(routeProps) => {
+            return (
+              <InventoryEdit {...routeProps} warehouseNames={warehouseNames} />
+            );
+          }}
+        />
       </div>
-    )
+    );
   }
 }
-
