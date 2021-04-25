@@ -296,6 +296,9 @@
     &__actions-functions {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        position: relative;
+        top: 5px;
     }
 
     &__delete-modal {
@@ -308,7 +311,6 @@
         @include tablet {
             margin-left: 20px;
             position: relative;
-            top: 7px;
         }
     }
 }
@@ -342,4 +344,12 @@
             top: -16px;
         }
     }
+}
+
+.modal-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    
 }
