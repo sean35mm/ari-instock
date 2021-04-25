@@ -4,17 +4,8 @@ import EditWarehouse from "../EditWarehouse/EditWarehouse";
 import WarehouseAdd from "../WarehouseAdd/WarehouseAdd";
 import WarehouseList from "../WarehouseList/WarehouseList";
 import { Route } from "react-router-dom";
-import WarehouseModal from "../Modals/WarehouseModal";
-import axios from "axios";
 
 export default function WarehousePage(props) {
-  let handleDelete = () => {
-    const {
-      match: { params },
-    } = this.props;
-    const warehouseId = params.id;
-    axios.delete(`/warehouse/${warehouseId}`);
-  };
 
   return (
     <div>
@@ -26,9 +17,6 @@ export default function WarehousePage(props) {
             <WarehouseList
               {...routeProps}
               warehouselist={props.warehouseList}
-              warehouseModal={props.warehouseModal}
-              showModal={props.showModal}
-              closeModal={props.closeModal}
             />
           );
         }}

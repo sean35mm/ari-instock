@@ -85,7 +85,7 @@ class InventoryAdd extends React.Component {
           <div className="inventoryAdd__nav">
             <Link to="/inventory">
               <img
-                class="inventoryAdd__nav-back-button"
+                className="inventoryAdd__nav-back-button"
                 src={backLogo}
                 alt="button for going back"
               />
@@ -150,7 +150,7 @@ class InventoryAdd extends React.Component {
                       className="inventoryAdd__details-select"
                       name="category"
                     >
-                      <option value="" disabled selected hidden>
+                      <option value="" disabled defaultValue hidden>
                         Please select
                       </option>
                       <option value="Electronics">Electronics</option>
@@ -193,7 +193,7 @@ class InventoryAdd extends React.Component {
                           checked={this.state.toggle1}
                         ></input>
                         <label
-                          for="inStock"
+                          htmlFor="inStock"
                           className="inventoryAdd__radio-label"
                         >
                           In Stock
@@ -211,7 +211,7 @@ class InventoryAdd extends React.Component {
                           checked={this.state.toggle2}
                         ></input>
                         <label
-                          for="outStock"
+                          htmlFor="outStock"
                           className="inventoryAdd__radio-label"
                         >
                           Out of Stock
@@ -265,7 +265,7 @@ class InventoryAdd extends React.Component {
                       className="inventoryAdd__details-select"
                       name="warehouseName"
                     >
-                      <option value="" disabled selected hidden>
+                      <option value="" disabled defaultValue hidden>
                         Please select
                       </option>
                       {this.props.warehouselist.map((warehouse) => (
