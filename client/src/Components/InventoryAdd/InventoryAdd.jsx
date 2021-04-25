@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import backLogo from "../../Assets/Icons/arrow_back-24px.svg";
 import errorIcon from "../../Assets/Icons/error-24px.svg";
-import axios from 'axios';
 
 class InventoryAdd extends React.Component {
 
@@ -93,9 +92,9 @@ class InventoryAdd extends React.Component {
                                         <p className="inventoryAdd__details-title">Item Name</p>
                                         <input className="inventoryAdd__details-input" name="itemName" placeholder="Item Name"></input>
                                         {this.state.itemcheck &&
-                                            <div className="inventoryAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="inventoryAdd__error-icon" />
-                                                <p className="inventoryAdd__warning-text">This field is required</p>
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">This field is required</p>
                                             </div>}
                                     </div>
 
@@ -103,9 +102,9 @@ class InventoryAdd extends React.Component {
                                         <p className="inventoryAdd__details-title">Description</p>
                                         <textarea className="inventoryAdd__details-textBox" name="description" placeholder="Description"></textarea>
                                         {this.state.descriptioncheck &&
-                                            <div className="inventoryAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="inventoryAdd__error-icon" />
-                                                <p className="inventoryAdd__warning-text">This field is required</p>
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">This field is required</p>
                                             </div>}
                                     </div>
 
@@ -120,9 +119,9 @@ class InventoryAdd extends React.Component {
                                         </select>
 
                                         {this.state.categorycheck &&
-                                            <div className="inventoryAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="inventoryAdd__error-icon" />
-                                                <p className="inventoryAdd__warning-text">This field is required</p>
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">This field is required</p>
                                             </div>}
                                     </div>
                                 </div>
@@ -157,15 +156,15 @@ class InventoryAdd extends React.Component {
                                             </div>}
 
                                         {this.state.quantitycheck &&
-                                            <div className="inventoryAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="inventoryAdd__error-icon" />
-                                                <p className="inventoryAdd__warning-text">This field is required</p>
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">This field is required</p>
                                             </div>}
 
                                         {this.state.quantitycheckVal &&
-                                            <div className="inventoryAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="inventoryAdd__error-icon" />
-                                                <p className="inventoryAdd__warning-text">Quantity cannot be less than 0</p>
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">Quantity cannot be less than 0</p>
                                             </div>}
                                     </div>
 
@@ -179,9 +178,9 @@ class InventoryAdd extends React.Component {
                                         </select>
 
                                         {this.state.warehousecheck &&
-                                            <div className="inventoryAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="inventoryAdd__error-icon" />
-                                                <p className="inventoryAdd__warning-text">This field is required</p>
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">This field is required</p>
                                             </div>}
                                     </div>
                                 </div>
