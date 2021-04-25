@@ -210,9 +210,9 @@ export default class WarehouseDetails extends React.Component {
                       <h4 className="details__status-title">STATUS</h4>
                       <p className="details__in-stock details__out-stock">
                         {item.status === "In Stock" ? (
-                          <p className="details__in-stock">In Stock</p>
+                          <p className="details__in-stock">IN STOCK</p>
                         ) : (
-                          <p className="details__out-stock">Out of Stock</p>
+                          <p className="details__out-stock">OUT OF STOCK</p>
                         )}
                       </p>
                     </div>
