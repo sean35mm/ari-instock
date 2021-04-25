@@ -20,7 +20,7 @@ export default class InventoryModal extends React.Component {
               list. You won't be able to undo this action.
             </p>
             <button className="modal-cancel button" onClick={this.props.handleClose}>Cancel</button>
-            <button className="modal-delete button" onClick={this.props.handleClose}>Delete</button> 
+            <button className="modal-delete button" onClick={this.props.delete}>Delete</button> 
             <div onClick={this.props.closeModal}>
               <img className="modal__x-icon" onClick={this.props.handleClose} src={XButton} alt="x button" />
             </div>
