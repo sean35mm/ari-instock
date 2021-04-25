@@ -1,11 +1,11 @@
 [
     {
         "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
-        "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-        "warehouseName": "Manhattan",
-        "itemName": "Television",
-        "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
-        "category": "Electronics",
+        "warehouseID": "bfc9bea7-66f1-44e9-879b-4d363a888eb4",
+        "warehouseName": "San Fran",
+        "itemName": "QLED TV",
+        "description": "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors. GREAT TV. AMAZING!",
+        "category": "Health",
         "status": "In Stock",
         "quantity": 500
     },
@@ -698,16 +698,5 @@
         "category": "Health",
         "status": "Out of Stock",
         "quantity": 0
-    },
-    {
-        "id": "1494d02a-a447-41b7-b541-41922f29bca5",
-        "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
-        "warehouseName": "Montreal",
-        "itemName": "Soap",
-        "description": "Calgary",
-        "category": "Canada",
-        "status": "In Stock",
-        "quantity": 1
     }
 ]
-
