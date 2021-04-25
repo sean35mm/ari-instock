@@ -15,7 +15,12 @@ a {
 	border-radius: 3px;
 	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
 	z-index: 2;
-	left: 1rem;
+	left: 5vw;
+	margin-bottom: 6.875rem;
+
+	@include tablet {
+		margin-bottom: 36.375rem;
+	}
 }
 
 .inv-header {

@@ -4,6 +4,7 @@ import "../WarehouseCard/WarehouseCard.scss";
 import DeleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
 import EditIcon from "../../Assets/Icons/edit-24px.svg";
 import ChevronIcon from "../../Assets/Icons/chevron_right-24px.svg";
+import WarehouseModal from "../Modals/WarehouseModal"
 
 function WarehouseCard(props) {
   return (
@@ -58,21 +59,13 @@ function WarehouseCard(props) {
         </div>
 
         <div className="warehouseList__card-image-container">
-          <a>
-            <img
-              className="warehouseList__card-edit-button"
-              src={DeleteIcon}
-              alt="Delete Icon"
-            />
-          </a>
-          <a>
-            <Link to={`/warehouse/${props.id}/edit`}><img
-              className="warehouseList__card-edit-button"
-              src={EditIcon}
-              alt="Edit Icon"
-            /></Link>
+          <WarehouseModal />
+          <Link to={`/warehouse/${props.id}/edit`}><img
+            className="warehouseList__card-edit-button"
+            src={EditIcon}
+            alt="Edit Icon"
+          /></Link>
 
-          </a>
         </div>
       </div>
     </>

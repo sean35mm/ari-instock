@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 import "./InventoryList.scss";
 
-import InventoryModal from "../Modals/InventoryModal";
+
 
 import searchIcon from "../../Assets/Icons/search-24px.svg";
 import deleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
@@ -11,8 +11,45 @@ import editIcon from "../../Assets/Icons/edit-24px.svg";
 import chevronIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import sortIcon from "../../Assets/Icons/sort-24px.svg";
 
-export default function InventoryList({inventoryList}){
- 
+import "../Modals/Modal.scss";
+import Modal from 'react-awesome-modal';
+import XButton from "../../Assets/Icons/close-24px.svg";
+
+export default class InventoryList extends React.Component {
+
+  state = {
+    visible: false,
+  };
+
+
+  openModal() {
+    this.setState({
+      visible: true,
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      visible: false,
+    });
+  }
+
+  handleDelete(id) {
+    axios.delete(`http://localhost:8080/inventory/${id}`)
+    .then(res => {
+      this.setState({
+        visible: false
+      })
+    })
+    .catch(err => {
+      console.log(err);
+    })
+
+  }
+
+
+  render () {
+    const { inventoryList } = this.props; 
     return (
       <div className="inventory">
         <div className="inventory__heading">
@@ -123,7 +160,21 @@ export default function InventoryList({inventoryList}){
                 </h3>
                 <div className="inventory__actions-functions">
                   <div className="inventory__delete-modal">
-                    {/* <InventoryModal/> */}
+                    <img src={deleteIcon} alt="delete button" onClick={() => this.openModal()} className="inventory__delete-button"/>
+                    <Modal visible={this.state.visible}>
+                      <div className="delete__modal">
+                        <h1 className="modal__header">Delete this inventory item?</h1>
+                        <p className="modal__text">
+                          Please confirm that you'd like to delete this from the inventory
+                          list. You won't be able to undo this action.
+                        </p>
+                        <button className="modal-cancel button" onClick={() => this.closeModal()}>Cancel</button>
+                        <button className="modal-delete button" onClick={() => this.handleDelete(item.id)}>Delete</button> 
+                        <a href="" onClick={() => this.closeModal()}>
+                          <img className="modal__x-icon" src={XButton} alt="x button" />
+                        </a>
+                      </div>
+                    </Modal>
                   </div>
                   <Link to={`/inventory/${item.id}/edit`}>
                     <img
@@ -140,3 +191,4 @@ export default function InventoryList({inventoryList}){
       </div>
     );
   }
+}

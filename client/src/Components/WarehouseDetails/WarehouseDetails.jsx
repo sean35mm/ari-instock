@@ -8,6 +8,7 @@ import whiteEdit from "../../Assets/Icons/edit_white-24px.svg";
 import chevronIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import sortIcon from "../../Assets/Icons/sort-24px.svg";
 import "./WarehouseDetails.scss";
+import InventoryModal from "../Modals/InventoryModal"
 
 export default class WarehouseDetails extends React.Component {
   state = {
@@ -225,11 +226,7 @@ export default class WarehouseDetails extends React.Component {
                 </div>
 
                 <div className="details__icon-container">
-                  <img
-                    className="details__delete"
-                    src={deleteIcon}
-                    alt="delete-icon"
-                  />
+                  <InventoryModal/>
                   <img
                     className="details__item-edit"
                     src={editIcon}

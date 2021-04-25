@@ -72,7 +72,10 @@ class InventoryEdit extends React.Component {
       this.state.quantity === ""
     ) {
       alert("Please fill in all the required fields !!!");
-    } else {
+    } else if (this.state.quantity < 1) {
+      alert("Quantity should be greater than 0");
+    }
+    else {
       axios
         .put(`http://localhost:8080/inventory/${this.props.match.params.id}`, {
           warehouseID: this.state.warehouseID,

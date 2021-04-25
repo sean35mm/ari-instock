@@ -39,7 +39,7 @@ export default class InventoryDetails extends React.Component {
           </div>
           <div className="inv-header__right-container">
             <div className="inv-header__edit-button">
-              <Link className="inv-header__link" to={`/inventory/editinventory/${this.state.inventory.id}`}>
+              <Link className="inv-header__link" to={`/inventory/${this.state.inventory.id}/edit`}>
               <h3 className="inv-header__text">Edit</h3>
               <img className="inv-header__icon" src={editWhite} alt="edit icon"/> 
               </Link>
