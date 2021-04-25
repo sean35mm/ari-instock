@@ -9,6 +9,11 @@ class EditWarehouse extends React.Component {
     warehouse: {},
   };
 
+  handleOnCancel = (event) => {
+    event.preventDefault();
+    this.props.history.goBack();
+  };
+
   componentDidMount() {
     axios
       .get(`http://localhost:8080/warehouse/${this.props.match.params.id}`)
@@ -123,7 +128,11 @@ class EditWarehouse extends React.Component {
               </label>
             </div>
             <div className="form__button-wrap">
-              <button className="form__cancel" type="cancel">
+              <button
+                onClick={this.handleOnCancel}
+                className="form__cancel"
+                type="cancel"
+              >
                 Cancel
               </button>
               <button className="form__save" type="submit">
