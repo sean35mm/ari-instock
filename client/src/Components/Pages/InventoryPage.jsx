@@ -24,32 +24,33 @@ export default class InventoryPage extends Component {
             );
           }}
         />
-        {/* 
-            <Route path="/inventory/add" render={routeProps => {
-              return <InventoryAdd
-                {...routeProps}
-                inventorylist={this.props.inventoryList}
-                warehouselist={this.props.warehouseList}
-              />
-            }}
-            /> */}
-
-        <Route
-          path="/inventory/:id"
-          exact
-          render={(routeProps) => {
-            return <InventoryDetails {...routeProps} />;
-          }}
+        
+        <Route exact path="/inventory/add"  render={routeProps => {
+          return <InventoryAdd
+            {...routeProps}
+            inventorylist={this.props.inventoryList}
+            warehouselist={this.props.warehouseList}
+          />
+        }}
         />
+
 
         <Route
           path="/inventory/:id/edit"
           render={(routeProps) => {
             return (
               <InventoryEdit {...routeProps} warehouseNames={warehouseNames} />
-            );
-          }}
+              );
+            }}
         />
+
+            <Route
+             exact
+              path="/inventory/item/:id"
+              render={(routeProps) => {
+                return <InventoryDetails {...routeProps} />;
+              }}
+            />
       </div>
     );
   }

@@ -8,8 +8,8 @@ import whiteEdit from "../../Assets/Icons/edit_white-24px.svg";
 import chevronIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import sortIcon from "../../Assets/Icons/sort-24px.svg";
 import "./WarehouseDetails.scss";
-import InventoryModal from "../Modals/InventoryModal"
-import WarehouseModal from "../Modals/WarehouseModal"
+import InventoryModal from "../Modals/InventoryModal";
+import { v4 as uuidv4 } from 'uuid';
 
 export default class WarehouseDetails extends React.Component {
   state = {
@@ -115,7 +115,7 @@ export default class WarehouseDetails extends React.Component {
 
           <article className="details__info">
             <div className="details__address">
-              <h4 className>WAREHOUSE ADDRESS:</h4>
+              <h4 className="details__contact-content">WAREHOUSE ADDRESS:</h4>
               <p>{this.state.warehouse.address},</p>
               <p>
                 {this.state.warehouse.city}, {this.state.warehouse.country}
@@ -124,7 +124,7 @@ export default class WarehouseDetails extends React.Component {
 
             <div className="details__contact">
               <div className="details__contact-name">
-                <h4 classname="details__contact-content">CONTACT NAME:</h4>
+                <h4 className="details__contact-content">CONTACT NAME:</h4>
                 <p className="details__manager">
                   {this.state.warehouse.contact.name}
                 </p>
@@ -168,12 +168,12 @@ export default class WarehouseDetails extends React.Component {
 
           {this.props.inventoryList.map((item) => (
             <>
-              <ul className="details__bp-list" key={item.id}>
+              <ul className="details__bp-list" key={uuidv4()}>
                 <Link
-                  to={`/inventory/${item.id}`}
+                  to={`/inventory/item/${item.id}`}
                   className="details__list-link"
                 >
-                  <li className="details__list-item details__list-item--inventory">
+                  <li key={uuidv4()}className="details__list-item details__list-item--inventory">
                     <h3 className="details__description">
                       {item.itemName}
                       <img
@@ -184,22 +184,22 @@ export default class WarehouseDetails extends React.Component {
                     </h3>
                   </li>
                 </Link>
-                <li className="details__list-item details__list-item--category">
+                <li key={uuidv4()} className="details__list-item details__list-item--category">
                   {item.category}
                 </li>
-                <li className="details__list-item details__list-item--status">
-                  <p className="details__in-stock details__out-stock">
+                <li key={uuidv4()} className="details__list-item details__list-item--status">
+                  <div className="details__in-stock details__out-stock">
                     {item.status === "In Stock" ? (
                       <p className="details__in-stock">IN STOCK</p>
                     ) : (
                       <p className="details__out-stock">OUT OF STOCK</p>
                     )}
-                  </p>
+                  </div>
                 </li>
-                <li className="details__list-item details__list-item--quantity">
+                <li key={uuidv4()} className="details__list-item details__list-item--quantity">
                   {item.quantity}
                 </li>
-                <li className="details__list-item details__list-item--actions">
+                <li key={uuidv4()} className="details__list-item details__list-item--actions">
                   <img src={deleteIcon} alt="delete icon" onClick={this.showModal} />
                   <Link to={`/inventory/${item.id}/edit`}>
                     <img
@@ -241,13 +241,13 @@ export default class WarehouseDetails extends React.Component {
                   <div className="details__stock-container">
                     <div className="details__status-container">
                       <h4 className="details__status-title">STATUS</h4>
-                      <p className="details__in-stock details__out-stock">
+                      <div className="details__in-stock details__out-stock">
                         {item.status === "In Stock" ? (
                           <p className="details__in-stock">IN STOCK</p>
                         ) : (
                           <p className="details__out-stock">OUT OF STOCK</p>
                         )}
-                      </p>
+                      </div>
                     </div>
 
                     <div className="details__quantity-container">

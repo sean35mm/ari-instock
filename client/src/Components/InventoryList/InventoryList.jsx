@@ -90,7 +90,7 @@ export default class InventoryList extends React.Component {
                     />
                   </h3>
                   <Link
-                    to={`/inventory/${item.id}`}
+                    to={`/inventory/item/${item.id}`}
                     className="inventory__link"
                   >
                     <p className="inventory__name">
