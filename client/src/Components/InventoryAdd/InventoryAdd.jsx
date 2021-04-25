@@ -2,6 +2,7 @@ import "./InventoryAdd.scss";
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 import backLogo from "../../Assets/Icons/arrow_back-24px.svg";
 import errorIcon from "../../Assets/Icons/error-24px.svg";
 
@@ -231,82 +232,124 @@ class InventoryAdd extends React.Component {
                         ></input>
                       </div>
                     )}
+                    <form className="inventoryAdd__form" onSubmit={(e) => this.SubmitForm(e)}>
+                        <div className="inventoryAdd__form-container">
+                            <div className="inventoryAdd__form-details">
+                                <h3 className="inventoryAdd__sub-title">Item Details</h3>
 
-                    {this.state.quantitycheck && (
-                      <div className="inventoryAdd__warning">
-                        <img
-                          src={errorIcon}
-                          alt="Error"
-                          className="inventoryAdd__error-icon"
-                        />
-                        <p className="inventoryAdd__warning-text">
-                          This field is required
-                        </p>
-                      </div>
-                    )}
+                                <div className="inventoryeAdd__details-container">
+                                    <div className="inventoryAdd__details-subContainer">
+                                        <p className="inventoryAdd__details-title">Item Name</p>
+                                        <input className="inventoryAdd__details-input" name="itemName" placeholder="Item Name"></input>
+                                        {this.state.itemcheck &&
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">This field is required</p>
+                                            </div>}
+                                    </div>
 
-                    {this.state.quantitycheckVal && (
-                      <div className="inventoryAdd__warning">
-                        <img
-                          src={errorIcon}
-                          alt="Error"
-                          className="inventoryAdd__error-icon"
-                        />
-                        <p className="inventoryAdd__warning-text">
-                          Quantity cannot be less than 0
-                        </p>
-                      </div>
-                    )}
-                  </div>
+                                    <div className="inventoryAdd__details-subContainer">
+                                        <p className="inventoryAdd__details-title">Description</p>
+                                        <textarea className="inventoryAdd__details-textBox" name="description" placeholder="Description"></textarea>
+                                        {this.state.descriptioncheck &&
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">This field is required</p>
+                                            </div>}
+                                    </div>
 
-                  <div className="inventoryAdd__details-subContainer">
-                    <p className="inventoryAdd__details-title">Warehouse</p>
-                    <select
-                      className="inventoryAdd__details-select"
-                      name="warehouseName"
-                    >
-                      <option value="" disabled selected hidden>
-                        Please select
-                      </option>
-                      {this.props.warehouselist.map((warehouse) => (
-                        <option key={warehouse.id} value={warehouse.name}>
-                          {warehouse.name}
-                        </option>
-                      ))}
-                    </select>
+                                    <div className="inventoryAdd__details-subContainer">
+                                        <p className="inventoryAdd__details-title">Category</p>
+                                        <select className="inventoryAdd__details-select" name="category">
+                                            <option value="" disabled selected hidden>Please select</option>
+                                            <option value="Electronics">Electronics</option>
+                                            <option value="Gear">Gear</option>
+                                            <option value="Apparel">Apparel</option>
+                                            <option value="Health">Health</option>
+                                        </select>
 
-                    {this.state.warehousecheck && (
-                      <div className="inventoryAdd__warning">
-                        <img
-                          src={errorIcon}
-                          alt="Error"
-                          className="inventoryAdd__error-icon"
-                        />
-                        <p className="inventoryAdd__warning-text">
-                          This field is required
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
+                                        {this.state.categorycheck &&
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">This field is required</p>
+                                            </div>}
+                                    </div>
+                                </div>
+                            </div>
 
-            <div className="inventoryAdd__buttons">
-              <div className="inventoryAdd__buttons-subContainer">
-                <Link to="/inventory">
-                  <button className="inventoryAdd__cancel-button">
-                    Cancel
-                  </button>
-                </Link>
-                <button className="inventoryAdd__add-button">+ Add Item</button>
-              </div>
-            </div>
-          </form>
-        </section>
-      </>
-    );
-  }
+                            <div className="inventoryAdd__form-availability">
+                                <h3 className="warehouseAdd__sub-title">Item Availability</h3>
+
+                                <div className="inventoryAdd__details-container">
+                                    <div className="inventoryAdd__details-subContainer">
+                                        <p className="inventoryAdd__details-title">Status</p>
+                                        <div className="inventoryAdd__details-subContainer-radio">
+                                            <div className="inventoryAdd__details-subContainer-radioInp">
+                                                <input type="radio" className="inventoryAdd__details-radio" name="inStock" id="inStock" value="In Stock"
+                                                    onChange={(e) => this.RadioSwap(e)} checked={this.state.toggle1}></input>
+                                                <label for="inStock" className="inventoryAdd__radio-label">In Stock</label>
+                                            </div>
+
+                                            <div className="inventoryAdd__details-subContainer-radioInp">
+                                                <input type="radio" className="inventoryAdd__details-radio" name="outStock" id="outStock" value="Out of Stock"
+                                                    onChange={(e) => this.RadioSwap(e)} checked={this.state.toggle2}></input>
+                                                <label for="outStock" className="inventoryAdd__radio-label">Out of Stock</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="inventoryAdd__details-subContainer">
+                                        {this.state.stockcheck &&
+                                            <div className="inventoryAdd__details-quantity">
+                                                <p className="inventoryAdd__details-title">Quantity</p>
+                                                <input className="inventoryAdd__details-input-quantity" name="quantity" placeholder="Amount"></input>
+                                            </div>}
+
+                                        {this.state.quantitycheck &&
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">This field is required</p>
+                                            </div>}
+
+                                        {this.state.quantitycheckVal &&
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">Quantity cannot be less than 0</p>
+                                            </div>}
+                                    </div>
+
+                                    <div className="inventoryAdd__details-subContainer">
+                                        <p className="inventoryAdd__details-title">Warehouse</p>
+                                        <select className="inventoryAdd__details-select" name="warehouseName">
+                                            <option value="" disabled selected hidden>Please select</option>
+                                            {this.props.warehouselist.map(warehouse =>
+                                                <option key={warehouse.id} value={warehouse.name}>{warehouse.name}</option>
+                                            )}
+                                        </select>
+
+                                        {this.state.warehousecheck &&
+                                            <div className="inventoryAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="inventoryAdd__warning-icon" />
+                                                <p className="inventoryAdd__warning-field">This field is required</p>
+                                            </div>}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="inventoryAdd__buttons">
+                            <div className="inventoryAdd__buttons-subContainer">
+                                <Link to="/inventory"><button className="inventoryAdd__cancel-button">Cancel</button></Link>
+                                <button className="inventoryAdd__add-button">+ Add Item</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </section>
+            </>
+        )
+    }
 }
 
 export default InventoryAdd;

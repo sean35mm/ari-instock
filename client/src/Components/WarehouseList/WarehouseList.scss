@@ -78,7 +78,7 @@
         margin: 0% 0% 5%;
 
         @include tablet {
-            margin: 2.75% 0% 0%;
+            margin: 2% 0% 0%;
         }
     }
 
@@ -154,7 +154,16 @@
             background-color: $grey;
             align-items: center;
             justify-content: space-evenly;
-            width: 90%;
+            width: 125%;
+        }
+
+        @include desktop {
+            display: flex;
+            height: 40px;
+            background-color: $grey;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 76%;
         }
     }
 
@@ -163,12 +172,12 @@
 
         @include tablet {
             display: flex;
-            width: 14%;
+            width: 16%;
             margin: 0% 0% 0% 4%;
         }
 
         @include desktop {
-            margin: 0%;
+            margin: 2%;
             width: 7%;
         }
     }
