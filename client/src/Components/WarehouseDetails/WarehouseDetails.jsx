@@ -14,12 +14,14 @@ import { v4 as uuidv4 } from 'uuid';
 export default class WarehouseDetails extends React.Component {
   state = {
     warehouse: {},
-    showModal: false
+    showModal: false,
+    itemID: '',
+    inventoryList: this.props.inventoryList
   };
 
-  showModal = () => {
+  showModal = (id) => {
     this.setState(
-      {showModal: true}
+      {showModal: true, itemID: id}
     )
   }
   
@@ -35,7 +37,8 @@ export default class WarehouseDetails extends React.Component {
     axios.delete(`http://localhost:8080/inventory/${id}`)
     .then(res => {
       this.setState({
-        showModal: false
+        showModal: false,
+        inventoryList: res.data
       })
     })
     .catch(err => {
@@ -62,7 +65,7 @@ export default class WarehouseDetails extends React.Component {
    
     let modal = <></>
     if (this.state.showModal) {
-      modal = <InventoryModal closeModal={this.closeModal} handleDelete={this.handleDelete}/>
+      modal = <InventoryModal closeModal={this.closeModal} delete={() => this.handleDelete(this.state.itemID)}/>
     } 
 
     if (!this.state.warehouse.id) {
@@ -166,7 +169,7 @@ export default class WarehouseDetails extends React.Component {
             </div>
           </nav>
 
-          {this.props.inventoryList.map((item) => (
+          {this.state.inventoryList.map((item) => (
             <>
               <ul className="details__bp-list" key={uuidv4()}>
                 <Link
@@ -200,7 +203,7 @@ export default class WarehouseDetails extends React.Component {
                   {item.quantity}
                 </li>
                 <li key={uuidv4()} className="details__list-item details__list-item--actions">
-                  <img src={deleteIcon} alt="delete icon" onClick={this.showModal} />
+                  <img src={deleteIcon} alt="delete icon" onClick={() => this.showModal(item.id)} />
                   <Link to={`/inventory/${item.id}/edit`}>
                     <img
                       className="details__item-edit"

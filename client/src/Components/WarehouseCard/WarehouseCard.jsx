@@ -5,6 +5,7 @@ import DeleteIcon from "../../Assets/Icons/delete_outline-24px.svg";
 import EditIcon from "../../Assets/Icons/edit-24px.svg";
 import ChevronIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import WarehouseModal from "../Modals/WarehouseModal"
+import axios from "axios";
 
 
 class WarehouseCard extends React.Component {
@@ -26,12 +27,25 @@ class WarehouseCard extends React.Component {
     )
   }
 
+  handleDelete() {
+    axios.delete(`http://localhost:8080/warehouse/${this.props.id}`)
+    .then(res => {
+      this.setState({
+        showModal: false,
+      })
+     console.log(res.data)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+
 
   render() {
 
     let modal = <></>
     if (this.state.showModal) {
-      modal = <WarehouseModal closeModal={this.closeModal} handleDelete={this.handleDelete}/>
+      modal = <WarehouseModal closeModal={this.closeModal} delete={() => this.handleDelete()}/>
     }
 
     return (

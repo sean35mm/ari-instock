@@ -198,13 +198,13 @@ class InventoryEdit extends React.Component {
                     />
                     <label
                       className={`inventory-edit__radio-value 
-                                                ${
-                                                  this.state.status ===
-                                                  "In Stock"
-                                                    ? "inventory-edit__radio-active"
-                                                    : "inventory-edit__radio-unactive"
-                                                }`}
-                    >
+                            ${
+                              this.state.status ===
+                              "In Stock"
+                                ? "inventory-edit__radio-active"
+                                : "inventory-edit__radio-unactive"
+                            }`}
+          >
                       In stock
                     </label>
                   </div>
@@ -218,13 +218,13 @@ class InventoryEdit extends React.Component {
                     />
                     <label
                       className={`inventory-edit__radio-value 
-                                                ${
-                                                  this.state.status ===
-                                                  "Out of Stock"
-                                                    ? "inventory-edit__radio-active"
-                                                    : "inventory-edit__radio-unactive"
-                                                }`}
-                    >
+                            ${
+                              this.state.status ===
+                              "Out of Stock"
+                                ? "inventory-edit__radio-active"
+                                : "inventory-edit__radio-unactive"
+                            }`}
+>
                       Out of stock
                     </label>
                   </div>
