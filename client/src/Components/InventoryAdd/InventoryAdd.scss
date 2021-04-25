@@ -252,7 +252,7 @@
         margin: 2% 0% 0% 0%;
 
         @include tablet {
-            width: 30%;
+            width: 27%;
             padding: 1rem 1rem 0rem;
             margin: 0% 3% 0% 0%;
         }
@@ -266,14 +266,14 @@
     &__cancel-button {
         border: 1px solid $cloud;
         background-color: $white;
-        width: 300%;
+        width: 220%;
         height: 35px;
         border-radius: 20px;
         font-family: $titillium;
         font-weight: 600;
 
         @include tablet {
-            width: 200%;
+            width: 170%;
             height: 40px;
         }
     }
@@ -289,7 +289,7 @@
         width: 50%;
 
         @include tablet {
-            width: 55%;
+            width: 45%;
             height: 40px;
         }
 
