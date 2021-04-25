@@ -59,12 +59,13 @@ function WarehouseCard(props) {
         </div>
 
         <div className="warehouseList__card-image-container">
-            <WarehouseModal/>
-            <Link to={`/warehouse/${props.id}/edit`}><img
-              className="warehouseList__card-edit-button"
-              src={EditIcon}
-              alt="Edit Icon"
-            /></Link>
+          <WarehouseModal />
+          <Link to={`/warehouse/${props.id}/edit`}><img
+            className="warehouseList__card-edit-button"
+            src={EditIcon}
+            alt="Edit Icon"
+          /></Link>
+
         </div>
       </div>
     </>
