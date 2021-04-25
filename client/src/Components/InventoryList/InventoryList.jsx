@@ -11,28 +11,9 @@ import editIcon from "../../Assets/Icons/edit-24px.svg";
 import chevronIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import sortIcon from "../../Assets/Icons/sort-24px.svg";
 
-import "../Modals/Modal.scss";
-import Modal from 'react-awesome-modal';
-import XButton from "../../Assets/Icons/close-24px.svg";
+import InventoryModal from "../Modals/InventoryModal";
 
 export default class InventoryList extends React.Component {
-
-  state = {
-    visible: false,
-  };
-
-
-  openModal() {
-    this.setState({
-      visible: true,
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      visible: false,
-    });
-  }
 
   handleDelete(id) {
     axios.delete(`http://localhost:8080/inventory/${id}`)
@@ -44,7 +25,6 @@ export default class InventoryList extends React.Component {
     .catch(err => {
       console.log(err);
     })
-
   }
 
 
@@ -160,21 +140,7 @@ export default class InventoryList extends React.Component {
                 </h3>
                 <div className="inventory__actions-functions">
                   <div className="inventory__delete-modal">
-                    <img src={deleteIcon} alt="delete button" onClick={() => this.openModal()} className="inventory__delete-button"/>
-                    <Modal visible={this.state.visible}>
-                      <div className="delete__modal">
-                        <h1 className="modal__header">Delete this inventory item?</h1>
-                        <p className="modal__text">
-                          Please confirm that you'd like to delete this from the inventory
-                          list. You won't be able to undo this action.
-                        </p>
-                        <button className="modal-cancel button" onClick={() => this.closeModal()}>Cancel</button>
-                        <button className="modal-delete button" onClick={() => this.handleDelete(item.id)}>Delete</button> 
-                        <a href="" onClick={() => this.closeModal()}>
-                          <img className="modal__x-icon" src={XButton} alt="x button" />
-                        </a>
-                      </div>
-                    </Modal>
+                    <InventoryModal delete={() => this.handleDelete(item.id)} />
                   </div>
                   <Link to={`/inventory/${item.id}/edit`}>
                     <img

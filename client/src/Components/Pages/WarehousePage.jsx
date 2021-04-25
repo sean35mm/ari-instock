@@ -64,7 +64,7 @@ export default function WarehousePage(props) {
         }}
       />
 
-      <WarehouseModal onDelete={handleDelete} />
+      {/* <WarehouseModal onDelete={handleDelete} /> */}
     </div>
   );
 }
