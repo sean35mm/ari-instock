@@ -37,8 +37,13 @@ router.get('/', (_req, res) => {
 
 router.put("/:id", (req, res) => {
     console.log(req.body)
-	const warehouseId = req.params.id;
+	const warehouseId = req.params.id;   
+    let emptyInput = 0
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const phoneRegex = /^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/
 	let i = warehouseList.findIndex((warehouse) => warehouse.id === warehouseId);
+
+    console.log(Object.values(req.body))
 	// Editing warehouse
 	warehouseList[i].name = req.body.name;
 	warehouseList[i].address = req.body.address;
@@ -49,24 +54,37 @@ router.put("/:id", (req, res) => {
     warehouseList[i].contact.phone = req.body.contactPhone;
     warehouseList[i].contact.email = req.body.contactEmail;
 
+    Object.values(req.body).forEach(item => {
+        if (item === "") {
+            return emptyInput += 1
+        }
+    });
+
 	if (
-		req.body.warehouseName === "" ||
-		req.body.warehouseAddress === "" ||
-		req.body.warehouseCity === "" ||
-		req.body.warehouseCountry === "" ||
-		req.body.warehouseContactName === "" ||
-        req.body.warehouseContactPosition === "" ||
-		req.body.warehouseContactPhone === "" ||
-		req.body.warehouseContactEmail === ""
+		req.body.name === "" ||
+		req.body.address === "" ||
+		req.body.city === "" ||
+		req.body.country === "" ||
+		req.body.contactName === "" ||
+        req.body.contactPosition === "" ||
+		req.body.contactPhone === "" ||
+		req.body.contactEmail === ""
 	) {
 		res
 			.status(400)
 			.json({ messages: "All fields are required" });
 	} else if (!warehouseList[i]) {
-		res.status(400).json({ message: "Cannot find Warehouse" });
-	} else {
+		res.status(400).json({ message: "Cannot find Warehouse" });   
+	} else if (emptyInput >= 1) {
+        res.status(403).send("Empty values entered");
+    } else if (!emailRegex.test(req.body.contactEmail)) {
+        res.status(403).send("Please enter a valid e-mail address");
+    } else if (!phoneRegex.test(req.body.contactPhone)) {
+        res.status(403).send("Please enter a valid phone number");
+    } 
+    else {
 		fs.writeFileSync("./data/warehouses.json", JSON.stringify(warehouseList));
-		//Send the updated item to the user
+		//Send updated info
 		res.status(201).json(warehouseList);
 	}
 });
