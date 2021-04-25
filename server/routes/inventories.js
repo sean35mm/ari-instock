@@ -33,6 +33,7 @@ router.put("/:id", (req, res) => {
 	inventoryList[i].status = req.body.status;
 	inventoryList[i].warehouseName = req.body.warehouseName;
 	inventoryList[i].warehouseID = req.body.warehouseID;
+	inventoryList[i].quantity = req.body.quantity;
 
 	if (
 		req.body.itemName === "" ||
