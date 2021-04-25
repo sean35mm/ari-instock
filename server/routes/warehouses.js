@@ -40,7 +40,7 @@ router.put("/:id", (req, res) => {
 	const warehouseId = req.params.id;   
     let emptyInput = 0
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    const phoneRegex = /^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/
+    const phoneRegex = /^(\+\d{1})?[ ]?(\([0-9]{3}\))?[- ]?([0-9]{3})[- ]?([0-9]{4})$/
 	let i = warehouseList.findIndex((warehouse) => warehouse.id === warehouseId);
 
     console.log(Object.values(req.body))

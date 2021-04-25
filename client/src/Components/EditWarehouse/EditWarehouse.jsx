@@ -64,7 +64,7 @@ class EditWarehouse extends React.Component {
         })
         .then((res) => {
           alert("Edit Success");
-          this.props.history.push(`/warehouse/${this.props.match.params.id}`);
+          this.props.history.push(`/warehouse/warehouse/${this.props.match.params.id}`);
         })
         .catch((err) => {
           console.log(err);
@@ -111,7 +111,7 @@ class EditWarehouse extends React.Component {
 
   render() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/;
+    const phoneRegex = /^\(+\d{1}?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$/;
 
     if (!this.state) {
       return <h1>Loading...</h1>;
