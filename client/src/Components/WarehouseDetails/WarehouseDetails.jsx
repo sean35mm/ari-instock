@@ -14,6 +14,18 @@ export default class WarehouseDetails extends React.Component {
   state = {
     warehouse: {},
   };
+  
+  handleDelete(id) {
+    axios.delete(`http://localhost:8080/inventory/${id}`)
+    .then(res => {
+      this.setState({
+        visible: false
+      })
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
 
   componentDidMount() {
     axios
@@ -164,11 +176,7 @@ export default class WarehouseDetails extends React.Component {
                   {item.quantity}
                 </li>
                 <li className="details__list-item details__list-item--actions">
-                  <img
-                    className="details__delete"
-                    src={deleteIcon}
-                    alt="delete-icon"
-                  />
+                  <InventoryModal delete={() => this.handleDelete(item.id)}/>
                   <Link to={`/inventory/${item.id}/edit`}>
                     <img
                       className="details__item-edit"

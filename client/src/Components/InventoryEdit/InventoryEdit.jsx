@@ -87,7 +87,6 @@ class InventoryEdit extends React.Component {
           quantity: this.state.quantity,
         })
         .then((res) => {
-          alert("Successfully Saving Edit !");
           this.props.history.push("/inventory");
         })
         .catch((err) => {
