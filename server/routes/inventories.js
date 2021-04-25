@@ -57,9 +57,13 @@ router.delete("/:id", (req, res) => {
 	const indexValue = inventoryList.findIndex(
 		(item) => item.id === req.params.id
 	);
+	if(!indexValue) {
+		res.status(400).json({message: 'cannot find Item'});
+	} else {
 	inventoryList.splice(indexValue, 1);
 	fs.writeFileSync("./data/inventories.json", JSON.stringify(inventoryList));
 	res.send(inventoryList);
+	}
 });
 
 router.post("/add", (req, res) => {
