@@ -15,6 +15,10 @@ import InventoryModal from "../Modals/InventoryModal";
 
 export default class InventoryList extends React.Component {
 
+  state = {
+    showModal: false
+  }
+
   handleDelete(id) {
     axios.delete(`http://localhost:8080/inventory/${id}`)
     .then(res => {
@@ -28,7 +32,26 @@ export default class InventoryList extends React.Component {
   }
 
 
+  showModal = () => {
+    this.setState(
+      {showModal: true}
+    )
+  }
+  
+
+  closeModal= () => {
+    this.setState(
+      {showModal: false}
+    )
+  }
+
   render () {
+
+    let modal = <></>
+    if (this.state.showModal) {
+      modal = <InventoryModal handleClose={this.closeModal}/>
+    } 
+
     const { inventoryList } = this.props; 
     return (
       <div className="inventory">
@@ -140,7 +163,7 @@ export default class InventoryList extends React.Component {
                 </h3>
                 <div className="inventory__actions-functions">
                   <div className="inventory__delete-modal">
-                    <InventoryModal delete={() => this.handleDelete(item.id)} />
+                     <img src={deleteIcon} alt="delete icon" onClick={this.showModal} />
                   </div>
                   <Link to={`/inventory/${item.id}/edit`}>
                     <img
@@ -154,6 +177,7 @@ export default class InventoryList extends React.Component {
             </li>
           ))}
         </ul>
+          {modal}
       </div>
     );
   }

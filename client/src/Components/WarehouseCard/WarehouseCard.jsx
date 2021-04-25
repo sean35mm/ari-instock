@@ -6,70 +6,98 @@ import EditIcon from "../../Assets/Icons/edit-24px.svg";
 import ChevronIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import WarehouseModal from "../Modals/WarehouseModal"
 
-function WarehouseCard(props) {
-  return (
-    <>
-      <div className="warehouseList__card">
-        <div className="warehouseList__card-text-container">
-          <div className="warehouseList__card-sub-container">
-            <h3 className="warehouseList__card-title">WAREHOUSE</h3>
-            <Link
-              to={`/warehouse/${props.id}`}
-              className="warehouseList__link"
-              style={{ textDecoration: "none" }}
-            >
-              <div className="warehouseList__card-link">
-                <p className="warehouseList__card-content warehouseList__card-location">
-                  {props.city}
-                </p>
-                <img
-                  className="warehouseList__icon"
-                  src={ChevronIcon}
-                  alt="Chevron for going to Warehouse Details"
-                />
-              </div>
-            </Link>
-          </div>
 
-          <div className="warehouseList__card-sub-container">
-            <h3 className="warehouseList__card-title">CONTACT NAME</h3>
-            <p className="warehouseList__card-content warehouseList__card-content-mobile">
-              {props.name}
-            </p>
-            <p className="warehouseList__card-content warehouseList__card-content-tablet">
-              {props.address}
-            </p>
-          </div>
+class WarehouseCard extends React.Component {
 
-          <div className="warehouseList__card-sub-container">
-            <h3 className="warehouseList__card-title">ADDRESS</h3>
-            <p className="warehouseList__card-content warehouseList__card-content-mobile">
-              {props.address}
-            </p>
-            <p className="warehouseList__card-content warehouseList__card-content-tablet">
-              {props.name}
-            </p>
-          </div>
+  state = {
+    showModal: false
+  }
 
-          <div className="warehouseList__card-sub-container">
-            <h3 className="warehouseList__card-title">CONTACT INFORMATION</h3>
-            <p className="warehouseList__card-content">{props.number}</p>
-            <p className="warehouseList__card-content">{props.email}</p>
+  showModal = () => {
+    this.setState(
+      {showModal: true}
+    )
+  }
+  
+
+  closeModal = () => {
+    this.setState(
+      {showModal: false}
+    )
+  }
+
+
+  render() {
+
+    let modal = <></>
+    if (this.state.showModal) {
+      modal = <WarehouseModal closeModal={this.closeModal} handleDelete={this.handleDelete}/>
+    }
+
+    return (
+      <>
+        <div className="warehouseList__card">
+          <div className="warehouseList__card-text-container">
+            <div className="warehouseList__card-sub-container">
+              <h3 className="warehouseList__card-title">WAREHOUSE</h3>
+              <Link
+                to={`/warehouse/${this.props.id}`}
+                className="warehouseList__link"
+                style={{ textDecoration: "none" }}
+              >
+                <div className="warehouseList__card-link">
+                  <p className="warehouseList__card-content warehouseList__card-location">
+                    {this.props.city}
+                  </p>
+                  <img
+                    className="warehouseList__icon"
+                    src={ChevronIcon}
+                    alt="Chevron for going to Warehouse Details"
+                  />
+                </div>
+              </Link>
+            </div>
+  
+            <div className="warehouseList__card-sub-container">
+              <h3 className="warehouseList__card-title">CONTACT NAME</h3>
+              <p className="warehouseList__card-content warehouseList__card-content-mobile">
+                {this.props.name}
+              </p>
+              <p className="warehouseList__card-content warehouseList__card-content-tablet">
+                {this.props.address}
+              </p>
+            </div>
+  
+            <div className="warehouseList__card-sub-container">
+              <h3 className="warehouseList__card-title">ADDRESS</h3>
+              <p className="warehouseList__card-content warehouseList__card-content-mobile">
+                {this.props.address}
+              </p>
+              <p className="warehouseList__card-content warehouseList__card-content-tablet">
+                {this.props.name}
+              </p>
+            </div>
+  
+            <div className="warehouseList__card-sub-container">
+              <h3 className="warehouseList__card-title">CONTACT INFORMATION</h3>
+              <p className="warehouseList__card-content">{this.props.number}</p>
+              <p className="warehouseList__card-content">{this.props.email}</p>
+            </div>
+          </div>
+  
+          <div className="warehouseList__card-image-container">
+            <img src={DeleteIcon} alt="delete icon" onClick={this.showModal}/>
+            <Link to={`/warehouse/${this.props.id}/edit`}><img
+              className="warehouseList__card-edit-button"
+              src={EditIcon}
+              alt="Edit Icon"
+            /></Link>
           </div>
         </div>
-
-        <div className="warehouseList__card-image-container">
-          <WarehouseModal />
-          <Link to={`/warehouse/${props.id}/edit`}><img
-            className="warehouseList__card-edit-button"
-            src={EditIcon}
-            alt="Edit Icon"
-          /></Link>
-
-        </div>
-      </div>
-    </>
-  );
+          {modal}
+      </>
+    );
+  }
 }
 
 export default WarehouseCard;

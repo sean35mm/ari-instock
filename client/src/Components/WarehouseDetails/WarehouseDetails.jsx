@@ -9,17 +9,33 @@ import chevronIcon from "../../Assets/Icons/chevron_right-24px.svg";
 import sortIcon from "../../Assets/Icons/sort-24px.svg";
 import "./WarehouseDetails.scss";
 import InventoryModal from "../Modals/InventoryModal"
+import WarehouseModal from "../Modals/WarehouseModal"
 
 export default class WarehouseDetails extends React.Component {
   state = {
     warehouse: {},
+    showModal: false
   };
+
+  showModal = () => {
+    this.setState(
+      {showModal: true}
+    )
+  }
+  
+
+  closeModal = () => {
+    this.setState(
+      {showModal: false}
+    )
+  }
+  
   
   handleDelete(id) {
     axios.delete(`http://localhost:8080/inventory/${id}`)
     .then(res => {
       this.setState({
-        visible: false
+        showModal: false
       })
     })
     .catch(err => {
@@ -40,7 +56,15 @@ export default class WarehouseDetails extends React.Component {
       });
   }
 
+  
+
   render() {
+   
+    let modal = <></>
+    if (this.state.showModal) {
+      modal = <InventoryModal closeModal={this.closeModal} handleDelete={this.handleDelete}/>
+    } 
+
     if (!this.state.warehouse.id) {
       return <h1>Loading...</h1>;
     }
@@ -176,7 +200,7 @@ export default class WarehouseDetails extends React.Component {
                   {item.quantity}
                 </li>
                 <li className="details__list-item details__list-item--actions">
-                  <InventoryModal delete={() => this.handleDelete(item.id)}/>
+                  <img src={deleteIcon} alt="delete icon" onClick={this.showModal} />
                   <Link to={`/inventory/${item.id}/edit`}>
                     <img
                       className="details__item-edit"
@@ -234,7 +258,7 @@ export default class WarehouseDetails extends React.Component {
                 </div>
 
                 <div className="details__icon-container">
-                  <InventoryModal/>
+                  <img src={deleteIcon} alt="delete icon" onClick={this.showModal} />
                   <img
                     className="details__item-edit"
                     src={editIcon}
@@ -244,6 +268,7 @@ export default class WarehouseDetails extends React.Component {
               </div>
             </>
           ))}
+          {modal}
         </article>
       </section>
     );
