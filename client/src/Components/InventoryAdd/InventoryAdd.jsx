@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import backLogo from "../../Assets/Icons/arrow_back-24px.svg";
 import errorIcon from "../../Assets/Icons/error-24px.svg";
+import axios from 'axios';
 
 class InventoryAdd extends React.Component {
 

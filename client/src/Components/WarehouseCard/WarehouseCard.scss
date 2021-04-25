@@ -27,12 +27,12 @@
             justify-content: space-around;
             flex-wrap: nowrap;
             border-bottom: none;
-            width: 82%;
+            width: 77%;
             
         }
 
         @include desktop {
-            width: 88%;
+            width: 72%;
             justify-content: space-evenly;
         }
     }
@@ -81,7 +81,7 @@
         font-family: $titillium;
 
         @include tablet {
-            width: 100px;
+            width: 110px;
         }
     }
 
@@ -111,7 +111,7 @@
 
         @include tablet {
             padding: 0;
-            width: 18%;
+            width: 80px;
             justify-content: space-evenly;
         }
 
