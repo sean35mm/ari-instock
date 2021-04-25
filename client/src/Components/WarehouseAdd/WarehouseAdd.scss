@@ -207,20 +207,20 @@
         }
     }
 
-    &__warning {
+    &__warning-container {
         display: flex;
         align-items: center;
         height: 20px;
         margin: 0% 0% 1%;
     }
 
-    &__error-icon {
+    &__warning-icon {
         width: 13px;
         height: 13px;
         margin: 0% 1.5% 0% 0%;
     }
 
-    &__warning-text {
+    &__warning-field {
         color: $red;
     }
 }

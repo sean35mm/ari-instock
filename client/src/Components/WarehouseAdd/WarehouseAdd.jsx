@@ -98,9 +98,9 @@ class WarehouseAdd extends React.Component {
                                         <p className="warehouseAdd__details-title">Warehouse Name</p>
                                         <input className="warehouseAdd__details-input" name="warehouseName" placeholder="Warehouse Name"></input>
                                         {this.state.warehousecheck &&
-                                            <div className="warehouseAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="warehouseAdd__error-icon" />
-                                                <p className="warehouseAdd__warning-text">This field is required</p>
+                                            <div className="warehouseAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="warehouseAdd__warning-icon" />
+                                                <p className="warehouseAdd__warning-field">This field is required</p>
                                             </div>}
                                     </div>
 
@@ -108,9 +108,9 @@ class WarehouseAdd extends React.Component {
                                         <p className="warehouseAdd__details-title">Street Address</p>
                                         <input className="warehouseAdd__details-input" name="address" placeholder="Street Address"></input>
                                         {this.state.addresscheck &&
-                                            <div className="warehouseAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="warehouseAdd__error-icon" />
-                                                <p className="warehouseAdd__warning-text">This field is required</p>
+                                            <div className="warehouseAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="warehouseAdd__warning-icon" />
+                                                <p className="warehouseAdd__warning-field">This field is required</p>
                                             </div>}
                                     </div>
 
@@ -118,9 +118,9 @@ class WarehouseAdd extends React.Component {
                                         <p className="warehouseAdd__details-title">City</p>
                                         <input className="warehouseAdd__details-input" name="city" placeholder="City"></input>
                                         {this.state.citycheck &&
-                                            <div className="warehouseAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="warehouseAdd__error-icon" />
-                                                <p className="warehouseAdd__warning-text">This field is required</p>
+                                            <div className="warehouseAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="warehouseAdd__warning-icon" />
+                                                <p className="warehouseAdd__warning-field">This field is required</p>
                                             </div>}
                                     </div>
 
@@ -128,9 +128,9 @@ class WarehouseAdd extends React.Component {
                                         <p className="warehouseAdd__details-title">Country</p>
                                         <input className="warehouseAdd__details-input" name="country" placeholder="Country"></input>
                                         {this.state.countrycheck &&
-                                            <div className="warehouseAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="warehouseAdd__error-icon" />
-                                                <p className="warehouseAdd__warning-text">This field is required</p>
+                                            <div className="warehouseAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="warehouseAdd__warning-icon" />
+                                                <p className="warehouseAdd__warning-field">This field is required</p>
                                             </div>}
                                     </div>
                                 </div>
@@ -144,9 +144,9 @@ class WarehouseAdd extends React.Component {
                                         <p className="warehouseAdd__details-title">Contact Name</p>
                                         <input className="warehouseAdd__details-input" name="contactName" placeholder="Contact"></input>
                                         {this.state.namecheck &&
-                                            <div className="warehouseAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="warehouseAdd__error-icon" />
-                                                <p className="warehouseAdd__warning-text">This field is required</p>
+                                            <div className="warehouseAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="warehouseAdd__warning-icon" />
+                                                <p className="warehouseAdd__warning-field">This field is required</p>
                                             </div>}
                                     </div>
 
@@ -154,9 +154,9 @@ class WarehouseAdd extends React.Component {
                                         <p className="warehouseAdd__details-title">Position</p>
                                         <input className="warehouseAdd__details-input" name="contactPosition" placeholder="Position"></input>
                                         {this.state.positioncheck &&
-                                            <div className="warehouseAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="warehouseAdd__error-icon" />
-                                                <p className="warehouseAdd__warning-text">This field is required</p>
+                                            <div className="warehouseAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="warehouseAdd__warning-icon" />
+                                                <p className="warehouseAdd__warning-field">This field is required</p>
                                             </div>}
                                     </div>
 
@@ -164,15 +164,15 @@ class WarehouseAdd extends React.Component {
                                         <p className="warehouseAdd__details-title">Phone Number</p>
                                         <input className="warehouseAdd__details-input" name="contactNumber" placeholder="Phone Number"></input>
                                         {this.state.numbercheck &&
-                                            <div className="warehouseAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="warehouseAdd__error-icon" />
-                                                <p className="warehouseAdd__warning-text">This field is required</p>
+                                            <div className="warehouseAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="warehouseAdd__warning-icon" />
+                                                <p className="warehouseAdd__warning-field">This field is required</p>
                                             </div>}
 
                                         {this.state.numbercheckStr &&
-                                            <div className="warehouseAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="warehouseAdd__error-icon" />
-                                                <p className="warehouseAdd__warning-text">Valid Phone Number Required</p>
+                                            <div className="warehouseAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="warehouseAdd__warning-icon" />
+                                                <p className="warehouseAdd__warning-field">Valid Phone Number Required</p>
                                             </div>}
                                     </div>
 
@@ -180,15 +180,15 @@ class WarehouseAdd extends React.Component {
                                         <p className="warehouseAdd__details-title">Email</p>
                                         <input className="warehouseAdd__details-input" name="contactEmail" placeholder="Email"></input>
                                         {this.state.emailcheck &&
-                                            <div className="warehouseAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="warehouseAdd__error-icon" />
-                                                <p className="warehouseAdd__warning-text">This field is required</p>
+                                            <div className="warehouseAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="warehouseAdd__warning-icon" />
+                                                <p className="warehouseAdd__warning-field">This field is required</p>
                                             </div>}
 
                                         {this.state.emailcheckStr &&
-                                            <div className="warehouseAdd__warning">
-                                                <img src={errorIcon} alt="Error" className="warehouseAdd__error-icon" />
-                                                <p className="warehouseAdd__warning-text">Valid E-mail Required</p>
+                                            <div className="warehouseAdd__warning-container">
+                                                <img src={errorIcon} alt="Error" className="warehouseAdd__warning-icon" />
+                                                <p className="warehouseAdd__warning-field">Valid E-mail Required</p>
                                             </div>}
                                     </div>
                                 </div>

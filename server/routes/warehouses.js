@@ -7,39 +7,77 @@ router.use(express.json());
 
 let warehouseList = [];
 fs.readFile("./data/warehouses.json", "utf8", (err, data) => {
-	err ? console.info(err) : (warehouseList = JSON.parse(data));
+    err ? console.info(err) : (warehouseList = JSON.parse(data));
 });
 
 router.use(function requestLog(req, res, next) {
-	console.log("Time: ", Date.now());
-	next();
+    console.log("Time: ", Date.now());
+    next();
 });
 
 router.get("/", (req, res) => {
-	res.status(200).json(warehouseList);
+    res.status(200).json(warehouseList);
 });
 
 router.get("/:id", (req, res) => {
-	const warehouseId = req.params.id;
-	const warehouseItem = warehouseList.find((item) => item.id === warehouseId);
-	res.status(200).json(warehouseItem);
+    const warehouseId = req.params.id;
+    const warehouseItem = warehouseList.find((item) => item.id === warehouseId);
+    res.status(200).json(warehouseItem);
 });
 
 router.get('/', (_req, res) => {
     let warehouseList = fs.readFileSync("./data/warehouses.json")
     let parsedWarehouseList = JSON.parse(warehouseList)
-    compressedWarehouseList = parsedWarehouseList.map(warehouse => ({ id: warehouse.id, city: warehouse.name, address: warehouse.address + ',' + warehouse.city + ','
-    + warehouse.country, contactName: warehouse.contact.name, contactNumber: warehouse.contact.phone, contactEmail: warehouse.contact.email}))
+    compressedWarehouseList = parsedWarehouseList.map(warehouse => ({
+        id: warehouse.id, city: warehouse.name, address: warehouse.address + ',' + warehouse.city + ','
+            + warehouse.country, contactName: warehouse.contact.name, contactNumber: warehouse.contact.phone, contactEmail: warehouse.contact.email
+    }))
     res.status(200).send(JSON.stringify(parsedWarehouseList));
 });
 
+router.put("/:id", (req, res) => {
+    console.log(req.body)
+	const warehouseId = req.params.id;
+	let i = warehouseList.findIndex((warehouse) => warehouse.id === warehouseId);
+	// Editing warehouse
+	warehouseList[i].name = req.body.name;
+	warehouseList[i].address = req.body.address;
+	warehouseList[i].city = req.body.city;
+	warehouseList[i].country = req.body.country;
+	warehouseList[i].contact.name = req.body.contactName;
+    warehouseList[i].contact.position = req.body.contactPosition;
+    warehouseList[i].contact.phone = req.body.contactPhone;
+    warehouseList[i].contact.email = req.body.contactEmail;
+
+	if (
+		req.body.warehouseName === "" ||
+		req.body.warehouseAddress === "" ||
+		req.body.warehouseCity === "" ||
+		req.body.warehouseCountry === "" ||
+		req.body.warehouseContactName === "" ||
+        req.body.warehouseContactPosition === "" ||
+		req.body.warehouseContactPhone === "" ||
+		req.body.warehouseContactEmail === ""
+	) {
+		res
+			.status(400)
+			.json({ messages: "All fields are required" });
+	} else if (!warehouseList[i]) {
+		res.status(400).json({ message: "Cannot find Warehouse" });
+	} else {
+		fs.writeFileSync("./data/warehouses.json", JSON.stringify(warehouseList));
+		//Send the updated item to the user
+		res.status(201).json(warehouseList);
+	}
+});
+
 router.delete("/:id", (req, res) => {
-	const indexValue = warehouseList.findIndex(
-		(item) => item.id === req.params.id
-	);
-	warehouseList.splice(indexValue, 1);
-	fs.writeFileSync("./data/warehouses.json", JSON.stringify(warehouseList));
-	res.send(warehouseList);
+    const indexValue = warehouseList.findIndex(
+        (item) => item.id === req.params.id
+    );
+    warehouseList.splice(indexValue, 1);
+    fs.writeFileSync("./data/warehouses.json", JSON.stringify(warehouseList));
+    res.send(warehouseList);
 });
 
 router.post('/add', (req, res) => {
@@ -92,29 +130,4 @@ router.post('/add', (req, res) => {
 })
 
 module.exports = router;
-
-// Ignore -- wrote in advance for my AddForm and AddInventory Pages: 
-
-// Add Warehouse
-
-// let expressURL = "http://localhost:8080"
-// let addwarehouse = "/warehouse/add";
-
-    // let SubmitForm = (e) => {
-    //     e.preventDefault();
-    //     alert("Warehouse Added");
-    //     axios.post(expressURL + addwarehouse, 
-    //         {
-    //             name: e.target.warehouseName.value,
-    //             address: e.target.address.value,
-    //             city: e.target.city.value,
-    //             country: e.target.country.value,
-    //             contactName: e.target.contactName.value,
-    //             position: e.target.contactPosition.value,
-    //             phone: e.target.contactNumber.value,
-    //             email: e.target.contactEmail.value
-    //         }
-    //         })
-    //     props.router.history.push("/warehouse");
-    // }
 
