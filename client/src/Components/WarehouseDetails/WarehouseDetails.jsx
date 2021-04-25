@@ -47,7 +47,10 @@ export default class WarehouseDetails extends React.Component {
                 </Link>
                 {this.state.warehouse.name}
               </h1>
-              <Link to={`/warehouse/${this.state.warehouse.id}/edit}`}>
+              <Link
+                to={`/warehouse/${this.state.warehouse.id}/edit}`}
+                className="details__edit-link"
+              >
                 <img
                   className="details__edit-icon"
                   src={whiteEdit}
@@ -56,7 +59,10 @@ export default class WarehouseDetails extends React.Component {
               </Link>
             </div>
 
-            <Link to={`/warehouse/${this.state.warehouse.id}/edit`}>
+            <Link
+              to={`/warehouse/${this.state.warehouse.id}/edit`}
+              className="details__edit-link"
+            >
               <div className="details__edit-button">
                 <h3 className="details__button-text">
                   <img
@@ -132,7 +138,7 @@ export default class WarehouseDetails extends React.Component {
                 >
                   <li className="details__list-item details__list-item--inventory">
                     <h3 className="details__description">
-                      {item.itemName}{" "}
+                      {item.itemName}
                       <img
                         className="details__chevron"
                         src={chevronIcon}
@@ -147,9 +153,9 @@ export default class WarehouseDetails extends React.Component {
                 <li className="details__list-item details__list-item--status">
                   <p className="details__in-stock details__out-stock">
                     {item.status === "In Stock" ? (
-                      <p className="details__in-stock">In Stock</p>
+                      <p className="details__in-stock">IN STOCK</p>
                     ) : (
-                      <p className="details__out-stock">Out of Stock</p>
+                      <p className="details__out-stock">OUT OF STOCK</p>
                     )}
                   </p>
                 </li>
@@ -162,11 +168,13 @@ export default class WarehouseDetails extends React.Component {
                     src={deleteIcon}
                     alt="delete-icon"
                   />
-                  <img
-                    className="details__item-edit"
-                    src={editIcon}
-                    alt="edit-icon"
-                  />
+                  <Link to={`/inventory/${item.id}/edit`}>
+                    <img
+                      className="details__item-edit"
+                      src={editIcon}
+                      alt="edit-icon"
+                    />
+                  </Link>
                 </li>
               </ul>
 
@@ -202,9 +210,9 @@ export default class WarehouseDetails extends React.Component {
                       <h4 className="details__status-title">STATUS</h4>
                       <p className="details__in-stock details__out-stock">
                         {item.status === "In Stock" ? (
-                          <p className="details__in-stock">In Stock</p>
+                          <p className="details__in-stock">IN STOCK</p>
                         ) : (
-                          <p className="details__out-stock">Out of Stock</p>
+                          <p className="details__out-stock">OUT OF STOCK</p>
                         )}
                       </p>
                     </div>

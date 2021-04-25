@@ -28,7 +28,7 @@ p {
   z-index: 2;
 
   @include tablet {
-    top: -94px;
+    top: -123px;
     margin: 0 2rem;
   }
 
@@ -84,6 +84,10 @@ p {
     @include tablet {
       display: none;
     }
+  }
+
+  &__edit-link {
+    text-decoration: none;
   }
 
   &__edit-button {
@@ -268,6 +272,7 @@ p {
 
   &__list-link {
     display: flex;
+    text-decoration: none;
   }
 
   &__navbar-item {

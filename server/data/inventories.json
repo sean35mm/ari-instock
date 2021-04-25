@@ -678,5 +678,35 @@
         "category": "Apparel",
         "status": "Out of Stock",
         "quantity": 0
+    },
+    {
+        "id": "4040cfae-39bb-403b-80fa-b770642800b6",
+        "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+        "warehouseName": "Montreal",
+        "itemName": "Watch",
+        "description": "Crafted from premium materials including a full-grain leather strap and a stainless steel case, this watch features swiss movement and is waterproof up to 5 ATM.",
+        "category": "Accessories",
+        "status": "Out of Stock",
+        "quantity": 0
+    },
+    {
+        "id": "853bcd65-b0b3-4f9c-844f-8b4133d7df6f",
+        "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+        "warehouseName": "Montreal",
+        "itemName": "Soap",
+        "description": "Organic and hypoallergenic, this soap is safe to use for all skin types.",
+        "category": "Health",
+        "status": "Out of Stock",
+        "quantity": 0
+    },
+    {
+        "id": "1494d02a-a447-41b7-b541-41922f29bca5",
+        "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+        "warehouseName": "Montreal",
+        "itemName": "Soap",
+        "description": "Calgary",
+        "category": "Canada",
+        "status": "In Stock",
+        "quantity": 1
     }
 ]

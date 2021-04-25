@@ -143,6 +143,10 @@ p {
     border-radius: 20px;
     margin-bottom: 1rem;
     outline: none;
+
+    &:focus {
+      border-color: $indigo;
+    }
   }
 
   &__button-wrap {
@@ -191,5 +195,22 @@ p {
         margin-right: 0;
       }
     }
+  }
+
+  &__warning {
+    display: flex;
+    position: relative;
+    top: -12px;
+  }
+
+  &__error-icon {
+    height: 16px;
+  }
+
+  &__warning-text {
+    font-size: 12px;
+    line-height: 18px;
+    color: $red;
+    margin: 0 0 0 5px;
   }
 }

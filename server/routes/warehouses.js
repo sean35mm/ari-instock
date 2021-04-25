@@ -35,6 +35,42 @@ router.get('/', (_req, res) => {
     res.status(200).send(JSON.stringify(parsedWarehouseList));
 });
 
+router.put("/:id", (req, res) => {
+    console.log(req.body)
+	const warehouseId = req.params.id;
+	let i = warehouseList.findIndex((warehouse) => warehouse.id === warehouseId);
+	// Editing warehouse
+	warehouseList[i].name = req.body.name;
+	warehouseList[i].address = req.body.address;
+	warehouseList[i].city = req.body.city;
+	warehouseList[i].country = req.body.country;
+	warehouseList[i].contact.name = req.body.contactName;
+    warehouseList[i].contact.position = req.body.contactPosition;
+    warehouseList[i].contact.phone = req.body.contactPhone;
+    warehouseList[i].contact.email = req.body.contactEmail;
+
+	if (
+		req.body.warehouseName === "" ||
+		req.body.warehouseAddress === "" ||
+		req.body.warehouseCity === "" ||
+		req.body.warehouseCountry === "" ||
+		req.body.warehouseContactName === "" ||
+        req.body.warehouseContactPosition === "" ||
+		req.body.warehouseContactPhone === "" ||
+		req.body.warehouseContactEmail === ""
+	) {
+		res
+			.status(400)
+			.json({ messages: "All fields are required" });
+	} else if (!warehouseList[i]) {
+		res.status(400).json({ message: "Cannot find Warehouse" });
+	} else {
+		fs.writeFileSync("./data/warehouses.json", JSON.stringify(warehouseList));
+		//Send the updated item to the user
+		res.status(201).json(warehouseList);
+	}
+});
+
 router.delete("/:id", (req, res) => {
     const indexValue = warehouseList.findIndex(
         (item) => item.id === req.params.id
