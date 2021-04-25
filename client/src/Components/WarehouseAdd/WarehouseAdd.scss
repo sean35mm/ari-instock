@@ -1,0 +1,226 @@
+@use '../../Styles/Partials/mixins' as *;
+@use '../../Styles/Partials/typography' as *;
+@use '../../Styles/Partials/variables' as *;
+
+.body {
+    background-color: #D1D1D1;
+    
+}
+
+.warehouseAdd {
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    width: 91%;
+    margin: 1rem;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    position: relative;
+    left: 0%;
+    right: 0;
+    top: -40px;
+
+    @include tablet {
+        top: -105px;
+        left: 2%;
+    }
+
+    @include desktop {
+        width: 77%;
+        left: 9%;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 1.25rem 1.25rem 1rem;
+        border-bottom: 1px solid $cloud;
+        margin: 0% 0% 5%;
+        box-sizing: border-box;
+
+        @include desktop {
+            margin: 0% 0% 2%;
+        }
+    }
+
+    &__nav-back-button {
+        width: 25px;
+        height: 25px;
+        margin: 0% 3% 0% 0%;
+    }
+
+    &__nav-title {
+        font-size: 1.7rem;
+        font-weight: 600;
+        margin: 0% 0% 0% 4%;
+
+        @include tablet {
+            font-size: 2rem;
+        }
+    }
+
+    &__form-container {
+        @include tablet {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    }
+
+    &__form-details {
+        padding: 0rem 0rem 0.85rem;
+        border-bottom: 1px solid $cloud;
+        margin: 0% 0% 4%;
+
+        @include tablet {
+            width: 48%;
+            border-bottom: none;
+            border-right: 1px solid $cloud;
+        }
+
+        @include desktop {
+            width: 50%;
+            margin: 0% 0% 2%;
+        }
+    }
+
+    &__sub-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        padding: 0rem 1.25rem 1.25rem;
+
+        @include desktop {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__details-container {
+        padding: 0rem 1.25rem 0rem;
+    }
+
+    &__details-title {
+        font-size: 0.85rem;
+        font-family: $titillium;
+        font-weight: 600;
+        margin: 0% 0% 2%;
+    }
+
+    &__details-input {
+        border: 1px solid $cloud;
+        box-sizing: border-box;
+        border-radius: 20px;
+        height: 36px;
+        width: 95%;
+        margin: 0% 0% 1%;
+        text-indent: 20px;
+
+        @include desktop {
+            width: 88%;
+        }
+    }
+
+    &__details-input:focus::placeholder {
+        color: transparent;
+    }
+
+    &__form-contact {
+        padding: 0rem 0rem 0.85rem;
+        margin: 0% 0% 4%;
+
+        @include tablet {
+            width: 52%;
+            border-bottom: none;
+        }
+
+        @include desktop {
+            width: 50%;
+            margin: 0% 0% 2%;
+        }
+    }
+
+    &__buttons {
+        margin: 0% 0% 0%;
+        height: 75px;
+        background-color: $grey;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        @include tablet {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    &__buttons-subContainer {
+        display: flex;
+        padding: 1rem 1.3rem 0rem;
+        justify-content: space-between;
+        width: 75%;
+        margin: 2% 0% 0% 0%;
+
+        @include tablet {
+            width: 30%;
+            padding: 1rem 1rem 0rem;
+            margin: 0% 3% 0% 0%;
+        }
+
+        @include desktop {
+            width: 20%;
+            padding: 1rem 1.25rem 0rem;
+        }
+    }
+
+    &__cancel-button {
+        border: 1px solid $cloud;
+        background-color: $white;
+        width: 300%;
+        height: 35px;
+        border-radius: 20px;
+        font-family: $titillium;
+        font-weight: 600;
+
+        @include tablet {
+            width: 200%;
+            height: 40px;
+        }
+    }
+
+    &__add-button {
+        border: none;
+        background-color: $indigo;
+        height: 35px;
+        border-radius: 20px;
+        font-family: $titillium;
+        font-weight: 600;
+        color: $white;
+        width: 45%;
+
+        @include tablet {
+            width: 55%;
+            height: 40px;
+        }
+
+        @include desktop {
+            width: 55%;
+        }
+    }
+
+    &__warning {
+        display: flex;
+        align-items: center;
+        height: 20px;
+        margin: 0% 0% 1%;
+    }
+
+    &__error-icon {
+        width: 13px;
+        height: 13px;
+        margin: 0% 1.5% 0% 0%;
+    }
+
+    &__warning-text {
+        color: $red;
+    }
+}

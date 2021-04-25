@@ -2,7 +2,7 @@ import React from "react";
 import "./Styles/global.scss";
 import WarehousePage from "./Components/Pages/WarehousePage";
 import InventoryPage from "./Components/Pages/InventoryPage";
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import axios from "axios";

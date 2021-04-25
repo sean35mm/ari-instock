@@ -698,5 +698,15 @@
     "category": "Health",
     "status": "Out of Stock",
     "quantity": 0
+  },
+  {
+    "id": "1494d02a-a447-41b7-b541-41922f29bca5",
+    "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+    "warehouseName": "Montreal",
+    "itemName": "Soap",
+    "description": "Calgary",
+    "category": "Canada",
+    "status": "In Stock",
+    "quantity": 1
   }
 ]
