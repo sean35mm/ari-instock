@@ -33,14 +33,18 @@ export default class InventoryDetails extends React.Component {
     return(
       <div className="inv-details-container">
         <div className="inv-header">
-              <img className="inv-header__arrow" src={backArrow} alt=""/>
-              <h1 className="inv-header__title">{this.state.inventory.itemName}</h1>
-              <Link to={`/inventory/editinventory/${this.state.inventory.id}`}>
-              <div className="inv-header__edit-button">
-                <h3 className="inv-header__text">Edit</h3>
-                <img className="inv-header__icon" src={editWhite} alt="edit icon"/> 
-              </div>             
+          <div className="inv-header__left-container">
+            <img className="inv-header__arrow" src={backArrow} alt=""/>
+            <h1 className="inv-header__title">{this.state.inventory.itemName}</h1>
+          </div>
+          <div className="inv-header__right-container">
+            <div className="inv-header__edit-button">
+              <Link className="inv-header__link" to={`/inventory/editinventory/${this.state.inventory.id}`}>
+              <h3 className="inv-header__text">Edit</h3>
+              <img className="inv-header__icon" src={editWhite} alt="edit icon"/> 
               </Link>
+            </div>
+          </div>
         </div>
 
         <hr className="details-break"/>
@@ -49,13 +53,14 @@ export default class InventoryDetails extends React.Component {
           <div className="inv-details__left-container">
             <div className="inv-details__description">
               <h5 className="inv-details__label">ITEM DESCRIPTION:</h5>
-              <p className="inv-details__txt">{this.state.inventory.description}</p>
+              <p className="inv-details__txt inv-details__des-txt">{this.state.inventory.description}</p>
             </div>
             <div className="inv-details__cat-container">
               <h5 className="inv-details__label">CATEGORY:</h5>
               <p className="inv-details__txt">{this.state.inventory.category}</p>
             </div>
           </div>
+            <div className="inv-details__vl"></div>
           <div className="inv-details__right-container">
             <div className="inv-details__tablet-right">
               <div className="inv-details__status">

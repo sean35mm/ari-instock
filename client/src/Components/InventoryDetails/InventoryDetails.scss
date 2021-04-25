@@ -21,7 +21,7 @@ a {
 .inv-header {
 	display: flex;
 	height: 5.75rem;
-	justify-content: center;
+	justify-content: space-between;
 	padding-top: 1rem;
 	background-color: $white;
 	border-radius: 3px;
@@ -30,9 +30,17 @@ a {
 		height: 5.813rem;
 		position: relative;
 		top: -73px;
-		justify-content: left;
 		padding-left: 2rem;
 		padding-top: 2rem;
+	}
+
+	&__left-container {
+		display: flex;
+		padding-left: 1rem;
+	}
+
+	&__right-container {
+		padding-right: 1rem;
 	}
 
 	&__arrow {
@@ -44,7 +52,15 @@ a {
 
 	&__title {
 		font-size: 1.75rem;
-		margin-left: 0.75rem;
+		padding-left: 0.5rem;
+	}
+
+	&__link {
+		@include tablet {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+		}
 	}
 
 	&__text {
@@ -68,7 +84,6 @@ a {
 		@include tablet {
 			background-color: $indigo;
 			display: flex;
-			flex-direction: row-reverse;
 			align-items: center;
 			width: 81px;
 			height: 38px;
@@ -113,6 +128,13 @@ a {
 .inv-details {
 	padding-left: 1rem;
 
+	@include tablet {
+		position: relative;
+		top: -55px;
+		display: flex;
+		justify-content: space-between;
+	}
+
 	&__label {
 		font-size: 0.688rem;
 		color: $slate;
@@ -127,6 +149,9 @@ a {
 		color: $green;
 		font-size: 0.813rem;
 		line-height: 1.25rem;
+		background-color: rgba(21, 132, 99, 0.07);
+		border-radius: 20px;
+		padding: 4px 8px;
 	}
 
 	&__tablet-right {
@@ -137,9 +162,51 @@ a {
 
 	&__description {
 		padding-bottom: 1rem;
+		padding-right: 1.5rem;
+
+		@include tablet {
+			width: 18.438rem;
+		}
 	}
 
 	&__left-container {
 		padding-bottom: 1rem;
+
+		@include tablet {
+			padding-left: 1rem;
+		}
+	}
+
+	&__qty {
+		padding-right: 6.938rem;
+
+		@include tablet {
+			padding-left: 6.063rem;
+			padding-right: 0;
+		}
+	}
+
+	&__vl {
+		display: none;
+
+		@include tablet {
+			display: block;
+			border-right: 1px solid $cloud;
+			height: 9.375rem;
+			width: 1px;
+			position: absolute;
+			left: 50%;
+		}
+	}
+
+	&__right-container {
+		@include tablet {
+			padding-left: 0;
+			padding-right: 6.375rem;
+		}
+
+		@include desktop {
+			padding-right: 11.313rem;
+		}
 	}
 }
