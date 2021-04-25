@@ -6,10 +6,17 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 15% 0% 0%;
+    position: relative;
+    top: -25px;
+    margin: 5% 0% 5%;
 
     @include tablet {
-        margin: 0% 0% 2%;
+        top: -50px;
+    }
+
+    @include desktop {
+        top: -50px;
+        margin: 0%;
     }
 
     &__text {

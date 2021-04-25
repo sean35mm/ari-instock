@@ -62,55 +62,58 @@ router.delete("/:id", (req, res) => {
 	} else {
 	inventoryList.splice(indexValue, 1);
 	fs.writeFileSync("./data/inventories.json", JSON.stringify(inventoryList));
-	console.log("delete item");
 	res.send(inventoryList);
 	}
 });
 
-router.post('/add', (req, res) => {
-    let itemID = uuid.v4();
-    let emptyCheck = 0;
-    const inventoryList = fs.readFileSync("./data/inventories.json")
-    let inventoryObj = JSON.parse(inventoryList);
+router.post("/add", (req, res) => {
+	let itemID = uuid.v4();
+	let emptyCheck = 0;
+	const inventoryList = fs.readFileSync("./data/inventories.json");
+	let inventoryObj = JSON.parse(inventoryList);
 
-    
-    Object.values(req.body).forEach(item => {
-        if (item === "") {
-            return emptyCheck += 1
-        }
-    });
+	Object.values(req.body).forEach((item) => {
+		if (item === "") {
+			return (emptyCheck += 1);
+		}
+	});
 
-    if (emptyCheck >= 1) {
-        res.status(403).send("Empty Values found");
-    } else if (req.body.quantity <= 0) {
-        res.status(403).send("Quantity cannot be less than or equal to 0")
-    } else {
-        let warehouseList = fs.readFileSync("./data/warehouses.json")
-        let warehouseObj = JSON.parse(warehouseList);
-        let whID = warehouseObj.filter(warehouse => warehouse.name === req.body.warehouseName)[0].id
+	if (emptyCheck >= 1) {
+		res.status(403).send("Empty Values found");
+	} else if (req.body.quantity <= 0) {
+		res.status(403).send("Quantity cannot be less than or equal to 0");
+	} else {
+		let warehouseList = fs.readFileSync("./data/warehouses.json");
+		let warehouseObj = JSON.parse(warehouseList);
+		let whID = warehouseObj.filter(
+			(warehouse) => warehouse.name === req.body.warehouseName
+		)[0].id;
 
-        let newItem = {
-            id: itemID,
-            warehouseID: whID,
-            warehouseName: req.body.warehouseName,
-            itemName: req.body.itemName,
-            description: req.body.description,
-            category: req.body.category,
-            status: req.body.status,
-            quantity: req.body.quantity
-        }
+		let newItem = {
+			id: itemID,
+			warehouseID: whID,
+			warehouseName: req.body.warehouseName,
+			itemName: req.body.itemName,
+			description: req.body.description,
+			category: req.body.category,
+			status: req.body.status,
+			quantity: req.body.quantity,
+		};
 
-        inventoryObj.push(newItem);
-        fs.writeFile("./data/inventories.json", JSON.stringify(inventoryObj, null, 2), (err) => {
-            if (err) {
-                console.log(err)
-            }
-            console.log("new Item added")
-        })
+		inventoryObj.push(newItem);
+		fs.writeFile(
+			"./data/inventories.json",
+			JSON.stringify(inventoryObj, null, 2),
+			(err) => {
+				if (err) {
+					console.log(err);
+				}
+				console.log("new Item added");
+			}
+		);
 
-        res.status(201).send(inventoryObj);
-    }
-})
-
+		res.status(201).send(inventoryObj);
+	}
+});
 
 module.exports = router;
